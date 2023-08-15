@@ -1,0 +1,112 @@
+import torch
+from spacy.tokens import DocBin
+import spacy
+from transformers import AutoTokenizer, AutoModelForTokenClassification, Trainer, TrainingArguments
+from transformers.data.data_collator import DataCollatorForTokenClassification
+from torch.utils.data import Dataset
+
+# Define the classes for NER task
+num_labels = 4  # Number of entity classes (CURRENT_TEAM, RUMOURED_TEAM, PLAYER, O)
+
+
+def get_data():
+    docs = DocBin().from_disk("tweets.spacy")
+    texts = []
+    labels = []
+    
+    
+    
+    for doc in docs.get_docs(spacy.blank("en").vocab):
+        texts.append(doc.text)
+        labels_temp = []
+        for token in doc:
+            if token.ent_type_ == "INVOLVED_PLAYER":
+                labels_temp.append(1)
+            elif token.ent_type_ == "CURRENT_TEAM":
+                labels_temp.append(2)
+            elif token.ent_type_ == "RUMOURED_TEAM":
+                labels_temp.append(3)
+            else:
+                labels_temp.append(0)
+        labels.append(labels_temp)
+        
+    return texts, labels
+        
+        
+
+# Sample NER dataset
+class NERDataset(Dataset):
+    def __init__(self, texts, labels):
+        self.texts = texts
+        self.labels = labels
+
+    def __len__(self):
+        return len(self.texts)
+
+    def __getitem__(self, idx):
+        return {"input_ids": self.texts[idx], "labels": self.labels[idx]}
+
+# Sample data
+# texts = [
+#     "Transfer rumor: Player X may join Team A from Team B.",
+#     "Team C is interested in signing Player Y from Team D."
+# ]
+# labels = [
+#     [0, 1, 2, 2, 3, 3, 3, 3, 3, 3],  # Labels for the first example
+#     [2, 3, 3, 3, 0, 1, 3, 3, 3, 3]   # Labels for the second example
+# ]
+
+data = get_data()
+
+# Load tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("tner/roberta-large-tweetner7-all")
+model = AutoModelForTokenClassification.from_pretrained("tner/roberta-large-tweetner7-all", num_labels=num_labels)
+
+# Prepare data for training
+train_dataset = NERDataset(tokenizer(data[0], padding=True, truncation=True, return_tensors="pt")["input_ids"], data[1])
+
+# Data collator
+data_collator = DataCollatorForTokenClassification(tokenizer)
+
+# Training arguments
+training_args = TrainingArguments(
+    output_dir="./ner_output",
+    num_train_epochs=3,
+    per_device_train_batch_size=8,
+    save_steps=500,
+    save_total_limit=2,
+    logging_steps=100,
+    logging_dir="./logs",
+    do_train=True,
+    do_eval=True,
+    evaluation_strategy="steps",
+    eval_steps=100,
+    gradient_accumulation_steps=1,
+    learning_rate=1e-4,
+    weight_decay=0.01,  # Regularization
+)
+
+# Fine-tune NER head
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    data_collator=data_collator,
+    train_dataset=train_dataset,
+)
+trainer.train()
+
+# Unfreeze the encoder and fine-tune the entire model
+model = AutoModelForTokenClassification.from_pretrained("microsoft/sportsbert-base-cased", num_labels=num_labels)
+model.train()
+
+training_args.do_train = True
+training_args.do_eval = True
+training_args.freeze_encoder = False  # Unfreeze encoder
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    data_collator=data_collator,
+    train_dataset=train_dataset,
+)
+trainer.train()

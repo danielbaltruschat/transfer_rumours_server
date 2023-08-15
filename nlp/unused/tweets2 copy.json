@@ -1,0 +1,19 @@
+{
+    "tweets": [
+        {
+            "text": "",
+            "is_rumour": true,
+            "all_players": [],
+            "all_teams": [],
+            "transfers": [
+                {
+                    "involved_players": [],
+                    "current_teams": [],
+                    "rumoured_teams": [],
+                    "bid_fees": [],
+                    "stage": ""
+                }
+            ]
+        }
+    ]
+}

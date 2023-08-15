@@ -1,0 +1,203 @@
+{
+    "tweets": [
+      {
+        "text": "Negotiations advancing for Anthony Elanga to Nottingham Forest — it’d be a permanent deal. 🔴🌳👀 #NFFC",
+        "contains_rumour": true,
+        "all_players": ["Anthony Elanga"],
+        "involved_players": ["Anthony Elanga"],
+        "all_teams": ["Nottingham Forest"],
+        "current_teams": [],
+        "rumoured_teams": ["Nottingham Forest"],
+        "fees": [],
+        "stage": "talks_with_team"
+      },
+      {
+        "text": "Understand Lyanco’s move to Besiktas has definitely collapsed — and he will return to Southampton on Saturday for regular training. ⛔️",
+        "contains_rumour": true,
+        "all_players": ["Lyanco"],
+        "involved_players": ["Lyanco"],
+        "all_teams": ["Besiktas", "Southampton"],
+        "current_teams": ["Southampton"],
+        "rumoured_teams": ["Besiktas"],
+        "fees": [],
+        "stage": "deal_off"
+      },
+      {
+        "text": "Ola Aina, set to sign a two-year deal at Nottingham Forest. 🔴🌳✍🏻 #NFFC",
+        "contains_rumour": true,
+        "all_players": ["Ola Aina"],
+        "involved_players": ["Ola Aina"],
+        "all_teams": ["Nottingham Forest"],
+        "current_teams": [],
+        "rumoured_teams": ["Nottingham Forest"],
+        "fees": [],
+        "stage": "full_agreement"
+      },
+      {
+        "text": "AS Monaco, looking for centre backs on the market. Mohammed Salisu is in the list, alongside Tosin Adarabioyo — both are being considered as concrete names for this summer ⚪️🔴 #ASMonaco\n\nTalks will take place soon to discuss terms and conditions of both deals.",
+        "contains_rumour": true,
+        "all_players": ["Mohammed Salisu", "Tosin Adarabioyo"],
+        "involved_players": [],
+        "all_teams": ["AS Monaco"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "interest"
+      },
+      {
+        "text": "Excl: Qatari side Al Sadd have submitted €12m plus €3m add ons bid to Valladolid for Gonzalo Plata. 🇶🇦🇪🇨 #transfers\n\nUnderstand Plata will fly to Qatar in order to discuss personal terms\n\nDeal depends on the player now.",
+        "contains_rumour": true,
+        "all_players": ["Gonzalo Plata"],
+        "involved_players": [],
+        "all_teams": ["Al Sadd", "Valladolid"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": ["€12m plus €3m add ons"],
+        "stage": "interest"
+      },
+      {
+        "text": "Nottingham Forest have submitted two bids to Manchester United. 🚨🔴🌳\n\nLoan deal proposal for Dean Henderson and permanent deal proposal for Elanga.\n\nForest want to get both deals done after closing in on Ola Aina free transfer.",
+        "contains_rumour": true,
+        "all_players": ["Dean Henderson", "Anthony Elanga"],
+        "involved_players": [],
+        "all_teams": ["Nottingham Forest", "Manchester United"],
+        "current_teams": ["Manchester United"],
+        "rumoured_teams": ["Nottingham Forest"],
+        "fees": [],
+        "stage": "bid_made"
+      },
+      {
+        "text": "Eric Bailly will make a decision on the next club soon as he’s set to leave Man Utd in the coming weeks. 🔴 #MUFC\n\nAl Nassr approached him as called by @LeMechenoua.\n\nUnderstand that also Fulham and Al Ettifaq have asked for the conditions of the deal.",
+        "contains_rumour": true,
+        "all_players": ["Eric Bailly"],
+        "involved_players": [],
+        "all_teams": ["Manchester United", "Al Nassr", "Fulham", "Al Ettifaq"],
+        "current_teams": ["Manchester United"],
+        "rumoured_teams": ["Al Nassr", "Fulham", "Al Ettifaq"],
+        "fees": [],
+        "stage": "interest"
+      },
+      {
+        "text": "Leicester hope to get the Stephy Mavididi deal done today — negotiations very advanced. 🚨🔵🦊 #LCFC\n\nPersonal terms on the verge of being agreed, clubs in direct contact to make it happen.",
+        "contains_rumour": true,
+        "all_players": ["Stephy Mavididi"],
+        "involved_players": [],
+        "all_teams": ["Leicester"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "full_agreement"
+      },
+      {
+        "text": "Nottingham Forest is set to sign Ola Aina as a free agent, as @JPercyTelegraph called — deal done. 🚨🔴🌳 #NFFC\n\nMedical ongoing right now, Aina will join on a free transfer after the contract expired at Serie A side Torino.",
+        "contains_rumour": true,
+        "all_players": ["Ola Aina"],
+        "involved_players": ["Ola Aina"],
+        "all_teams": ["Nottingham Forest", "Torino"],
+        "current_teams": ["Torino"],
+        "rumoured_teams": ["Nottingham Forest"],
+        "fees": [],
+        "stage": "medical_pending"
+      },
+      {
+        "text": "Dimitri Payet, in tears after announcing that he’s set to leave OM.\n\n🎥 @Steph13Freed",
+        "contains_rumour": true,
+        "all_players": ["Dimitri Payet"],
+        "involved_players": ["Dimitri Payet"],
+        "all_teams": ["OM"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "full_agreement"
+      },
+      {
+        "text": "Dimitri Payet leaves Olympique Marseille with immediate effect. 🚨⚪️🔵 #OM\n\nHe’s now available as a free agent.",
+        "contains_rumour": true,
+        "all_players": ["Dimitri Payet"],
+        "involved_players": ["Dimitri Payet"],
+        "all_teams": ["OM"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "official_announcement"
+      },
+      {
+        "text": "Al Ahli has booked medical tests for Allan Saint-Maximin — as the deal will be completed after Mahrez. 🚨🟢🇸🇦",
+        "contains_rumour": true,
+        "all_players": ["Allan Saint-Maximin"],
+        "involved_players": [],
+        "all_teams": ["Al Ahli"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "medical_pending"
+      },
+      {
+        "text": "PSG is expected to prepare an opening bid for Bradley Barcola in the next days. He’s high on the club’s list, as revealed. ⭐️\n\nNegotiations won’t be easy with OL but deal on.",
+        "contains_rumour": true,
+        "all_players": ["Bradley Barcola"],
+        "involved_players": [],
+        "all_teams": ["PSG", "OL"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "interest"
+      },
+      {
+        "text": "Cédric Bakambu will land in Istanbul this afternoon to sign as a new Galatasaray player. 🟡🔴✔️\n\nDeal worth €900k fee, €1.3m salary to the player, and a contract valid until June 2026.",
+        "contains_rumour": true,
+        "all_players": ["Cédric Bakambu"],
+        "involved_players": ["Cédric Bakambu"],
+        "all_teams": ["Galatasaray"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": ["€900k"],
+        "stage": "medical_pending"
+      },
+      {
+        "text": "Al Ahli has improved their bid to Marco Silva after the initial rejection — it’s now up to €40m two-year deal. 🚨🟢🇸🇦\n\nUnderstand Marco Silva will speak to the Fulham owner to discuss and then make the final decision.",
+        "contains_rumour": true,
+        "all_players": ["Marco Silva"],
+        "involved_players": [],
+        "all_teams": ["Al Ahli", "Fulham"],
+        "current_teams": ["Fulham"],
+        "rumoured_teams": ["Al Ahli"],
+        "fees": ["€40m"],
+        "stage": "bid_made"
+      },
+      {
+        "text": "Lyanco deal is still on, waiting to resolve final issues to get it done today. ⚪️⚫️\n\nDiscussions ongoing in Istanbul right now.",
+        "contains_rumour": true,
+        "all_players": ["Lyanco"],
+        "involved_players": [],
+        "all_teams": ["Lyanco"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "interest"
+      },
+      {
+        "text": "AS Roma & #Sabitzer: NOT hot! The player has other options in 🇮🇹✅",
+        "contains_rumour": true,
+        "all_players": ["Marcel Sabitzer"],
+        "involved_players": [],
+        "all_teams": ["AS Roma"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "interest"
+      },
+      {
+        "text": "AS Roma & #Sabitzer: NOT hot! Player has other options in 🇮🇹✅",
+        "contains_rumour": true,
+        "all_players": ["Marcel Sabitzer"],
+        "involved_players": [],
+        "all_teams": ["AS Roma"],
+        "current_teams": [],
+        "rumoured_teams": [],
+        "fees": [],
+        "stage": "interest"
+      }
+      // Add more tweets here
+    ]
+  }

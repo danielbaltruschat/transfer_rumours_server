@@ -1,0 +1,73 @@
+/app/transfer_sources/twitter
+FabrizioRomano
+Plettigoal
+David_Ornstein
+DiMarzio
+MatteMoretto
+jpercytelegraph
+honigstein
+SamLee
+FabriceHawkins
+Santi_J_FM
+sebnonda
+sachatavolieri
+Matt_Law_DT
+[1690430802134290432 Kepa won’t be involved in Chelsea game tomorrow as he’s planning to travel to Madrid soon — waiting for confirmation from Real Madrid ⚪️🛩️ #RealMadrid
+
+The verbal agreement is done, loan until June 2024 — here we go, confirmed. https://t.co/JqzCpnZ9oz FabrizioRomano 1691865084]
+[1690426738516320256 🚨 Harry Kane among substitutes in German Super Cup - shot at silverware on opening day as Bayern Munich player. Move from Tottenham completed this morning after weeks of talks. End of 1 era + start of another - for striker &amp; #THFC @TheAthleticFC #FCBayern https://t.co/cFmIfvaexg David_Ornstein 1691864115]
+[1690429817366171648 #CoppaItalia | Le formazioni ufficiali di #Cagliari-#Palermo 
+https://t.co/V9FNJYF2MY https://t.co/h3lKfsmmmR DiMarzio 1691864849]
+[1690429297658339328 #Calciomercato #SerieA | @Atalanta_BC, per #DeKetelaere c'è un cauto ottimismo e si potrebbe arrivare a un accordo dopo il weekend @SkySport DiMarzio 1691864725]
+[1690426186818637824 #SerieA #Calciomercato | @acffiorentina, #Beltran riceve il benvenuto del Franchi: il video 👉 https://t.co/FPhIuXhsUn https://t.co/8HdxEADSmP DiMarzio 1691863984]
+[1690427457919135744 ❗️Marquinhos sur le banc, Danilo titulaire et capitaine 
+Attaque :  Kang-In / Ramos / Asensio
+#PSGFCL 🔴🔵 https://t.co/EfqUuz5JU6 FabriceHawkins 1691864287]
+[1690430786565005312 ⚠️🔵⚫️ If Atalanta Bergamo decided to decides to exercise the option after the year loan… Charles De Ketelaere will sign a 4️⃣-year contract! 
+🤝 Agreement reached with #AtalantaBC ORALLY, this evening.
+📄 Now it’s time for documents and taking everything into the contracts that will be checked and signed. 
+🏥  Then, medical tests and communication of Atalanta. #mercato #MilanAC sachatavolieri 1691865080]
+[1690426726721986561 ✅ DONE DEAL 
+🔵⚫️🇧🇪 Après avoir pioché pendant la semaine sur l’accord personnel, Charles De Ketelaere et l’#AtalantaBC sont parvenus CE SOIR à un accord sur les conditions financières de son arrivée. Une nouvelle visite médicale a été programmée en début de semaine prochaine afin de compléter la venue du Belge à Bergame. 
+🔴⚫️🤝 L’accord avec le #MilanAC n’a pas changé. Prêt payant avec option d’achat à 23M€ + 4M€ en bonus et 10% à la revente dans le cas où Charles De Ketelaere rejoindrait l’Atalanta à titre définitif. 
+🏁 On y est! #mercato #DiablesRouges sachatavolieri 1691864112]
+Tweets saved to MySQL database
+Starting update_database.py
+[True, ['Kepa'], ['Chelsea'], ['Real Madrid', '#RealMadrid'], 'unknown', -1]
+Added team Chelsea FC
+Added team Real Madrid
+Added player Kepa Arrizabalaga
+[True, ['Harry Kane'], ['Tottenham'], ['Bayern Munich', '#FCBayern'], 'unknown', -1]
+['Tottenham Hotspur']
+[False, [], [], [], 'unknown', -1]
+[True, [], ['@Atalanta_BC'], ['#Calciomercato'], 'unknown', -1]
+['Atalanta BC']
+[False, [], [], [], 'unknown', -1]
+[False, [], [], [], 'unknown', -1]
+[True, ['Charles De Ketelaere'], ['#mercato', '#MilanAC'], ['Atalanta', '#AtalantaBC', 'Atalanta'], 'unknown', -1]
+Added team AC Milan
+Added team Atalanta BC
+Added player Charles De Ketelaere
+[True, ['Charles De Ketelaere'], ['#MilanAC', 'cas où', 'Ketelaere rejoindrait l’Atalanta'], ['de compléter la', 'du Belge', '#mercato'], 'unknown', -1]
+Transfer with ID 1 involving player Kepa Arrizabalaga and team Real Madrid not found on transfermarkt
+Traceback (most recent call last):
+  File "/app/update_database.py", line 170, in <module>
+    main()
+  File "/app/update_database.py", line 164, in main
+    update_database(mysql_user, mysql_password, mysql_port, time_gap_random)
+  File "/app/update_database.py", line 141, in update_database
+    raise e
+  File "/app/update_database.py", line 136, in update_database
+    current_team = scraper.get_players_from_search_results(transfer_data[1], transfer_data[2])[0][1]
+IndexError: list index out of range
+/app/transfer_sources/twitter
+FabrizioRomano
+Plettigoal
+David_Ornstein
+DiMarzio
+MatteMoretto
+jpercytelegraph
+honigstein
+SamLee
+FabriceHawkins
+Santi_J_FM
