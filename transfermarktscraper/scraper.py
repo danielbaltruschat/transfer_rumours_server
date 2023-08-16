@@ -138,7 +138,7 @@ def get_player_info(player_name, team_name=None): #Gets the player's name, team 
 
 def get_team_info(team_name, league_name=None): #Gets the team's name, league and logo image url from the search results, similar structure to get_player_info but slightly different format in transfermarkt
     if team_name == "Without Club":
-        return team_name, None, None
+        return team_name, None, "https://tmssl.akamaized.net/images/wappen/normquad/515.png?lm=1456997255"
     
     all_teams = parse_search_results(team_name, "team")
     
@@ -164,6 +164,9 @@ def get_team_info(team_name, league_name=None): #Gets the team's name, league an
     
     main = soup.find("main")
     team_logo_url = main.find("div", class_="data-header__profile-container").find("img")['src']
+    
+    # if team_logo_url == None:
+    #     team_logo_url = ''
     
     return team_name, league_name, team_logo_url
 

@@ -121,6 +121,8 @@ def normalise_data(player_names, current_team_names, rumoured_team_names):
         raise Exception("No players found for " + str(player_names) + ".")
     elif len(rumoured_search_outputs) == 0:
         raise Exception("No rumoured teams found for " + str(rumoured_team_names) + ".")
+    
+    #TODO make it so players cannot go to their own team
         
     return player_searched_names, current_search_outputs, rumoured_search_outputs
 

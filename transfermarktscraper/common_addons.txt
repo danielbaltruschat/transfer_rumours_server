@@ -2,3 +2,5 @@ fc
 calcio
 fussball
 official
+club
+sporting

@@ -48,14 +48,6 @@ CREATE TABLE IF NOT EXISTS source_transfer (
     FOREIGN KEY (transfer_id) REFERENCES transfers(transfer_id)
 );
 
--- Sample data for 'team' table
-INSERT INTO teams (team_name, logo_image, league_name) VALUES
-    ('Team A', 'team_a_logo.png', 'Premier League'),
-    ('Team B', 'team_b_logo.png', 'La Liga');
 
--- Sample data for 'player' table
-INSERT INTO players (player_name, current_team_id, player_image) VALUES
-    ('Player 1', 1, 'player1_image.png'),
-    ('Player 2', 2, 'player2_image.png');
 
 

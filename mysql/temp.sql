@@ -1,3 +1,12 @@
+INSERT INTO teams (team_name, logo_image, league_name) VALUES
+    ('Team A', 'team_a_logo.png', 'Premier League'),
+    ('Team B', 'team_b_logo.png', 'La Liga');
+
+-- Sample data for 'player' table
+INSERT INTO players (player_name, current_team_id, player_image) VALUES
+    ('Player 1', 1, 'player1_image.png'),
+    ('Player 2', 2, 'player2_image.png');
+
 INSERT INTO transfers (player_id, rumoured_team_id, percentage, stage) VALUES
     (1, 2, 50, 'Rumour'),
     (2, 1, 100, 'Confirmed');

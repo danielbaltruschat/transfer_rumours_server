@@ -3251,5 +3251,117 @@
                 "stage": "full_agreement"
             }
         ]
+    },
+    {
+        "text": "Chelsea have activated £35m release clause into Michael Olise’s contract — deal advancing to final stages 🚨🔵\n\nClause has always been there despite denials and all parties will be in touch to finalise the agreement.\n\nOlise already said yes to Chelsea, time to fix details.",
+        "is_rumour": true,
+        "all_players": ["Michael Olise", "Olise"],
+        "all_teams": ["Chelsea"],
+        "transfers": [
+            {
+                "involved_players": ["Michael Olise", "Olise"],
+                "current_teams": [],
+                "rumoured_teams": ["Chelsea"],
+                "bid_fees": ["£35m"],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "Release clause was there for Olise despite denials… and it has been activated by Chelsea, as @FabriceHawkins reports 🚨🔵 #CFC\n\nMore to follow.",
+        "is_rumour": true,
+        "all_players": ["Olise"],
+        "all_teams": ["Chelsea", "#CFC"],
+        "transfers": [
+            {
+                "involved_players": ["Olise"],
+                "current_teams": [],
+                "rumoured_teams": ["Chelsea", "#CFC"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "#Calciomercato #SerieA | @Atalanta_BC, the sale of #LatteLath to @Boro is official: the press release",
+        "is_rumour": true,
+        "all_players": ["#LatteLath"],
+        "all_teams": ["@Atalanta_BC", "@Boro"],
+        "transfers": [
+            {
+                "involved_players": ["#LatteLath"],
+                "current_teams": ["@Atalanta_BC"],
+                "rumoured_teams": ["@Boro"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "✅ DONE DEAL.\n🇧🇪🔔 Exclusivity confirmed on THE big transfer of the summer between Belgian clubs\n🟣 Mats Rits leaves #Clubbrugge & joins Sporting #Anderlecht.\n💰 The Club will recover €2 million + bonuses.\n✍🏼 3 year contract + 1 year option.\n🏁 End of the file!\n#RSCA #mercato #JPL",
+        "is_rumour": true,
+        "all_players": ["Mats Rits"],
+        "all_teams": ["#Clubbrugge", "Sporting #Anderlecht"],
+        "transfers": [
+            {
+                "involved_players": ["Mats Rits"],
+                "current_teams": ["#Clubbrugge"],
+                "rumoured_teams": ["Sporting #Anderlecht"],
+                "bid_fees": ["€2 million + bonuses"],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "Official, confirmed. Carlos Augusto joins Inter from Monza on €13m deal ⚫️🔵🇧🇷\n\nAugusto replaces Robin Gosens who’s signing his contract as new Union Berlin player right now.",
+        "is_rumour": true,
+        "all_players": ["Carlos Augusto", "Augusto", "Robin Gosens"],
+        "all_teams": ["Inter", "Monza", "Union Berlin"],
+        "transfers": [
+            {
+                "involved_players": ["Carlos Augusto", "Augusto"],
+                "current_teams": ["Monza"],
+                "rumoured_teams": ["Inter"],
+                "bid_fees": ["€13m"],
+                "stage": "full_agreement"
+            },
+            {
+                "involved_players": ["Robin Gosens"],
+                "current_teams": ["Inter"],
+                "rumoured_teams": ["Union Berlin"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "Al Nassr is still interested in Luis Alberto, but everything indicates that the renewal agreement between Lotito and the player will be effective.\n\nThe tense situation between Lazio and Luis Alberto no longer exists.\n\n@relief",
+        "is_rumour": true,
+        "all_players": ["Luis Alberto"],
+        "all_teams": ["Al Nassr", "Lazio"],
+        "transfers": [
+            {
+                "involved_players": ["Luis Alberto"],
+                "current_teams": ["Lazio"],
+                "rumoured_teams": ["Al Nassr"],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
+    },
+    {
+        "text": "🔵⚫️ Info #Clubbrugge :\nThe Blauw&Zwart are interested in the profile of Marcão, the Brazilian left-handed central defender of #SevillaCF . 🗣️ Discussions with the Spanish club have already taken place for a loan with an option to buy…\n⏳ Wait&See! #mercato #JPL",
+        "is_rumour": true,
+        "all_players": ["Marcão"],
+        "all_teams": ["#Clubbrugge", "#SevillaCF"],
+        "transfers": [
+            {
+                "involved_players": ["Marcão"],
+                "current_teams": ["#SevillaCF"],
+                "rumoured_teams": ["#Clubbrugge"],
+                "bid_fees": [],
+                "stage": "negotiations"
+            }
+        ]
     }
 ]

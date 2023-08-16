@@ -1,4 +1,6 @@
 from flask import Flask, jsonify
+import threading
+import time
 import os
 import MySQLdb
 
@@ -8,22 +10,54 @@ app = Flask(__name__)
 mysql_user = os.environ['MYSQL_USER'].strip()
 mysql_password = os.environ['MYSQL_PASSWORD'].strip()
 mysql_port = int(os.environ['MYSQL_PORT'].strip())
+# mysql_user = "root"
+# mysql_password = "password"
+# mysql_port = 3306
 
-print(mysql_user, mysql_password)
 
-try:
-    connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
-except:
-    raise Exception("Could not connect to database")
+
+class ConnectionPool:
+    def __init__(self):
+        thread = threading.Thread(target=self._refresh_connection)
+        thread.daemon = True
+        thread.start()
+        
+        
+    def get_connection(self):
+        return self.connection_pool
+    
+    def _refresh_connection(self):
+        while True:
+            try:
+                self.connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
+            except:
+                raise Exception("Could not connect to database")
+            time.sleep(60)
+            
+# try:
+#     connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
+# except:
+#     raise Exception("Could not connect to database")
+
+connection_pool = ConnectionPool()
 
 OK_STATUS_CODE = 200
 BAD_REQUEST_STATUS_CODE = 500
+
+
+
+
+#stop caching
+@app.after_request
+def add_header(response):
+    response.cache_control.max_age = 20
+    return response
 
 #Gets all the transfers from the database
 @app.route('/all_transfers', methods=['GET'])
 def get_all_transfers():
     try:
-        cursor = connection_pool.cursor()
+        cursor = connection_pool.connection_pool.cursor()
         
         query = '''SELECT
             transfers.transfer_id,
@@ -92,9 +126,11 @@ def get_all_transfers():
                 'player_image': transfer[2],
                 'current_team_name': transfer[3],
                 'current_team_logo': transfer[4],
-                'rumoured_team_name': transfer[5],
-                'rumoured_team_logo': transfer[6],
-                'latest_timestamp': transfer[7]
+                'current_team_league_name': transfer[5],
+                'rumoured_team_name': transfer[6],
+                'rumoured_team_logo': transfer[7],
+                'rumoured_team_league_name': transfer[8],
+                'latest_timestamp': transfer[9]
                 }
             formatted_transfers.append(transfer_dict)
         
@@ -110,7 +146,7 @@ def get_all_transfers():
 @app.route('/transfer_by_id/<int:transfer_id>', methods=['GET'])
 def get_transfer_by_id(transfer_id):
     try:
-        cursor = connection_pool.cursor()
+        cursor = connection_pool.connection_pool.cursor()
         
         query = '''SELECT
             transfers.transfer_id,
@@ -182,9 +218,11 @@ def get_transfer_by_id(transfer_id):
                 'player_image': transfer[2],
                 'current_team_name': transfer[3],
                 'current_team_logo': transfer[4],
-                'rumoured_team_name': transfer[5],
-                'rumoured_team_logo': transfer[6],
-                'latest_timestamp': transfer[7]
+                'current_team_league_name': transfer[5],
+                'rumoured_team_name': transfer[6],
+                'rumoured_team_logo': transfer[7],
+                'rumoured_team_league_name': transfer[8],
+                'latest_timestamp': transfer[9]
                 }
             formatted_transfers.append(transfer_dict)
         
@@ -200,7 +238,7 @@ def get_transfer_by_id(transfer_id):
 @app.route('/transfer_by_player_id/<int:player_id>', methods=['GET'])
 def get_transfer_by_player_id(player_id):
     try:
-        cursor = connection_pool.cursor()
+        cursor = connection_pool.connection_pool.cursor()
         #Parameterized query to prevent SQL injection
         query = '''SELECT
             transfers.transfer_id,
@@ -272,9 +310,11 @@ def get_transfer_by_player_id(player_id):
                 'player_image': transfer[2],
                 'current_team_name': transfer[3],
                 'current_team_logo': transfer[4],
-                'rumoured_team_name': transfer[5],
-                'rumoured_team_logo': transfer[6],
-                'latest_timestamp': transfer[7]
+                'current_team_league_name': transfer[5],
+                'rumoured_team_name': transfer[6],
+                'rumoured_team_logo': transfer[7],
+                'rumoured_team_league_name': transfer[8],
+                'latest_timestamp': transfer[9]
                 }
             formatted_transfers.append(transfer_dict)
         
@@ -290,7 +330,7 @@ def get_transfer_by_player_id(player_id):
 @app.route('/transfer_by_team_id/<int:team_id>', methods=['GET'])
 def get_transfer_by_team_id(team_id):
     try:
-        cursor = connection_pool.cursor()
+        cursor = connection_pool.connection_pool.cursor()
         #Parameterized query to prevent SQL injection
         query = '''SELECT
             transfers.transfer_id,
@@ -351,7 +391,7 @@ def get_transfer_by_team_id(team_id):
             AND (transfers.rumoured_team_id = %s OR players.current_team_id = %s)
         '''
         
-        cursor.execute(query, (team_id,))
+        cursor.execute(query, (team_id, team_id))
         all_transfers = cursor.fetchall()
         
         formatted_transfers = []
@@ -362,9 +402,11 @@ def get_transfer_by_team_id(team_id):
                 'player_image': transfer[2],
                 'current_team_name': transfer[3],
                 'current_team_logo': transfer[4],
-                'rumoured_team_name': transfer[5],
-                'rumoured_team_logo': transfer[6],
-                'latest_timestamp': transfer[7]
+                'current_team_league_name': transfer[5],
+                'rumoured_team_name': transfer[6],
+                'rumoured_team_logo': transfer[7],
+                'rumoured_team_league_name': transfer[8],
+                'latest_timestamp': transfer[9]
                 }
             formatted_transfers.append(transfer_dict)
         
@@ -380,7 +422,7 @@ def get_transfer_by_team_id(team_id):
 @app.route('/search_players/<player_name>', methods=['GET'])
 def search_players(player_name):
     try:
-        cursor = connection_pool.cursor()
+        cursor = connection_pool.connection_pool.cursor()
         
         #Parameterized query to prevent SQL injection
         query = """SELECT 
@@ -395,7 +437,7 @@ def search_players(player_name):
         JOIN
             teams ON players.current_team_id = teams.team_id
         WHERE
-            player_name LIKE %s
+            LOWER(player_name) LIKE LOWER(%s)
         """
         query2 = """SELECT
             player_id,
@@ -433,11 +475,68 @@ def search_players(player_name):
     except Exception as e:
         print(e)
         return jsonify({'error': 'An error occurred while trying to retrieve players with name {0}'.format(player_name)}), BAD_REQUEST_STATUS_CODE
+    
+@app.route('/player_by_id/<int:player_id>', methods=['GET'])
+def get_player_by_id(player_id):
+    try:
+        cursor = connection_pool.connection_pool.cursor()
+        
+        #Parameterized query to prevent SQL injection
+        query = """SELECT 
+            player_id,
+            player_name,
+            player_image,
+            team_id AS current_team_id,
+            team_name AS current_team_name,
+            logo_image AS current_team_logo
+        FROM
+            players
+        JOIN
+            teams ON players.current_team_id = teams.team_id
+        WHERE
+            player_id = %s
+        """
+        query2 = """SELECT
+            player_id,
+            player_name,
+            player_image,
+            team_id AS current_team_id,
+            team_name AS current_team_name,
+            logo_image AS current_team_logo
+        FROM
+            players, teams
+        WHERE
+            players.current_team_id = teams.team_id
+            AND player_id = %s
+        """
+        cursor.execute(query, (player_id,))
+        
+        players = cursor.fetchall()
+        
+        formatted_players = []
+        for player in players:
+            player_dict = {
+                'player_id': player[0],
+                'player_name': player[1],
+                "player_image": player[2],
+                'current_team_id': player[3],
+                'current_team_name': player[4],
+                'current_team_logo': player[5]
+                }
+            formatted_players.append(player_dict)
+        
+        cursor.close()
+        
+        return jsonify(formatted_players), OK_STATUS_CODE
+    
+    except Exception as e:
+        print(e)
+        return jsonify({'error': 'An error occurred while trying to retrieve player with id {0}'.format(player_id)}), BAD_REQUEST_STATUS_CODE
 
 @app.route('/search_teams/<team_name>', methods=['GET'])
 def search_teams(team_name):
     try:
-        cursor = connection_pool.cursor()
+        cursor = connection_pool.connection_pool.cursor()
         
         #Parameterized query to prevent SQL injection
         query = """SELECT
@@ -482,20 +581,70 @@ def search_teams(team_name):
     except Exception as e:
         print(e)
         return jsonify({'error': 'An error occurred while trying to retrieve teams with name {0}'.format(team_name)}), BAD_REQUEST_STATUS_CODE
+    
+
+@app.route('/team_by_id/<int:team_id>', methods=['GET'])
+def get_team_by_id(team_id):
+    try:
+        cursor = connection_pool.connection_pool.cursor()
+        
+        #Parameterized query to prevent SQL injection
+        query = """SELECT
+            team_id,
+            team_name,
+            logo_image,
+            league_name
+        FROM
+            teams
+        WHERE
+            team_id = %s
+        """
+        query2 = """SELECT
+            team_id,
+            team_name,
+            logo_image,
+            league_name
+        FROM
+            teams
+        WHERE
+            team_id = %s
+        """
+        cursor.execute(query, (team_id,))
+        
+        teams = cursor.fetchall()
+        
+        formatted_teams = []
+        for team in teams:
+            team_dict = {
+                'team_id': team[0],
+                'team_name': team[1],
+                'logo_image': team[2],
+                'league_name': team[3]
+                }
+            formatted_teams.append(team_dict)
+        
+        
+        cursor.close()
+        
+        return jsonify(formatted_teams), OK_STATUS_CODE
+    
+    except Exception as e:
+        print(e)
+        return jsonify({'error': 'An error occurred while trying to retrieve teams with name {0}'.format(team_id)}), BAD_REQUEST_STATUS_CODE
         
 
 
 @app.route('/get_sources_by_transfer_id/<int:transfer_id>', methods=['GET'])
 def get_sources_by_transfer_id(transfer_id):
     try:
-        cursor = connection_pool.cursor()
+        cursor = connection_pool.connection_pool.cursor()
         
         #Parameterized query to prevent SQL injection
-        query = """SELECT source_type, source_link, text, timestamp, author_name 
+        query = """SELECT source_type, source_link, text, timestamp, author_name, sources.source_id 
         FROM sources 
         JOIN source_transfer ON sources.source_id = source_transfer.source_id
         WHERE transfer_id = %s"""
-        query2 = """SELECT source_type, source_link, text, timestamp, author_name
+        query2 = """SELECT source_type, source_link, text, timestamp, author_name, sources.source_id
         FROM sources, source_transfer
         WHERE sources.source_id = source_transfer.source_id
         AND transfer_id = %s"""
@@ -510,7 +659,8 @@ def get_sources_by_transfer_id(transfer_id):
                 'source_link': source[1],
                 "text": source[2],
                 'timestamp': source[3],
-                'author_name': source[4]
+                'author_name': source[4],
+                'source_id': source[5]
                 }
             formatted_sources.append(source_dict)
         
