@@ -3363,5 +3363,20 @@
                 "stage": "negotiations"
             }
         ]
+    },
+    {
+        "text": "🚨🇮🇱 Omri Gandelman set to join #KAAGent. \n⭐️ The 1,90m tall midfielder will bring his ability to run and being good in the air in the Belgium Pro League this season. Captain of the U21 for Israël, he exploded this summer during the Euro U21. \n💰 Agreement found with Maccabi Netanya for a transfer of 2,35MEUR, bonus included. \n✍️ 5 years contract. \n🏥 Player's arrival scheduled on Friday in order to complete medical tests. #mercato #JPL",
+        "is_rumour": true,
+        "all_players": ["Omri Gandelman"],
+        "all_teams": ["#KAAGent", "Maccabi Netanya"],
+        "transfers": [
+            {
+                "involved_players": ["Omri Gandelman"],
+                "current_teams": ["Maccabi Netanya"],
+                "rumoured_teams": ["#KAAGent"],
+                "bid_fees": ["2,35MEUR"],
+                "stage": "full_agreement"
+            }
+        ]
     }
 ]
