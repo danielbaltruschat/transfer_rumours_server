@@ -3,6 +3,7 @@ import threading
 import time
 import os
 import MySQLdb
+import sys
 
 
 app = Flask(__name__)
@@ -18,6 +19,8 @@ mysql_port = int(os.environ['MYSQL_PORT'].strip())
 
 class ConnectionPool:
     def __init__(self):
+        self.connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
+
         thread = threading.Thread(target=self._refresh_connection)
         thread.daemon = True
         thread.start()
@@ -30,6 +33,9 @@ class ConnectionPool:
         while True:
             try:
                 self.connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
+                print("Connection refreshed")
+                sys.stdout.flush()
+                
             except:
                 raise Exception("Could not connect to database")
             time.sleep(60)

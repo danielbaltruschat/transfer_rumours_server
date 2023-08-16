@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   transfer_app:
-    #build: .
+    build: .
     image: localhost:32768/transfer_app
     environment:
       MYSQL_PASSWORD: secure_password
@@ -12,15 +12,14 @@ services:
         condition: service_healthy  # Wait for MySQL to be ready before starting the transfer_app service.
 
   mysql:
-    #build: /mysql
+    build: /mysql
     image: localhost:32768/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secure_password
     ports:
       - "3306:3306"  # MySQL default port
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$MYSQL_ROOT_PASSWORD"] # Ping MySQL to check if it's ready
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-psecure_password"] # Ping MySQL to check if it's ready
       interval: 5s
       timeout: 10s
-      retries: 20
 
