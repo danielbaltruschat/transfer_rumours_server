@@ -75,8 +75,9 @@ def get_players_from_search_results(player_name, team_name=None):
         team = player.find("td").find_all("a")[-1].get_text()
         #team_name may not exist so it is checked first
         if team_name == None or team_name.lower() in team.lower():
-            player_names.append(player_name)
-            team_names.append(team)
+            if team_name != player_name:
+                player_names.append(player_name)
+                team_names.append(team)
             
     return [player_and_team for player_and_team in zip(player_names, team_names)]
     
