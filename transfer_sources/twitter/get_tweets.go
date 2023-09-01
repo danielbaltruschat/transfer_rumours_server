@@ -40,7 +40,7 @@ func GetTweets(sources []string, timeAllowed int64) ([][]string, error) {
 	}
 
 	if !scraper.IsLoggedIn() {
-		errLogin := scraper.Login("TransferAp82771", "transfer_app")
+		errLogin := scraper.Login("TSferapp", "transfer_app")
 		if errLogin != nil {
 			return nil, errLogin
 		}
