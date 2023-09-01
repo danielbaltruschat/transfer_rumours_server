@@ -197,8 +197,6 @@ def update_database(mysql_user, mysql_password, mysql_port, time_wait):
     cursor.close()
     db.close()
 
-    
-
 def main():
     mysql_user = os.environ.get("MYSQL_USER")
     mysql_password = os.environ.get("MYSQL_PASSWORD")
@@ -206,14 +204,24 @@ def main():
     time_wait = int(os.environ.get("TIME_WAIT"))
     
     print("Starting update_database.py")
+    sys.stdout.flush()
     
-    prev_time = 0
-    time_gap_random = time_wait
+    try:
+        with open("prev_time.txt", "r") as f:
+            prev_time = int(f.read())
+    except:
+        prev_time = 0
+        with open("prev_time.txt", "w") as f:
+            f.write(str(prev_time))
+    
+    time_gap_random = random.randint(time_wait-200, time_wait+200)
     #Calls in periodic intervals determined by the TIME_WAIT environment variable
     while True:
-        current_timestamp = time.time()
+        current_timestamp = int(time.time())
         if current_timestamp - prev_time >= time_gap_random:
             prev_time = current_timestamp
+            with open("prev_time.txt", "w") as f:
+                f.write(str(prev_time))
             update_database(mysql_user, mysql_password, mysql_port, time_gap_random)
             time_gap_random = random.randint(time_wait-200, time_wait+200)
         

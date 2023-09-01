@@ -1,7 +1,9 @@
-from transfermarktscraper import scraper
-from transfermarktscraper import normalise_data
-
-data = ["#SouthamptonFC", "#s04", "#BVB", "#FCBayern", "#FCBayernMünchen", "#CFC", "@bayer04_fussball"]
-
-for string in data:
-    print(normalise_data.handle_twitter_name(string))
+try:
+    with open("prev_time.txt", "r") as f:
+        prev_time = int(f.read())
+except:
+    prev_time = 0
+    with open("prev_time.txt", "w") as f:
+        f.write(str(prev_time))
+        
+print(prev_time)
