@@ -6,8 +6,15 @@ USE transfer_data;
 CREATE TABLE IF NOT EXISTS teams (
     team_id INT AUTO_INCREMENT PRIMARY KEY,
     team_name VARCHAR(50),
+    team_link VARCHAR(255),
     logo_image VARCHAR(255),
     league_name VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS nations (
+    nation_id INT AUTO_INCREMENT PRIMARY KEY,
+    nation_name VARCHAR(30),
+    nation_flag VARCHAR(255)
 );
 
 -- Table: player
@@ -15,7 +22,13 @@ CREATE TABLE IF NOT EXISTS players (
     player_id INT AUTO_INCREMENT PRIMARY KEY,
     player_name VARCHAR(50),
     current_team_id INT,
+    nation_id INT,
+    player_link VARCHAR(255),
     player_image VARCHAR(255),
+    player_position VARCHAR(30),
+    market_value VARCHAR(15),
+    date_of_birth DATE,
+    FOREIGN KEY (nation_id) REFERENCES nations(nation_id),
     FOREIGN KEY (current_team_id) REFERENCES teams(team_id)
 );
 

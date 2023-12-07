@@ -14,11 +14,25 @@ RUN pip install -r requirements.txt
 # Install supervisor to run multiple processes, makes log files directory
 RUN apt-get update && apt-get install -y supervisor && mkdir -p /var/log/supervisor
 
-COPY nlp/__init__.py /app/nlp/__init__.py
-COPY nlp/spacy_load_ner.py /app/nlp/spacy_load_ner.py
-COPY nlp/tweet_categorisation_load.py /app/nlp/tweet_categorisation_load.py
+
+#COPY nlp/spacy_load_ner.py /app/nlp/spacy_load_ner.py
+COPY nlp/spacy_models/full_model_v1/model-best /app/nlp/spacy_models/full_model_v1/model-best
 COPY nlp/categorisation_model /app/nlp/categorisation_model
-COPY nlp/ner_model/model-best /app/nlp/ner_model/model-best
+
+COPY nlp/__init__.py /app/nlp/__init__.py
+COPY nlp/spacy_models/relation_extraction.py /app/nlp/spacy_models/relation_extraction.py
+COPY nlp/spacy_models/relation_component.py /app/nlp/spacy_models/relation_component.py
+COPY nlp/spacy_models/entity_resolver_model.py /app/nlp/spacy_models/entity_resolver_model.py
+COPY nlp/spacy_models/entity_resolver_component.py /app/nlp/spacy_models/entity_resolver_component.py
+COPY nlp/tweet_categorisation_load.py /app/nlp/tweet_categorisation_load.py
+
+COPY nlp/format_rel_resolver_predictions.py /app/nlp/format_rel_resolver_predictions.py
+COPY nlp/normalise_data.py /app/nlp/normalise_data.py
+COPY nlp/team_names.json /app/nlp/team_names.json
+COPY nlp/common_addons.txt /app/nlp/common_addons.txt
+
+COPY nlp/transfermarktscraper /app/nlp/transfermarktscraper
+
 
 COPY --chmod=0755 transfer_sources/twitter/get_tweets.bin /app/transfer_sources/twitter/get_tweets.bin
 COPY transfer_sources/twitter/twitter_sources.txt /app/transfer_sources/twitter/twitter_sources.txt
@@ -29,7 +43,6 @@ COPY update_database.py .
 #TODO move server to separate container
 COPY server.py .
 COPY wsgi.py .
-COPY transfermarktscraper /app/transfermarktscraper
 
 
 # Copy the supervisord configuration file

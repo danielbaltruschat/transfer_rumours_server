@@ -22,3 +22,12 @@ INSERT INTO source_transfer (source_id, transfer_id) VALUES
     (2, 1),
     (3, 2),
     (4, 2);
+
+
+CREATE TABLE IF NOT EXISTS nations (
+    nation_id INT AUTO_INCREMENT PRIMARY KEY,
+    nation_name VARCHAR(30),
+    nation_flag VARCHAR(255)
+);
+
+FOREIGN KEY nation_id REFERENCES nations(nation_id),

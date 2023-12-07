@@ -54,10 +54,10 @@ BAD_REQUEST_STATUS_CODE = 500
 
 
 #stop caching
-@app.after_request
-def add_header(response):
-    response.cache_control.max_age = 20
-    return response
+# @app.after_request
+# def add_header(response):
+#     response.cache_control.max_age = 20
+#     return response
 
 #Gets all the transfers from the database
 @app.route('/all_transfers', methods=['GET'])
@@ -69,17 +69,23 @@ def get_all_transfers():
             transfers.transfer_id,
             player_name,
             player_image,
+            player_position,
+            market_value,
             current_team.team_name AS current_team_name,
             current_team.logo_image AS current_team_logo,
             current_team.league_name AS current_team_league_name,
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,
+            nations.nation_name,
+            nations.nation_flag
         FROM
             transfers
         JOIN
             players ON transfers.player_id = players.player_id
+        JOIN
+            nations ON players.nation_id = nations.nation_id
         JOIN
             teams current_team ON players.current_team_id = current_team.team_id
         JOIN
@@ -101,15 +107,19 @@ def get_all_transfers():
             transfers.transfer_id,
             player_name,
             player_image,
+            player_position,
+            market_value,
             current_team.team_name AS current_team_name,
             current_team.logo_image AS current_team_logo,
             current_team.league_name AS current_team_league_name,
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,,
+            nations.nation_name,
+            nations.nation_flag
         FROM
-            transfers, players, teams AS current_team, teams AS rumoured_team,
+            transfers, players, nations, teams AS current_team, teams AS rumoured_team,
             (SELECT transfer_id, MAX(timestamp) AS latest_timestamp
             FROM sources, source_transfer
             WHERE sources.source_id = source_transfer.source_id
@@ -130,14 +140,18 @@ def get_all_transfers():
                 'transfer_id': transfer[0],
                 'player_name': transfer[1],
                 'player_image': transfer[2],
-                'current_team_name': transfer[3],
-                'current_team_logo': transfer[4],
-                'current_team_league_name': transfer[5],
-                'rumoured_team_name': transfer[6],
-                'rumoured_team_logo': transfer[7],
-                'rumoured_team_league_name': transfer[8],
-                'latest_timestamp': transfer[9]
-                }
+                'player_position': transfer[3],
+                'market_value': transfer[4],
+                'current_team_name': transfer[5],
+                'current_team_logo': transfer[6],
+                'current_team_league_name': transfer[7],
+                'rumoured_team_name': transfer[8],
+                'rumoured_team_logo': transfer[9],
+                'rumoured_team_league_name': transfer[10],
+                'latest_timestamp': transfer[11],
+                'nation_name': transfer[12],
+                'nation_flag_image': transfer[13]
+            }
             formatted_transfers.append(transfer_dict)
         
         
@@ -158,17 +172,23 @@ def get_transfer_by_id(transfer_id):
             transfers.transfer_id,
             player_name,
             player_image,
+            player_position,
+            market_value,
             current_team.team_name AS current_team_name,
             current_team.logo_image AS current_team_logo,
             current_team.league_name AS current_team_league_name,
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,
+            nations.nation_name,
+            nations.nation_flag
         FROM
             transfers
         JOIN
             players ON transfers.player_id = players.player_id
+        JOIN
+            nations ON players.nation_id = nations.nation_id
         JOIN
             teams current_team ON players.current_team_id = current_team.team_id
         JOIN
@@ -198,7 +218,7 @@ def get_transfer_by_id(transfer_id):
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,
         FROM
             transfers, players, teams AS current_team, teams AS rumoured_team,
             (SELECT transfer_id, MAX(timestamp) AS latest_timestamp
@@ -222,14 +242,18 @@ def get_transfer_by_id(transfer_id):
                 'transfer_id': transfer[0],
                 'player_name': transfer[1],
                 'player_image': transfer[2],
-                'current_team_name': transfer[3],
-                'current_team_logo': transfer[4],
-                'current_team_league_name': transfer[5],
-                'rumoured_team_name': transfer[6],
-                'rumoured_team_logo': transfer[7],
-                'rumoured_team_league_name': transfer[8],
-                'latest_timestamp': transfer[9]
-                }
+                'player_position': transfer[3],
+                'market_value': transfer[4],
+                'current_team_name': transfer[5],
+                'current_team_logo': transfer[6],
+                'current_team_league_name': transfer[7],
+                'rumoured_team_name': transfer[8],
+                'rumoured_team_logo': transfer[9],
+                'rumoured_team_league_name': transfer[10],
+                'latest_timestamp': transfer[11],
+                'nation_name': transfer[12],
+                'nation_flag_image': transfer[13]
+            }
             formatted_transfers.append(transfer_dict)
         
         
@@ -250,17 +274,23 @@ def get_transfer_by_player_id(player_id):
             transfers.transfer_id,
             player_name,
             player_image,
+            player_position,
+            market_value,
             current_team.team_name AS current_team_name,
             current_team.logo_image AS current_team_logo,
             current_team.league_name AS current_team_league_name,
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,
+            nations.nation_name,
+            nations.nation_flag
         FROM
             transfers
         JOIN
             players ON transfers.player_id = players.player_id
+        JOIN
+            nations ON players.nation_id = nations.nation_id
         JOIN
             teams current_team ON players.current_team_id = current_team.team_id
         JOIN
@@ -290,7 +320,7 @@ def get_transfer_by_player_id(player_id):
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,
         FROM
             transfers, players, teams AS current_team, teams AS rumoured_team,
             (SELECT transfer_id, MAX(timestamp) AS latest_timestamp
@@ -314,14 +344,18 @@ def get_transfer_by_player_id(player_id):
                 'transfer_id': transfer[0],
                 'player_name': transfer[1],
                 'player_image': transfer[2],
-                'current_team_name': transfer[3],
-                'current_team_logo': transfer[4],
-                'current_team_league_name': transfer[5],
-                'rumoured_team_name': transfer[6],
-                'rumoured_team_logo': transfer[7],
-                'rumoured_team_league_name': transfer[8],
-                'latest_timestamp': transfer[9]
-                }
+                'player_position': transfer[3],
+                'market_value': transfer[4],
+                'current_team_name': transfer[5],
+                'current_team_logo': transfer[6],
+                'current_team_league_name': transfer[7],
+                'rumoured_team_name': transfer[8],
+                'rumoured_team_logo': transfer[9],
+                'rumoured_team_league_name': transfer[10],
+                'latest_timestamp': transfer[11],
+                'nation_name': transfer[12],
+                'nation_flag_image': transfer[13]
+            }
             formatted_transfers.append(transfer_dict)
         
         
@@ -342,17 +376,23 @@ def get_transfer_by_team_id(team_id):
             transfers.transfer_id,
             player_name,
             player_image,
+            player_position,
+            market_value,
             current_team.team_name AS current_team_name,
             current_team.logo_image AS current_team_logo,
             current_team.league_name AS current_team_league_name,
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,
+            nations.nation_name,
+            nations.nation_flag
         FROM
             transfers
         JOIN
             players ON transfers.player_id = players.player_id
+        JOIN
+            nations ON players.nation_id = nations.nation_id
         JOIN
             teams current_team ON players.current_team_id = current_team.team_id
         JOIN
@@ -382,7 +422,7 @@ def get_transfer_by_team_id(team_id):
             rumoured_team.team_name AS rumoured_team_name,
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
-            latest_sources.latest_timestamp AS latest_timestamp
+            latest_sources.latest_timestamp AS latest_timestamp,
         FROM
             transfers, players, teams AS current_team, teams AS rumoured_team,
             (SELECT transfer_id, MAX(timestamp) AS latest_timestamp
@@ -406,14 +446,18 @@ def get_transfer_by_team_id(team_id):
                 'transfer_id': transfer[0],
                 'player_name': transfer[1],
                 'player_image': transfer[2],
-                'current_team_name': transfer[3],
-                'current_team_logo': transfer[4],
-                'current_team_league_name': transfer[5],
-                'rumoured_team_name': transfer[6],
-                'rumoured_team_logo': transfer[7],
-                'rumoured_team_league_name': transfer[8],
-                'latest_timestamp': transfer[9]
-                }
+                'player_position': transfer[3],
+                'market_value': transfer[4],
+                'current_team_name': transfer[5],
+                'current_team_logo': transfer[6],
+                'current_team_league_name': transfer[7],
+                'rumoured_team_name': transfer[8],
+                'rumoured_team_logo': transfer[9],
+                'rumoured_team_league_name': transfer[10],
+                'latest_timestamp': transfer[11],
+                'nation_name': transfer[12],
+                'nation_flag_image': transfer[13]
+            }
             formatted_transfers.append(transfer_dict)
         
         
@@ -435,13 +479,21 @@ def search_players(player_name):
             player_id,
             player_name,
             player_image,
+            player_position,
+            market_value,
+            TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE()) as age,
             team_id AS current_team_id,
             team_name AS current_team_name,
-            logo_image AS current_team_logo
+            logo_image AS current_team_logo,
+            league_name AS current_team_league_name,
+            nation_name,
+            nation_flag
         FROM
             players
         JOIN
             teams ON players.current_team_id = teams.team_id
+        JOIN
+            nations ON players.nation_id = nations.nation_id
         WHERE
             LOWER(player_name) LIKE LOWER(%s)
         """
@@ -467,11 +519,17 @@ def search_players(player_name):
             player_dict = {
                 'player_id': player[0],
                 'player_name': player[1],
-                "player_image": player[2],
-                'current_team_id': player[3],
-                'current_team_name': player[4],
-                'current_team_logo': player[5]
-                }
+                'player_image': player[2],
+                'player_position': player[3],
+                'market_value': player[4],
+                'age': player[5],
+                'current_team_id': player[6],
+                'current_team_name': player[7],
+                'current_team_logo': player[8],
+                'current_team_league_name': player[9],
+                'nation_name': player[10],
+                'nation_flag_image': player[11]
+            }
             formatted_players.append(player_dict)
         
         cursor.close()
@@ -492,13 +550,21 @@ def get_player_by_id(player_id):
             player_id,
             player_name,
             player_image,
+            player_position,
+            market_value,
+            TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE()) as age,
             team_id AS current_team_id,
             team_name AS current_team_name,
-            logo_image AS current_team_logo
+            logo_image AS current_team_logo,
+            league_name AS current_team_league_name,
+            nation_name,
+            nation_flag
         FROM
             players
         JOIN
             teams ON players.current_team_id = teams.team_id
+        JOIN
+            nations ON players.nation_id = nations.nation_id
         WHERE
             player_id = %s
         """
@@ -524,11 +590,17 @@ def get_player_by_id(player_id):
             player_dict = {
                 'player_id': player[0],
                 'player_name': player[1],
-                "player_image": player[2],
-                'current_team_id': player[3],
-                'current_team_name': player[4],
-                'current_team_logo': player[5]
-                }
+                'player_image': player[2],
+                'player_position': player[3],
+                'market_value': player[4],
+                'age': player[5],
+                'current_team_id': player[6],
+                'current_team_name': player[7],
+                'current_team_logo': player[8],
+                'current_team_league_name': player[9],
+                'nation_name': player[10],
+                'nation_flag_image': player[11]
+            }
             formatted_players.append(player_dict)
         
         cursor.close()

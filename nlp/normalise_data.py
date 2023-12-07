@@ -1,10 +1,9 @@
-from .scraper import parse_search_results, get_teams_from_search_results, get_players_from_search_results
+from .transfermarktscraper.scraper import parse_search_results, get_teams_from_search_results, get_players_from_search_results
 import json
 import re
 from unidecode import unidecode
 
-DIRECTORY = "transfermarktscraper/"
-#DIRECTORY = ""
+DIRECTORY = "nlp/"
 
 def check_replace_json(file_name, names):
     with open(DIRECTORY + file_name, "r") as f:
@@ -67,64 +66,46 @@ def prepare_player_names(player_names):
     player_names = remove_duplicates(player_names)
     return player_names
 
-#TODO reduce cognitive complexity and make searching more robust by trying searching without fc, calcio, fussball etc.
-def normalise_data(player_names, current_team_names, rumoured_team_names):
-    player_names = prepare_player_names(player_names)
+#link is a better unique identifier than the name
+def check_link_in_list_of_items(link, items):
+    for i in range(len(items)):
+        if items[i].url == link:
+            return True
+    return False
     
-    current_team_names = prepare_team_names(current_team_names)
+#TODO use majority voting system
+def normalise_names(names, player_or_team, current_team_name=None):
+    if player_or_team == "team":
+        if current_team_name != None:
+            raise Exception("Current team has been specified when the mode is not 'player'")
+        names = prepare_team_names(names)
+        func = get_teams_from_search_results
+    elif player_or_team == "player":
+        names = prepare_player_names(names)
+        func = get_players_from_search_results
+    else:
+        raise Exception("Second argument 'player_or_team' should be 'player' or 'team'.")
     
-    rumoured_team_names = prepare_team_names(rumoured_team_names)
-    
-    rumoured_search_outputs = []
-    for team_name in rumoured_team_names:
+
+    search_outputs = []
+    for name in names:
         try:
-            team_search_output = get_teams_from_search_results(team_name)[0]
+            #[0] takes first result in transfermarkt search
+            if current_team_name == None:
+                search_output = func(name)[0]
+            else:
+                search_output = func(name, current_team_name)[0]
         except Exception as e:
             print(e)
             continue
-        if team_search_output not in rumoured_search_outputs:
-            rumoured_search_outputs.append(team_search_output)
+        if not check_link_in_list_of_items(search_output.url, search_outputs):
+            search_outputs.append(search_output)
             
-    current_search_outputs = []
-    for team_name in current_team_names:
-        try:
-            team_search_output = get_teams_from_search_results(team_name)[0]
-        except:
-            continue
-        if team_search_output not in current_search_outputs:
-            current_search_outputs.append(team_search_output)
-            
-    for current_team in current_search_outputs:
-        if current_team in rumoured_search_outputs:
-            current_search_outputs.remove(current_team)
+    if len(search_outputs) == 0:
+        return -1
     
-    player_search_outputs = []
-    for player_name in player_names:
-        if "#" in player_name or "@" in player_name:
-            player_name = handle_twitter_name(player_name)
-        try:
-            if current_search_outputs != []:
-                player_search_output = get_players_from_search_results(player_name, current_search_outputs[0])[0]
-            else:
-                player_search_output = get_players_from_search_results(player_name)[0]
-        except:
-            continue
-        if player_search_output not in player_search_outputs:
-            player_search_outputs.append(player_search_output)
-            
+    return search_outputs[0]
     
-    player_searched_names = [player_search_output[0] for player_search_output in player_search_outputs]
-    
-    if len(player_searched_names) == 0:
-        if len(current_search_outputs) != 0:
-            print(current_search_outputs)
-        raise Exception("No players found for " + str(player_names) + ".")
-    elif len(rumoured_search_outputs) == 0:
-        raise Exception("No rumoured teams found for " + str(rumoured_team_names) + ".")
-    
-    #TODO make it so players cannot go to their own team
-        
-    return player_searched_names, current_search_outputs, rumoured_search_outputs
 
 
 def separate_words_by_re(expression, name):
