@@ -168,18 +168,23 @@ def normalise_dob(date_of_birth): #returns date as string in format YEAR-MONTH-D
     return "-".join([year, month, day])
 
 def get_team_info_from_link(team_link):
+    try:
     #Gets details from the player's page
-    url = "https://www.transfermarkt.com" + team_link
-    page = requests.get(url, headers=HEADERS)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    
-    main = soup.find("main")
-    team_name = main.find("h1").get_text().strip()
-    
-    league_name = main.find("div", class_="data-header__club-info").find("a").get_text().strip()
-    
-    team_logo_url = main.find("div", class_="data-header__profile-container").find("img")['src']
-    
+        url = "https://www.transfermarkt.com" + team_link
+        page = requests.get(url, headers=HEADERS)
+        soup = BeautifulSoup(page.content, 'html.parser')
+        
+        main = soup.find("main")
+        team_name = main.find("h1").get_text().strip()
+        
+        league_name = main.find("div", class_="data-header__club-info").find("a").get_text().strip()
+        
+        team_logo_url = main.find("div", class_="data-header__profile-container").find("img")['src']
+
+    except Exception as e:
+        print(e)
+        raise Exception("No team found for", team_link)
+
     return {"team_name": team_name, "league_name": league_name, "team_logo_url": team_logo_url, "team_link": team_link}
     
 
@@ -225,6 +230,7 @@ def get_nation_info(nation_name):
 
     return {"name": nation_name, "flag_image": nation_flag_url}
 
-pass
+# info = get_team_info_from_link("/statistik/vertragslosespieler")
+# pass
 # print(get_player_info("Jamal Musiala"))
 # print(get_team_info("Bayern"))

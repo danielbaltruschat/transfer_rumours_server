@@ -12,7 +12,7 @@ services:
         condition: service_healthy  # Wait for MySQL to be ready before starting the transfer_app service.
 
   mysql:
-    build: /mysql
+    build: mysql
     image: localhost:32768/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secure_password

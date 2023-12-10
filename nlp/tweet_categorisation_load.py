@@ -23,7 +23,9 @@ def is_rumour(text):
 
 # “He’s very happy here, I’d love to keep Rasmus of course but sometimes clubs and also players have to consider huge bids”.'''])
 
-    
+
+print(is_rumour("Mohammed Salah due to join Al-Ittihad on a 3 year deal. The Saud club will pay Liverpool £30m for the Egyptian."))
+
 # for pred in preds:
 #     print(pred)
     

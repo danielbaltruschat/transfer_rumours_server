@@ -6,7 +6,7 @@ import sys
 def main():
     
     print("loaded")
-    text = "🚨🔴🇳🇱 #PL |\n\n◉ Bayern Munich and Liverpool reached an agreement for Ryan Gravenberch ‼️\n\n◉ 50M€ bonuses included 🔥"
+    text = "🚨 EXCLUSIVE News Ronald #Araujo: He‘s the absolute desired transfer target of FC Bayern!\n\n‼️ There was a phone call between Tuchel, Freund and Araujo this Friday 📞\n\n➡️ Tuchel made it clear to him that he wants him urgently, preferably in winter or summer, no matter the cost. Bayern, ready to pay a massive transfer fee! \n\nIt will be a difficult mission for Bayern. Now it's up to Araújo. \n@SkySportDE\n 🇺🇾\n"
 
 
     pass

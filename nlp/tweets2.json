@@ -329,7 +329,15 @@
         "is_rumour": true,
         "all_players": ["Emre Can"],
         "all_teams": ["Borussia Dortmund"],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Emre Can"],
+                "current_teams": ["Borussia Dortmund"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
     },
     {
         "text": "After closing in on Noah Okafor deal, AC Milan are working to complete also the agreement for Samuel Chukwueze 🇳🇬\n\nNegotiations advancing with Villarreal as player already agreed personal terms — he’s keen on the move. 🔴⚫️",
@@ -776,7 +784,7 @@
                 "current_teams": [],
                 "rumoured_teams": ["AS Roma"],
                 "bid_fees": [],
-                "stage": "deal_off"
+                "stage": "interest"
             }
         ]
     },
@@ -4536,6 +4544,651 @@
                 "rumoured_teams": ["Liverpool"],
                 "bid_fees": ["50M€"],
                 "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "Martin Dubravka has agreed to rejoin Manchester United in the January window after Onana transfer doesn't work out. The fee will be £25m plus addons, Newcastle searching for replacement goalkeeper as a priority.",
+        "is_rumour": true,
+        "all_players": ["Martin Dubravka", "Onana"],
+        "all_teams": ["Manchester United", "Newcastle"],
+        "transfers": [
+            {
+                "involved_players": ["Martin Dubravka"],
+                "current_teams": ["Newcastle"],
+                "rumoured_teams": ["Manchester United"],
+                "bid_fees": ["£25m plus addons"],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "#SerieA | \n@Inter\n , the news on #Bastoni in view of the match against \n@Udinese_1896",
+        "is_rumour": false,
+        "all_players": ["#Bastoni"],
+        "all_teams": ["@Inter", "@Udinese_1896"],
+        "transfers": []
+    },
+    {
+        "text": "#Frosinone , #Angelozzi : \" #Reinier taken thanks to the help of Braida\"",
+        "is_rumour": false,
+        "all_players": ["#Reinier"],
+        "all_teams": ["#Frosinone"],
+        "transfers": []
+    },
+    {
+        "text": "#Calciomercato | \n@ACMonza\n , target #Katseris of \n@USCatanzaro1929\n . There is great competition in Serie A and B\n",
+        "is_rumour": true,
+        "all_players": ["#Katseris"],
+        "all_teams": ["@ACMonza", "@USCatanzaro1929"],
+        "transfers": [
+            {
+                "involved_players": ["#Katseris"],
+                "current_teams": ["@USCatanzaro1929"],
+                "rumoured_teams": ["@ACMonza"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "#Lecce , #Corvino : \" #Krstovic discovered through relationships and acquaintances\"",
+        "is_rumour": false,
+        "all_players": ["#Krstovic"],
+        "all_teams": ["#Lecce"],
+        "transfers": []
+    },
+    {
+        "text": "#Frosinone , therapies for #Marchizza and personalized for #Lirola and #Mazzitelli . News also on #Reinier",
+        "is_rumour": false,
+        "all_players": ["#Marchizza", "#Lirola", "#Mazzitelli", "#Reinier"],
+        "all_teams": ["#Frosinone"],
+        "transfers": []
+    },
+    {
+        "text": "🏆 Manchester United complete the PL November Awards trio. ⤵️🔴\n\n◉ Manager of the Month, Erik ten Hag.\n◉ Goal of the Month, Alejandro Garnacho.\n◉ Player of the Month, Harry Maguire.",
+        "is_rumour": false,
+        "all_players": ["Erik ten Hag", "Alejandro Garnacho", "Harry Maguire"],
+        "all_teams": ["Manchester United"],
+        "transfers": []
+    },
+    {
+        "text": "🆕 News Leny #Yoro: He’s a possible transfer target for FC Bayern in summer! \n\n➡️ Bayern is monitoring him closely \n➡️ They consider him as a very exciting player! \n\nThe 18 y/o central defender has a contract until 2025. Key player for OSC Lille this season. \n\n📍 94% passing accuracy - no player in Ligue 1 is better! \n@SkySportDE\n 🇫🇷🇨🇮",
+        "is_rumour": true,
+        "all_players": ["Leny #Yoro"],
+        "all_teams": ["FC Bayern", "OSC Lille"],
+        "transfers": [
+            {
+                "involved_players": ["Leny #Yoro"],
+                "current_teams": ["OSC Lille"],
+                "rumoured_teams": ["FC Bayern"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "❗️BREAKING EXCL. NEWS #Kane: Got the info that his move to FC Bayern is „looking more likely now“ !!!\n\n➡️ As reported: Bayern bosses, Tottenham and Kane‘s management were in very good and respectful negotiations today and tonight. \n\n❗️NOW the deal is on verge to be sealed as KANE WANTS TO JOIN BAYERN! \n\n@SkySportDE\n 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "is_rumour": true,
+        "all_players": ["#Kane", "Kane", "KANE"],
+        "all_teams": ["FC Bayern", "Tottenham", "BAYERN", "Bayern"],
+        "transfers": [
+            {
+                "involved_players": ["#Kane", "Kane", "KANE"],
+                "current_teams": ["Tottenham"],
+                "rumoured_teams": ["FC Bayern", "BAYERN", "Bayern"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "🔴 Tuchel on €15m deal for Zaragoza: “We have signed a very young and very hungry player”.\n\n“He's a good dribbler, very strong in 1v1 situations. Bryan also has a lot of self-confidence and a lot of hunger. We are happy that he's joining us”.",
+        "is_rumour": false,
+        "all_players": ["Zaragoza", "Bryan"],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "🚨 EXCL: 🔵⚪️🇮🇹 #Ligue1 |\n\n◉ Gennaro Gattuso is one step away from becoming the future coach of OM ‼️\n\n◉ The Italian coach is in pole position to replace Marcelino and should lead his first session by the end of the week 💣💣\n\nMore info tomorrow on \n@footmercato\n\n\nWith \n@sebnonda",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["OM"],
+        "transfers": []
+    },
+    {
+        "text": "🚨🔴🔵\nOL have contacted Bruno Genesio in recent hours after the Olympico fiasco as revealed by Le Progrès. Tired by his experience in Rennes, he had not planned to dive back but BG is very attached to his favorite club. No progress at the moment but a real reflection.",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["OL", "Rennes"],
+        "transfers": []
+    },
+    {
+        "text": "🚨 Excluded 🟢🟢\n▪️ to replace Laurent Battles, ASSE has drawn up a short list of 5 names\n▪️ Stéphane Moulin is favorite, Olivier Dall'oglio follows him and Sabri Lamouchi is polled\n▪️ surprise from the boss, Christian Lattanzio, a 52-year-old Italian coach who speaks French, former assistant to Capello in the England team, Roberto Mancini (Man City) Patrick Vieira (Nice) and Gianfranco Zola (West Ham )\n",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["ASSE", "Man City", "Nice", "West Ham"],
+        "transfers": []
+    },
+    {
+        "text": "🚨 EXCL: 🔵🇫🇷🇨🇮 #Ligue1 | |\n\n◉ AC Milan wants to recover young Le Havre midfielder Guy Noël Zohouri (16 years old).\n\nWith \n@sebnonda\n \n\nhttps://footmercato.net/a5870965943117767080-milan-discute-avec-la-nouvelle-merveille-du-hac-guy-noel-zohouri",
+        "is_rumour": true,
+        "all_players": ["Guy Noël Zohouri"],
+        "all_teams": ["AC Milan", "Le Havre"],
+        "transfers": [
+            {
+                "involved_players": ["Guy Noël Zohouri"],
+                "current_teams": ["Le Havre"],
+                "rumoured_teams": ["AC Milan"],
+                "bid_fees": [],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🚨 Odsonne Edouard: “the French team? This is a very big goal for me”\n▪️ The Crystal Palace striker 🇫🇷 looks back on his excellent start to the season (7 b in 14 m)\n▪️ he sets two clear objectives, namely the French team and playing in a top European club.\n▪️ He looks back on his complicated beginnings at PSG, his time at Toulouse and Celtic Glasgow",
+        "is_rumour": false,
+        "all_players": ["Odsonne Edouard"],
+        "all_teams": ["Crystal Palace", "PSG", "Toulouse", "Celtic Glasgow"],
+        "transfers": []
+    },
+    {
+        "text": "🚨🔴⚫️🇫🇷 #SerieA |\n\n◉ AC Milan still on talk over a new contract with Mike Maignan. The GK is happy in Italy. His contract expires in June 2026 ‼️\n\n◉ Chelsea, Manchester United, PSG and more top clubs remain attentive to the situation of Maignan 💥\n\nW \n@sebnonda\n ",
+        "is_rumour": true,
+        "all_players": ["Mike Maignan"],
+        "all_teams": ["AC Milan", "Chelsea", "Manchester United", "PSG"],
+        "transfers": [
+            {
+                "involved_players": ["Mike Maignan"],
+                "current_teams": ["AC Milan"],
+                "rumoured_teams": ["Chelsea"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Mike Maignan"],
+                "current_teams": ["AC Milan"],
+                "rumoured_teams": ["Manchester United"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Mike Maignan"],
+                "current_teams": ["AC Milan"],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨⚫️⚪️🇧🇷 #Brasileirão |\n\n◉ Luis Campos attended Gabriel Moscardo's match yesterday in the company of Giuliano Bertolucci, mandated to carry out this file. Both men are pushing to close the deal quickly.\n\n◉ PSG offers 22M € to secure the services of Moscardo who wants to join Paris.\n\n◉ The future president of Corinthians Augusto Melo is, for the moment, not in favor of selling the midfielder. The discussions continue.",
+        "is_rumour": true,
+        "all_players": ["Gabriel Moscardo", "Moscardo"],
+        "all_teams": ["PSG", "Corinthians"],
+        "transfers": [
+            {
+                "involved_players": ["Gabriel Moscardo", "Moscardo"],
+                "current_teams": ["Corinthians"],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": ["22M €"],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🚨🔴🔵 #TeamOL\n▪️ at OL internally, Jean-Michel Aulas's Twitter account is extremely infuriating\n▪️ if \n@JM_Aulas\n filed a complaint against X concerning the publication without his knowledge of several tweets against OL, this version does not hold for the Rhone club\nhttps://footmercato.net/a6620649075865098034-le-petit-jeu-de-jean-michel-aulas-rend-fou-lol\nwith \n@DahbiaHattabi",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["OL"],
+        "transfers": []
+    },
+    {
+        "text": "◉ Nobody in Nice asked Youcef Atal to leave ‼️\n\n◉ His coach, Francesco Farioli, is even inclined to keep him and play him.\n\n◉ It remains to be seen the position of the player who will take stock after the CAN with Algeria.",
+        "is_rumour": true,
+        "all_players": ["Youcef Atal"],
+        "all_teams": ["Nice"],
+        "transfers": [
+            {
+                "involved_players": ["Youcef Atal"],
+                "current_teams": ["Nice"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
+    },
+    {
+        "text": "⚠️ Important detail in the Gabriel Moscardo file 🇧🇷\n\n◉ Current president Duilio Monteiro Alves wants to complete the transfer before January, the date of his departure from the presidency of Corinthians.\n\n◉ He will then be replaced by his rival Auguste Melo at the beginning of January.",
+        "is_rumour": true,
+        "all_players": ["Gabriel Moscardo"],
+        "all_teams": ["Corinthians"],
+        "transfers": [
+            {
+                "involved_players": ["Gabriel Moscardo"],
+                "current_teams": ["Corinthians"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
+    },
+    {
+        "text": "🚨 EXCL: ⚫️⚪️🇧🇷 #Brasileirão |\n\n◉ PSG offers 22M € to secure the services of Gabriel Moscardo. No agreement yet with Corinthians ‼️\n\n◉ The current president of Corinthians wants to sell Moscardo before January 💥\n\n◉ The player's agents have already given their agreement in Paris.\n\nhttps://footmercato.net/a6261509717117250573-le-psg-accelere-sur-le-dossier-gabriel-moscardo\n",
+        "is_rumour": true,
+        "all_players": ["Gabriel Moscardo", "Moscardo"],
+        "all_teams": ["PSG", "Corinthians"],
+        "transfers": [
+            {
+                "involved_players": ["Gabriel Moscardo", "Moscardo"],
+                "current_teams": ["Corinthians"],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": ["22M €"],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🚨EXCL: 🔴⚪️🇬🇳 #Bundesliga |\n\n◉ Serhou Guirassy is on the list of MU for winter‼️ MUFC has already inquired about him. No offer or negotiations yet.\n\n◉ AS Roma, AC Milan and Newcastle are showing interest in 27 year old striker.\n\n◉ Release clause : €17.5m and already active ‼️",
+        "is_rumour": true,
+        "all_players": ["Serhou Guirassy"],
+        "all_teams": ["MU", "AS Roma", "AC Milan", "Newcastle"],
+        "transfers": [
+            {
+                "involved_players": ["Serhou Guirassy"],
+                "current_teams": [],
+                "rumoured_teams": ["MU"],
+                "bid_fees": ["€17.5m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Serhou Guirassy"],
+                "current_teams": [],
+                "rumoured_teams": ["AS Roma"],
+                "bid_fees": ["€17.5m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Serhou Guirassy"],
+                "current_teams": [],
+                "rumoured_teams": ["AC Milan"],
+                "bid_fees": ["€17.5m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Serhou Guirassy"],
+                "current_teams": [],
+                "rumoured_teams": ["Newcastle"],
+                "bid_fees": ["€17.5m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨🟢⚪️🇵🇹 #Brasileirão |\n\n◉ Abel Ferreira, manager of Palmeiras has been approached by Al-Sadd. Talks are advancing and he’s expected to sign soon once the final details will be agreed ‼️\n\n ◉ Antero Henrique, sporting director of Qatari league, has a key role 🔑\n",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["Palmeiras", "Al-Sadd"],
+        "transfers": []
+    },
+    {
+        "text": "🚨🔵⚪️🇲🇦 #Ligue1 |\n\n◉ Mehdi Benatia will, barring a turnaround, join OM ‼️\n\n◉ \"He has all the qualities to be a very good DS\" Fabio Paratici told us 🇮🇹\n\nWith \n@HanifBerkane\n & \n@sebnonda\n",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["OM"],
+        "transfers": []
+    },
+    {
+        "text": "🚨🟢⚪️🇨🇮 #LigaPortugal |\n\n◉ Sporting CP make significant progress to extend Ousmane Diomande contract, agreement now on the verge of being completed ‼️\n\n◉ Current contract include €80M release clause📍\n\n◉ Arsenal, Bayern Munich, Manchester United are following him closely 👀",
+        "is_rumour": true,
+        "all_players": ["Ousmane Diomande"],
+        "all_teams": ["Sporting CP", "Arsenal", "Bayern Munich", "Manchester United"],
+        "transfers": [
+            {
+                "involved_players": ["Ousmane Diomande"],
+                "current_teams": ["Sporting CP"],
+                "rumoured_teams": ["Arsenal"],
+                "bid_fees": ["€80M"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Ousmane Diomande"],
+                "current_teams": ["Sporting CP"],
+                "rumoured_teams": ["Bayern Munich"],
+                "bid_fees": ["€80M"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Ousmane Diomande"],
+                "current_teams": ["Sporting CP"],
+                "rumoured_teams": ["Manchester United"],
+                "bid_fees": ["€80M"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨 EXCL: ⚫️⚪️🇧🇷 #Brasileirão\n\n◉ PSG are in advanced negotiations with Rodolfo Ximenes, the agent of Gabriel Moscardo ‼️\n\n◉ Paris is CURRENTLY best placed to sign the Corinthians midfielder ✍️\n\n◉ In the coming days, Luis Campos will meet the leaders of Corinthians as well as Giuliano Bertolucci who acts as an intermediary in the Moscardo file ✈️",
+        "is_rumour": true,
+        "all_players": ["Gabriel Moscardo", "Moscardo"],
+        "all_teams": ["PSG", "Paris", "Corinthians"],
+        "transfers": [
+            {
+                "involved_players": ["Gabriel Moscardo", "Moscardo"],
+                "current_teams": ["Corinthians"],
+                "rumoured_teams": ["PSG", "Paris"],
+                "bid_fees": [],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🚨EXCL: 🟢⚪️🇩🇴 #Liga |\n\n◉ Real Betis are pursuing a loan deal with option for Leeds United left back Junior Firpo this winter ‼️\n https://footmercato.net/a6192355910052117239-le-betis-veut-junior-firpo",
+        "is_rumour": true,
+        "all_players": ["Junior Firpo"],
+        "all_teams": ["Real Betis", "Leeds United"],
+        "transfers": [
+            {
+                "involved_players": ["Junior Firpo"],
+                "current_teams": ["Leeds United"],
+                "rumoured_teams": ["Real Betis"],
+                "bid_fees": [],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🚨 EXCL: 🔴🔵🇫🇷🇨🇮 #Ligue1 |\n\n◉ PSG wants to take action and get ahead of the competition from major European clubs (Real Madrid, Bayern Munich, top 5 🏴󠁧󠁢󠁥󠁮󠁧󠁿 ) in the file \n@leny_yoro\n ‼️\n\n◉ The defender of \n@losclive\n is unanimous internally . Lille still wants to extend it ✍️\n\n◉ In midfield, many profiles are appreciated and studied by Paris including Kephren Thuram and Youssouf Fofana ⏳\n\nWith \n@sebnonda",
+        "is_rumour": true,
+        "all_players": ["@leny_yoro", "Kephren Thuram", "Youssouf Fofana"],
+        "all_teams": ["PSG", "@losclive", "Real Madrid", "Bayern Munich"],
+        "transfers": [
+            {
+                "involved_players": ["@leny_yoro"],
+                "current_teams": ["@losclive"],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Kephren Thuram"],
+                "current_teams": [],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Youssouf Fofana"],
+                "current_teams": [],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["@leny_yoro"],
+                "current_teams": ["@losclive"],
+                "rumoured_teams": ["Real Madrid"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["@leny_yoro"],
+                "current_teams": ["@losclive"],
+                "rumoured_teams": ["Bayern Munich"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨 EXCL: 🔴🔵🇫🇷 #Ligue1 |\n\n◉ OL are still thinking of Baptiste Santamaria, the Stade Rennais midfielder ‼️\n\n◉ A profile much appreciated by Matthieu Louis-Jean.\n\nWith \n@sebnonda\n",
+        "is_rumour": true,
+        "all_players": ["Baptiste Santamaria"],
+        "all_teams": ["OL", "Stade Rennais"],
+        "transfers": [
+            {
+                "involved_players": ["Baptiste Santamaria"],
+                "current_teams": ["Stade Rennais"],
+                "rumoured_teams": ["OL"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨⚫️⚪️🇬🇭🇩🇰🏴󠁧󠁢󠁥󠁮󠁧󠁿 #SerieA |\n\n◉  Kalvin Phillips, Pierre-Emile Højbjerg, and Thomas Partey are on Juventus list for this winter.\n\n◉ Some contacts took place between Cristiano Giuntoli and their entourage in recent weeks. \n\nhttps://footmercato.net/a3088388710334247031-la-juventus-cible-3-milieux-de-premier-league",
+        "is_rumour": true,
+        "all_players": ["Kalvin Phillips", "Pierre-Emile Højbjerg", "Thomas Partey"],
+        "all_teams": ["Juventus"],
+        "transfers": [
+            {
+                "involved_players": ["Kalvin Phillips"],
+                "current_teams": [],
+                "rumoured_teams": ["Juventus"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Pierre-Emile Højbjerg"],
+                "current_teams": [],
+                "rumoured_teams": ["Juventus"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Thomas Partey"],
+                "current_teams": [],
+                "rumoured_teams": ["Juventus"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨EXCL: 🔵⚪️🇲🇦 #Ligue1 |\n\n◉ Several clubs are monitoring Le Havre's left winger Mohammed Zine El Âbidine Hamony (2006) as he’s performing at great level in FIFA U-17 WC 👀\n\n◉ L'OL, Borussia Dortmund, Ajax Amsterdam, Stuttgart have sent their scouts to track ‼️\n\n◉ He’s under contract until June 2024 ⏳\n\nW \n@sebnonda\n ",
+        "is_rumour": true,
+        "all_players": ["Mohammed Zine El Âbidine Hamony"],
+        "all_teams": ["Le Havre", "L'OL", "Borussia Dortmund", "Ajax Amsterdam", "Stuttgart"],
+        "transfers": [
+            {
+                "involved_players": ["Mohammed Zine El Âbidine Hamony"],
+                "current_teams": ["Le Havre"],
+                "rumoured_teams": ["L'OL"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Mohammed Zine El Âbidine Hamony"],
+                "current_teams": ["Le Havre"],
+                "rumoured_teams": ["Borussia Dortmund"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Mohammed Zine El Âbidine Hamony"],
+                "current_teams": ["Le Havre"],
+                "rumoured_teams": ["Ajax Amsterdam"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Mohammed Zine El Âbidine Hamony"],
+                "current_teams": ["Le Havre"],
+                "rumoured_teams": ["Stuttgart"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "#Juventus , #Allegri : \" #Weah will return next week\"",
+        "is_rumour": false,
+        "all_players": ["#Weah"],
+        "all_teams": ["#Juventus"],
+        "transfers": []
+    },
+    {
+        "text": "#SerieA | \n@juventusfc\n , #Allegri : \"Scudetto? It's important to put the \n@sscnapoli\n at -12\"",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["@juventusfc", "@sscnapoli"],
+        "transfers": []
+    },
+    {
+        "text": "#SerieA | \n@juventusfc\n , only cramps for #Vlahovic . #Allegri and fans can breathe a sigh of relief\n",
+        "is_rumour": false,
+        "all_players": ["#Vlahovic"],
+        "all_teams": ["@juventusfc"],
+        "transfers": []
+    },
+    {
+        "text": "#JuveNapoli , #Danilo : \"We have a dream, but our primary goal is to qualify in #ChampionsLeague\",",
+        "is_rumour": false,
+        "all_players": ["#Danilo"],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "#SerieA | \n@HellasVeronaFC\n , the players called up for #Baroni : absent #Faraoni and #Cruz against \n@OfficialSSLazio\n 👉🏽https://bitly.ws/34XFb",
+        "is_rumour": false,
+        "all_players": ["#Baroni", "#Faraoni", "#Cruz"],
+        "all_teams": ["@HellasVeronaFC", "@OfficialSSLazio"],
+        "transfers": []
+    },
+    {
+        "text": "👀 #Fantacalcio | Not only that #Vlasic : this weekend you can bet on these 5 surprises",
+        "is_rumour": false,
+        "all_players": ["#Vlasic"],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "⚽️ #Fantacalcio | Here's who to choose and who to discard to make up the attacking trident on the 15th day of #SerieA",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "🔴🏴󠁧󠁢󠁳󠁣󠁴󠁿 Erik ten Hag on McTominay goals: “Actually from the first moment I saw, he has a very good smell to make it in the box and is a very good finisher!”.\n\n“That's not a surprise when the team, when we bring it and the way we want to play, get the balls to them he will finish”.",
+        "is_rumour": false,
+        "all_players": ["McTominay"],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "🚨⚪️ Vinicius Jr, working hard to return as soon as possible after injury suffered in November. He wants to do something special again as in September\n\nSources confident to see Vini back in January, as \n@MarioCortegana\n reported — plan not confirmed yet but Real now optimistic.",
+        "is_rumour": false,
+        "all_players": ["Vinicius Jr"],
+        "all_teams": ["Real"],
+        "transfers": []
+    },
+    {
+        "text": "🔴⚫️🇳🇬 Bundesliga Rookie of the Month is… Victor Boniface, once again.\n\n◉ Rookie of the Month August — Boniface.\n◉ Rookie of the Month September — Boniface.\n◉ Rookie of the Month October — Boniface.\n◉ Rookie of the Month November — Boniface.\n\n…four in a row. 💫",
+        "is_rumour": false,
+        "all_players": ["Victor Boniface", "Boniface"],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "⚪️🇸🇦 Ancelotti on his future: “If I would go to Saudi Arabia for €500 million? Look, I wouldn't even have to book the flight. I would walk with my feet to go there”.\n\n“No, I'm joking. I don’t need money. The world is really changing and will keep changing”.",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "🇸🇦 Ancelotti: “I’ve not received any call from Saudi. I’ve another plan and it’s not about Saudi”.\n\n“I never decided anything based on the financial package. Money is not crucial, I’ve enough money… I just want to feel good”.",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "🔴 Victor Lindelof will miss next game as Erik ten Hag confirmed to club media that he’s not available for Bournemouth game through injury.\n\nRaphael Varane is “available to play”. 🇫🇷",
+        "is_rumour": false,
+        "all_players": ["Victor Lindelof", "Raphael Varane"],
+        "all_teams": [],
+        "transfers": []
+    },
+    {
+        "text": "⚫️🔵 Inter CEO Marotta: \"We are advancing in talks to extend Lautaro Martinez contract, it will be valid for the next five years\".\n\n\"He loves Inter and our negotiation is progressing well\".",
+        "is_rumour": false,
+        "all_players": ["Lautaro Martinez"],
+        "all_teams": ["Inter"],
+        "transfers": []
+    },
+    {
+        "text": "News Assan #Ouedraogo: 🆕 Written offer from RB Leipzig to the player! \n\n➡️ But: Understand there are no agreements and no signings! \n\nOuedraogo, totally focused on \n@s04\n and his recovery! Concrete negotiations with other clubs are scheduled next year. Not now. No offer from Bayern yet. \n\n@philipphinze24\n | \n@SkySportDE\n 🇩🇪",
+        "is_rumour": true,
+        "all_players": ["Assan #Ouedraogo"],
+        "all_teams": ["RB Leipzig", "@s04", "Bayern"],
+        "transfers": [
+            {
+                "involved_players": ["Assan #Ouedraogo"],
+                "current_teams": ["@s04"],
+                "rumoured_teams": ["RB Leipzig"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Assan #Ouedraogo"],
+                "current_teams": ["@s04"],
+                "rumoured_teams": ["Bayern"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "News Ferdi #Kadioglu: The 24 y/o could leave \n@Fenerbahce\n in winter as many clubs are interested in the left-back! \n\n➡️ But: #BVB and Bayern not hot at this stage; no talks. \n\n⚠️ Price tag: More than €20m! \n\n@SkySportDE\n 🇹🇷",
+        "is_rumour": true,
+        "all_players": ["Ferdi #Kadioglu"],
+        "all_teams": ["@Fenerbahce", "#BVB", "Bayern"],
+        "transfers": [
+            {
+                "involved_players": ["Ferdi #Kadioglu"],
+                "current_teams": ["@Fenerbahce"],
+                "rumoured_teams": ["#BVB"],
+                "bid_fees": ["More than €20m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Ferdi #Kadioglu"],
+                "current_teams": ["@Fenerbahce"],
+                "rumoured_teams": ["Bayern"],
+                "bid_fees": ["More than €20m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "❗️News Max Meyer: The 28 y/o dreams of a return to the Bundesliga! \n\n➡️ Having a good season so far with \n@FCL_1901\n \n➡️ Luzern aims to extend his contract beyond 2024. \n\nCurrent tendency: He might leave the club on a free transfer in the summer. Concrete talks are planned for the new year. \n@SkySportDE\n 🇩🇪",
+        "is_rumour": true,
+        "all_players": ["Max Meyer"],
+        "all_teams": ["@FCL_1901", "Luzern"],
+        "transfers": [
+            {
+                "involved_players": ["Max Meyer"],
+                "current_teams": ["@FCL_1901", "Luzern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
+    },
+    {
+        "text": "ℹ️ Arnau Martínez, currently not a hot\ntopic for FC Bayern! \n\nBut the club is monitoring him and more players from FC Girona. \n@SkySportDE\n 🇪🇸",
+        "is_rumour": true,
+        "all_players": ["Arnau Martínez"],
+        "all_teams": ["FC Bayern"],
+        "transfers": [
+            {
+                "involved_players": ["Arnau Martínez"],
+                "current_teams": [],
+                "rumoured_teams": ["FC Bayern"],
+                "bid_fees": [],
+                "stage": "interest"
             }
         ]
     }
