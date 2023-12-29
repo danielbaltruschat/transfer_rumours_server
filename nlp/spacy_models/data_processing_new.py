@@ -105,10 +105,10 @@ def remove_invisible_chars(input_string):
 #     return doc
 
 def entity_annotation_new(doc, tweet):
-    labels = ["players", "teams"]
     relation_instances = get_relations_string(tweet)
     ent_strings = {}
     ent_strings["players"], ent_strings["teams"] = get_players_and_teams_from_instances(relation_instances)
+    
     
     #'dictionary' has to be a list since lists cannot be used as the key of a dictionary in Python
     text_to_ent_dict = ([],[])
@@ -153,13 +153,20 @@ def get_relations_string(tweet):
     instances_string = []
         
     for transfer in tweet["transfers"]:
+
         player = transfer["involved_players"]
         if len(transfer["current_teams"]) != 0:
             if (player, transfer["current_teams"], "plays_for") not in instances_string:
                 instances_string.append((player, transfer["current_teams"], "plays_for"))
         if len(transfer["rumoured_teams"]) != 0:
-            if (player, transfer["rumoured_teams"], "rumoured_to_join") not in instances_string:
-                instances_string.append((player, transfer["rumoured_teams"], "rumoured_to_join"))
+            #ignores teams which are confirmed to no longer be rumoured with the player
+            if transfer["stage"] == "deal_off":
+                if (player, transfer["rumoured_teams"], "none") not in instances_string:
+                    instances_string.append((player, transfer["rumoured_teams"], "none"))
+            else:
+                if (player, transfer["rumoured_teams"], "rumoured_to_join") not in instances_string:
+                    instances_string.append((player, transfer["rumoured_teams"], "rumoured_to_join"))
+        
                 
     return instances_string
 
@@ -178,7 +185,8 @@ def modify_doc_relations(doc, instances_ent):
                 offset = (player_ent.start, team_ent.start)
                 if offset not in doc._.rel:
                     doc._.rel[offset] = {"plays_for": 0.0, "rumoured_to_join": 0.0}
-                doc._.rel[offset][instance[2]] = 1.0
+                if instance[2] != "none":
+                    doc._.rel[offset][instance[2]] = 1.0
         
     # instances = doc._.rel.keys()
     # for i, instance1 in enumerate(instances):
