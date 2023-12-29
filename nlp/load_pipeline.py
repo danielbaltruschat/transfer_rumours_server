@@ -12,6 +12,7 @@ def open_json(json_file):
 nlp = spacy.load("nlp/spacy_models/full_model_v1/model-best")
 nlp.add_pipe("add_ent_start_dict")
 nlp.add_pipe("group_entities")
+nlp.add_pipe("mark_uncertain_relations")
 nlp.add_pipe("format_rel_resolver_predictions")
 nlp.add_pipe("normalise_groups")
 

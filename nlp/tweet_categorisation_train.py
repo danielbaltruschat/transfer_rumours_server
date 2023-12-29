@@ -33,11 +33,15 @@ train_dataset = {
 }
 
 
-tweets_table2 = Dataset.from_pandas(tweets_table)
+def split_dataset(dataset, split_ratio=0.4):
+    split_index = int(len(dataset) * split_ratio)
+    return Dataset.from_pandas(dataset[:split_index]), Dataset.from_pandas(dataset[split_index:])
+
+train_dataset, test_dataset = split_dataset(tweets_table)
 
 trainer = SetFitTrainer(
     model = SetFitModel.from_pretrained("paraphrase-MiniLM-L3-v2"),
-    train_dataset=tweets_table2,
+    train_dataset=train_dataset,
     loss_class=CosineSimilarityLoss,
     batch_size=16,
     num_iterations=20,
@@ -45,6 +49,7 @@ trainer = SetFitTrainer(
 )
 
 trainer.train()
+metrics = trainer.evaluate(test_dataset)
 trainer.model.save_pretrained("categorisation_model")
 
 
@@ -58,3 +63,5 @@ Barça verbally agreed personal terms with Mendel to sign him as free agent for 
     
 for pred in preds:
     print(pred)
+    
+pass

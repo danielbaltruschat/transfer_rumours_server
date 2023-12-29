@@ -56,6 +56,17 @@ def group_entities(doc, threshold=0.5):
 
     return doc
 
+@Language.component("mark_uncertain_relations")
+def mark_uncertain_relations(doc):
+    instances = doc._.rel.keys()
+    for i, instance1 in enumerate(instances):
+        for instance2 in enumerate(instances[i+1:]):
+            if abs(instance1[1] - instance2[1]) <= 2:
+                doc._.rel[instance1] = {"plays_for": 0.5, "rumoured_to_join": 0.5}
+                doc._.rel[instance2] = {"plays_for": 0.5, "rumoured_to_join": 0.5}
+
+    return doc
+
 
 
 @Language.component("format_rel_resolver_predictions")

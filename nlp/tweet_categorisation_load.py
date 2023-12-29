@@ -1,6 +1,6 @@
 from setfit import SetFitModel
 
-model = SetFitModel.from_pretrained("nlp/categorisation_model")
+model = SetFitModel.from_pretrained("categorisation_model")
 
 
 # class TweetCategorisationModel:
@@ -24,7 +24,7 @@ def is_rumour(text):
 # “He’s very happy here, I’d love to keep Rasmus of course but sometimes clubs and also players have to consider huge bids”.'''])
 
 
-print(is_rumour("Mohammed Salah due to join Al-Ittihad on a 3 year deal. The Saud club will pay Liverpool £30m for the Egyptian."))
+print(is_rumour("🔴 Klopp on Super League: “I agree 100% with the statement and the verdict”.\n\n“I also like that we get an understanding that UEFA and other FAs can't just do what they want… putting in more games with people having no say in it”.\n\n“I like that UEFA & more got a bit of a shake”."))
 
 # for pred in preds:
 #     print(pred)
