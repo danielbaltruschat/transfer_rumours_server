@@ -3,10 +3,13 @@ services:
   transfer_app:
     build: .
     image: localhost:32768/transfer_app
+    platform: linux/amd64
     environment:
       MYSQL_PASSWORD: secure_password
     ports:
-      - "8000:8000"  
+      - "8000:8000"
+    volumes:
+      - ~/transfer_app_vol:/app/certs  
     depends_on:
       mysql:
         condition: service_healthy  # Wait for MySQL to be ready before starting the transfer_app service.
@@ -14,6 +17,7 @@ services:
   mysql:
     build: mysql
     image: localhost:32768/mysql
+    platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: secure_password
     ports:

@@ -44,6 +44,9 @@ COPY update_database.py .
 COPY server.py .
 COPY wsgi.py .
 
+COPY gunicorn.conf.py .
+COPY certs /app/certs
+
 
 # Copy the supervisord configuration file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

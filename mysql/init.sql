@@ -60,7 +60,3 @@ CREATE TABLE IF NOT EXISTS source_transfer (
     FOREIGN KEY (source_id) REFERENCES sources(source_id),
     FOREIGN KEY (transfer_id) REFERENCES transfers(transfer_id)
 );
-
-
-
-

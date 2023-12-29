@@ -101,6 +101,7 @@ def get_all_transfers():
                 GROUP BY
                     transfer_id
             ) AS latest_sources ON transfers.transfer_id = latest_sources.transfer_id
+        ORDER BY latest_timestamp DESC
         '''
         
         query2 = '''SELECT
@@ -206,6 +207,7 @@ def get_transfer_by_id(transfer_id):
             ) AS latest_sources ON transfers.transfer_id = latest_sources.transfer_id
         WHERE
             transfers.transfer_id = %s
+        ORDER BY latest_timestamp DESC
         '''
         
         query2 = '''SELECT
@@ -219,6 +221,9 @@ def get_transfer_by_id(transfer_id):
             rumoured_team.logo_image AS rumoured_team_logo,
             rumoured_team.league_name AS rumoured_team_league_name,
             latest_sources.latest_timestamp AS latest_timestamp,
+            player_position,
+            market_value,
+            TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE()) as age,
         FROM
             transfers, players, teams AS current_team, teams AS rumoured_team,
             (SELECT transfer_id, MAX(timestamp) AS latest_timestamp
@@ -252,7 +257,8 @@ def get_transfer_by_id(transfer_id):
                 'rumoured_team_league_name': transfer[10],
                 'latest_timestamp': transfer[11],
                 'nation_name': transfer[12],
-                'nation_flag_image': transfer[13]
+                'nation_flag_image': transfer[13],
+                'age': transfer[14]
             }
             formatted_transfers.append(transfer_dict)
         
@@ -308,6 +314,7 @@ def get_transfer_by_player_id(player_id):
             ) AS latest_sources ON transfers.transfer_id = latest_sources.transfer_id
         WHERE
             players.player_id = %s
+        ORDER BY latest_timestamp DESC
         '''
         
         query2 = '''SELECT
@@ -333,6 +340,7 @@ def get_transfer_by_player_id(player_id):
             AND transfers.rumoured_team_id = rumoured_team.team_id
             AND transfers.transfer_id = latest_sources.transfer_id
             AND players.player_id = %s
+        ORDER BY latest_timestamp DESC
         '''
         
         cursor.execute(query, (player_id,))
@@ -410,6 +418,7 @@ def get_transfer_by_team_id(team_id):
             ) AS latest_sources ON transfers.transfer_id = latest_sources.transfer_id
         WHERE
             transfers.rumoured_team_id = %s OR players.current_team_id = %s
+        ORDER BY latest_timestamp DESC
         '''
         
         query2 = '''SELECT
