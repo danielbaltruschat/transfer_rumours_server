@@ -79,7 +79,8 @@ def get_all_transfers():
             rumoured_team.league_name AS rumoured_team_league_name,
             latest_sources.latest_timestamp AS latest_timestamp,
             nations.nation_name,
-            nations.nation_flag
+            nations.nation_flag,
+            transfers.stage
         FROM
             transfers
         JOIN
@@ -151,7 +152,8 @@ def get_all_transfers():
                 'rumoured_team_league_name': transfer[10],
                 'latest_timestamp': transfer[11],
                 'nation_name': transfer[12],
-                'nation_flag_image': transfer[13]
+                'nation_flag_image': transfer[13],
+                'stage': transfer[14]
             }
             formatted_transfers.append(transfer_dict)
         
@@ -183,7 +185,8 @@ def get_transfer_by_id(transfer_id):
             rumoured_team.league_name AS rumoured_team_league_name,
             latest_sources.latest_timestamp AS latest_timestamp,
             nations.nation_name,
-            nations.nation_flag
+            nations.nation_flag,
+            transfers.stage
         FROM
             transfers
         JOIN
@@ -258,7 +261,7 @@ def get_transfer_by_id(transfer_id):
                 'latest_timestamp': transfer[11],
                 'nation_name': transfer[12],
                 'nation_flag_image': transfer[13],
-                'age': transfer[14]
+                'stage': transfer[14]
             }
             formatted_transfers.append(transfer_dict)
         
@@ -290,7 +293,8 @@ def get_transfer_by_player_id(player_id):
             rumoured_team.league_name AS rumoured_team_league_name,
             latest_sources.latest_timestamp AS latest_timestamp,
             nations.nation_name,
-            nations.nation_flag
+            nations.nation_flag,
+            transfers.stage
         FROM
             transfers
         JOIN
@@ -362,7 +366,8 @@ def get_transfer_by_player_id(player_id):
                 'rumoured_team_league_name': transfer[10],
                 'latest_timestamp': transfer[11],
                 'nation_name': transfer[12],
-                'nation_flag_image': transfer[13]
+                'nation_flag_image': transfer[13],
+                'stage': transfer[14]
             }
             formatted_transfers.append(transfer_dict)
         
@@ -394,7 +399,8 @@ def get_transfer_by_team_id(team_id):
             rumoured_team.league_name AS rumoured_team_league_name,
             latest_sources.latest_timestamp AS latest_timestamp,
             nations.nation_name,
-            nations.nation_flag
+            nations.nation_flag,
+            transfers.stage
         FROM
             transfers
         JOIN
@@ -465,7 +471,8 @@ def get_transfer_by_team_id(team_id):
                 'rumoured_team_league_name': transfer[10],
                 'latest_timestamp': transfer[11],
                 'nation_name': transfer[12],
-                'nation_flag_image': transfer[13]
+                'nation_flag_image': transfer[13],
+                'stage': transfer[14]
             }
             formatted_transfers.append(transfer_dict)
         
@@ -505,6 +512,7 @@ def search_players(player_name):
             nations ON players.nation_id = nations.nation_id
         WHERE
             LOWER(player_name) LIKE LOWER(%s)
+        ORDER BY player_name
         """
         query2 = """SELECT
             player_id,
@@ -634,7 +642,8 @@ def search_teams(team_name):
         FROM
             teams
         WHERE
-            team_name LIKE %s
+            LOWER(team_name) LIKE LOWER(%s)
+        ORDER BY team_name
         """
         query2 = """SELECT
             team_id,
@@ -730,7 +739,8 @@ def get_sources_by_transfer_id(transfer_id):
         query = """SELECT source_type, source_link, text, timestamp, author_name, sources.source_id 
         FROM sources 
         JOIN source_transfer ON sources.source_id = source_transfer.source_id
-        WHERE transfer_id = %s"""
+        WHERE transfer_id = %s
+        ORDER BY timestamp DESC"""
         query2 = """SELECT source_type, source_link, text, timestamp, author_name, sources.source_id
         FROM sources, source_transfer
         WHERE sources.source_id = source_transfer.source_id

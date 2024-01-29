@@ -1,12 +1,13 @@
 from .transfermarktscraper.scraper import parse_search_results, get_teams_from_search_results, get_players_from_search_results
 import json
 import re
+import os
 from unidecode import unidecode
 
-DIRECTORY = "nlp/"
+DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
 def check_replace_json(file_name, names):
-    with open(DIRECTORY + file_name, "r") as f:
+    with open(os.path.join(DIRECTORY, file_name), "r") as f:
         json_data = json.load(f)
     new_names = []
     for name in names:
@@ -33,7 +34,7 @@ def remove_accents(names):
     return [unidecode(name) for name in names]
 
 def normalise_fc(team_name):
-    fc = re.compile(r"f.?c.?", re.IGNORECASE)
+    fc = re.compile(r"f\.?c\.?", re.IGNORECASE)
     team_name = re.sub(fc, "fc", team_name)
     return team_name
 
@@ -51,7 +52,7 @@ def remove_duplicates(names):
 
 def prepare_team_names(team_names):
     team_names = remove_accents(team_names)
-    team_names = check_replace_json("team_names.json", team_names)
+    #team_names = check_replace_json("team_names.json", team_names)
     team_names = check_and_handle_twitter_name(team_names)
     team_names = [name.lower() for name in team_names]
     team_names = remove_duplicates(team_names)
@@ -133,7 +134,6 @@ def check_and_handle_twitter_name(names):
         new_names.append(name)
     return new_names
         
-#TODO improve
 def handle_twitter_name(team_name):
     team_name = re.sub(r"[@#]", "", team_name)
     
@@ -153,7 +153,7 @@ def handle_twitter_name(team_name):
                     
     split_team_name = new_team_name
     
-    with open(DIRECTORY + "common_addons.txt", "r") as f:
+    with open(os.path.join(DIRECTORY, "common_addons.txt"), "r") as f:
         common_addons = [line.strip() for line in f.readlines()]
     
     regex = "|".join(common_addons) + r"|\d+"
@@ -164,10 +164,17 @@ def handle_twitter_name(team_name):
         names = separate_words_by_re(regex, split)
         new_team_name.extend(names)
         
+    def remove_all_occurrences_of_item_from_list(item, list_):
+        return [name for name in list_ if name.lower() != item.lower()]
+    
+    addons = ["en", "official"]
+    for addon in addons:
+        new_team_name = remove_all_occurrences_of_item_from_list(addon, new_team_name)
+        
     return " ".join(new_team_name)
         
     
-#print(handle_twitter_name("@BorussiaMGB_en"))
+#print(normalise_fc("fc lorient"))
 
 #print(normalise_data(['Ludwig Augustinsson'], ['Sevilla'], ['Anderlecht', 'Aston Villa']))
         

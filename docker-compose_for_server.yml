@@ -2,18 +2,21 @@ version: '3.9'
 services:
   transfer_app:
     build: .
-    image: 10.140.1.196:32768/transfer_app
+    image: 10.140.1.48:32768/transfer_app
     environment:
       MYSQL_PASSWORD: secure_password
     ports:
-      - "8000:8000"  
+      - "8000:8000"
+    volumes:
+      - ~/transfer_app_vol:/app/certs
+      - ~/transfer_app_timings:/app/timings  
     depends_on:
       mysql:
         condition: service_healthy  # Wait for MySQL to be ready before starting the transfer_app service.
 
   mysql:
     build: mysql
-    image: 10.140.1.196:32768/mysql
+    image: 10.140.1.48:32768/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secure_password
     ports:

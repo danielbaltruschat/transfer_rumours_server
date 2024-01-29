@@ -6,7 +6,7 @@ import sys
 def main():
     
     print("loaded")
-    text = "🚨 EXCLUSIVE News Ronald #Araujo: He‘s the absolute desired transfer target of FC Bayern!\n\n‼️ There was a phone call between Tuchel, Freund and Araujo this Friday 📞\n\n➡️ Tuchel made it clear to him that he wants him urgently, preferably in winter or summer, no matter the cost. Bayern, ready to pay a massive transfer fee! \n\nIt will be a difficult mission for Bayern. Now it's up to Araújo. \n@SkySportDE\n 🇺🇾\n"
+    text = """🚨🆕 News #Mangala: There was direct contact between Juventus and the player in the last days 📞\n\n➡️ @juventusfc is still interested in a six-months-loan with an option to buy. But: Allegri will make the final decision ✔️\n\nNapoli have submitted an offer in the last days as revealed. Forest has rejected the initial first offer from Galatasaray. @SkySportDE 🇧🇪"""
 
 
     pass

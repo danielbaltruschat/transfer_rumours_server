@@ -1,0 +1,270 @@
+/usr/local/lib/python3.9/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.3.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.9/site-packages/spacy_transformers/layers/hf_shim.py:137: UserWarning: Error loading saved torch state_dict with strict=True, likely due to differences between 'transformers' versions. Attempting to load with strict=False as a fallback...
+
+If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current 'transformers' and 'spacy-transformers' versions. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Starting update_database.py
+/app/transfer_sources/twitter
+FabrizioRomano
+Plettigoal
+David_Ornstein
+DiMarzio
+MatteMoretto
+jpercytelegraph
+honigstein
+SamLee
+FabriceHawkins
+Santi_J_FM
+sebnonda
+sachatavolieri
+Matt_Law_DT
+TransferRu44501
+[1745915513786486864 🆕 News #Ekitike: VfL Wolfsburg inquired about him but they are definitely out of the race. Main reason: His salary of around €6-7m gross/year! 
+
+➡️ This salary is affordable for neither Wolfsburg nor Eintracht Frankfurt! 
+
+⚠️ #SGE bosses have personally spoken with Ekitike in the last days. He left a great impression. But still no verbal agreement. 
+
+The only chance for Frankfurt arises if Ekitike is willing to accept a drastic salary reduction. @SkySportDE 🇫🇷 Plettigoal 1705093670]
+[1745915413702021353 #Inter, la probabile formazione contro il #Monza
+https://t.co/L0ZVsuQFbK DiMarzio 1705093646]
+[1745915497323921416 Non, non, il n'y a aucune erreur. C'est la fin de la collab avec Jordan. En 2024/2025, c'est la dernière année pour le textile.  Et il y a aura "peut-être" une sneaker PSG-Jordan en 2025/2026. Et le deal avec Nike continue jusqu'en 2032... Santi_J_FM 1705093666]
+Tweets saved to MySQL database
+list index out of range
+list index out of range
+list index out of range
+🆕 News #Ekitike: VfL Wolfsburg inquired about him but they are definitely out of the race. Main reason: His salary of around €6-7m gross/year! 
+
+➡️ This salary is affordable for neither Wolfsburg nor Eintracht Frankfurt! 
+
+⚠️ #SGE bosses have personally spoken with Ekitike in the last days. He left a great impression. But still no verbal agreement. 
+
+The only chance for Frankfurt arises if Ekitike is willing to accept a drastic salary reduction. @SkySportDE 🇫🇷
+None
+Traceback (most recent call last):
+  File "/app/update_database.py", line 276, in <module>
+    main()
+  File "/app/update_database.py", line 263, in main
+    update_transfers(db, time_gap_random)
+  File "/app/update_database.py", line 196, in update_transfers
+    delete_source(cursor, source[0])
+  File "/app/database_functions.py", line 83, in delete_source
+    cursor.execute("DELETE FROM sources WHERE source_id = %s", (source_id,))
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 176, in execute
+    mogrified_query = self._mogrify(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 184, in _mogrify
+    db = self._get_db()
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 159, in _get_db
+    raise ProgrammingError("cursor closed")
+MySQLdb.ProgrammingError: cursor closed
+/usr/local/lib/python3.9/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.3.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.9/site-packages/spacy_transformers/layers/hf_shim.py:137: UserWarning: Error loading saved torch state_dict with strict=True, likely due to differences between 'transformers' versions. Attempting to load with strict=False as a fallback...
+
+If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current 'transformers' and 'spacy-transformers' versions. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Starting update_database.py
+/app/transfer_sources/twitter
+FabrizioRomano
+Plettigoal
+David_Ornstein
+DiMarzio
+MatteMoretto
+jpercytelegraph
+honigstein
+SamLee
+FabriceHawkins
+Santi_J_FM
+sebnonda
+sachatavolieri
+Matt_Law_DT
+TransferRu44501
+[1745915513786486864 🆕 News #Ekitike: VfL Wolfsburg inquired about him but they are definitely out of the race. Main reason: His salary of around €6-7m gross/year! 
+
+➡️ This salary is affordable for neither Wolfsburg nor Eintracht Frankfurt! 
+
+⚠️ #SGE bosses have personally spoken with Ekitike in the last days. He left a great impression. But still no verbal agreement. 
+
+The only chance for Frankfurt arises if Ekitike is willing to accept a drastic salary reduction. @SkySportDE 🇫🇷 Plettigoal 1705093670]
+[1745915413702021353 #Inter, la probabile formazione contro il #Monza
+https://t.co/L0ZVsuQFbK DiMarzio 1705093646]
+[1745915497323921416 Non, non, il n'y a aucune erreur. C'est la fin de la collab avec Jordan. En 2024/2025, c'est la dernière année pour le textile.  Et il y a aura "peut-être" une sneaker PSG-Jordan en 2025/2026. Et le deal avec Nike continue jusqu'en 2032... Santi_J_FM 1705093666]
+Tweets saved to MySQL database
+list index out of range
+list index out of range
+list index out of range
+🆕 News #Ekitike: VfL Wolfsburg inquired about him but they are definitely out of the race. Main reason: His salary of around €6-7m gross/year! 
+
+➡️ This salary is affordable for neither Wolfsburg nor Eintracht Frankfurt! 
+
+⚠️ #SGE bosses have personally spoken with Ekitike in the last days. He left a great impression. But still no verbal agreement. 
+
+The only chance for Frankfurt arises if Ekitike is willing to accept a drastic salary reduction. @SkySportDE 🇫🇷
+None
+Traceback (most recent call last):
+  File "/app/update_database.py", line 276, in <module>
+    main()
+  File "/app/update_database.py", line 263, in main
+    update_transfers(db, time_gap_random)
+  File "/app/update_database.py", line 196, in update_transfers
+    delete_source(cursor, source[0])
+  File "/app/database_functions.py", line 83, in delete_source
+    cursor.execute("DELETE FROM sources WHERE source_id = %s", (source_id,))
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 176, in execute
+    mogrified_query = self._mogrify(query, args)
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 184, in _mogrify
+    db = self._get_db()
+  File "/usr/local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 159, in _get_db
+    raise ProgrammingError("cursor closed")
+MySQLdb.ProgrammingError: cursor closed
+/usr/local/lib/python3.9/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.3.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.9/site-packages/spacy_transformers/layers/hf_shim.py:137: UserWarning: Error loading saved torch state_dict with strict=True, likely due to differences between 'transformers' versions. Attempting to load with strict=False as a fallback...
+
+If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current 'transformers' and 'spacy-transformers' versions. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Starting update_database.py
+/app/transfer_sources/twitter
+FabrizioRomano
+Plettigoal
+David_Ornstein
+DiMarzio
+MatteMoretto
+jpercytelegraph
+honigstein
+SamLee
+FabriceHawkins
+panic: response status 429 Too Many Requests: Rate limit exceeded
+
+
+goroutine 1 [running]:
+main.GetTweets({0xc000158000, 0xe, 0xc00014fea0?}, 0x708)
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:73 +0x785
+main.main()
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:106 +0x145
+Traceback (most recent call last):
+  File "/app/update_database.py", line 276, in <module>
+    main()
+  File "/app/update_database.py", line 263, in main
+    update_transfers(db, time_gap_random)
+  File "/app/update_database.py", line 181, in update_transfers
+    subprocess.run(["/app/transfer_sources/twitter/get_tweets.bin"], check=True, cwd="/app/transfer_sources/twitter")
+  File "/usr/local/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/app/transfer_sources/twitter/get_tweets.bin']' returned non-zero exit status 2.
+/usr/local/lib/python3.9/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.3.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.9/site-packages/spacy_transformers/layers/hf_shim.py:137: UserWarning: Error loading saved torch state_dict with strict=True, likely due to differences between 'transformers' versions. Attempting to load with strict=False as a fallback...
+
+If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current 'transformers' and 'spacy-transformers' versions. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Starting update_database.py
+/app/transfer_sources/twitter
+FabrizioRomano
+panic: response status 429 Too Many Requests: Rate limit exceeded
+
+
+goroutine 1 [running]:
+main.GetTweets({0xc000158000, 0xe, 0xc00014fea0?}, 0x708)
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:73 +0x785
+main.main()
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:106 +0x145
+Traceback (most recent call last):
+  File "/app/update_database.py", line 276, in <module>
+    main()
+  File "/app/update_database.py", line 263, in main
+    update_transfers(db, time_gap_random)
+  File "/app/update_database.py", line 181, in update_transfers
+    subprocess.run(["/app/transfer_sources/twitter/get_tweets.bin"], check=True, cwd="/app/transfer_sources/twitter")
+  File "/usr/local/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/app/transfer_sources/twitter/get_tweets.bin']' returned non-zero exit status 2.
+/usr/local/lib/python3.9/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.3.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.9/site-packages/spacy_transformers/layers/hf_shim.py:137: UserWarning: Error loading saved torch state_dict with strict=True, likely due to differences between 'transformers' versions. Attempting to load with strict=False as a fallback...
+
+If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current 'transformers' and 'spacy-transformers' versions. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Starting update_database.py
+/app/transfer_sources/twitter
+FabrizioRomano
+panic: response status 429 Too Many Requests: Rate limit exceeded
+
+
+goroutine 1 [running]:
+main.GetTweets({0xc000112000, 0xe, 0xc00010fea0?}, 0x708)
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:73 +0x785
+main.main()
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:106 +0x145
+Traceback (most recent call last):
+  File "/app/update_database.py", line 276, in <module>
+    main()
+  File "/app/update_database.py", line 263, in main
+    update_transfers(db, time_gap_random)
+  File "/app/update_database.py", line 181, in update_transfers
+    subprocess.run(["/app/transfer_sources/twitter/get_tweets.bin"], check=True, cwd="/app/transfer_sources/twitter")
+  File "/usr/local/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/app/transfer_sources/twitter/get_tweets.bin']' returned non-zero exit status 2.
+/usr/local/lib/python3.9/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.3.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.9/site-packages/spacy_transformers/layers/hf_shim.py:137: UserWarning: Error loading saved torch state_dict with strict=True, likely due to differences between 'transformers' versions. Attempting to load with strict=False as a fallback...
+
+If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current 'transformers' and 'spacy-transformers' versions. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Starting update_database.py
+/app/transfer_sources/twitter
+FabrizioRomano
+panic: response status 429 Too Many Requests: Rate limit exceeded
+
+
+goroutine 1 [running]:
+main.GetTweets({0xc000158000, 0xe, 0xc00014fea0?}, 0x708)
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:73 +0x785
+main.main()
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:106 +0x145
+Traceback (most recent call last):
+  File "/app/update_database.py", line 276, in <module>
+    main()
+  File "/app/update_database.py", line 263, in main
+    update_transfers(db, time_gap_random)
+  File "/app/update_database.py", line 181, in update_transfers
+    subprocess.run(["/app/transfer_sources/twitter/get_tweets.bin"], check=True, cwd="/app/transfer_sources/twitter")
+  File "/usr/local/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/app/transfer_sources/twitter/get_tweets.bin']' returned non-zero exit status 2.
+/usr/local/lib/python3.9/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.3.0 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.9/site-packages/spacy_transformers/layers/hf_shim.py:137: UserWarning: Error loading saved torch state_dict with strict=True, likely due to differences between 'transformers' versions. Attempting to load with strict=False as a fallback...
+
+If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current 'transformers' and 'spacy-transformers' versions. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Starting update_database.py
+/app/transfer_sources/twitter
+FabrizioRomano
+panic: response status 429 Too Many Requests: Rate limit exceeded
+
+
+goroutine 1 [running]:
+main.GetTweets({0xc000158000, 0xe, 0xc00014fea0?}, 0x708)
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:73 +0x785
+main.main()
+	D:/OneDrive/CGS/Colyton Grammar School/Computer Science 13A-Cs 2023 CGS - Student work/Daniel Baltruschat - 17DBaltruscha/13_NEA/Server side/transfer_sources/twitter/get_tweets.go:106 +0x145
+Traceback (most recent call last):
+  File "/app/update_database.py", line 276, in <module>
+    main()
+  File "/app/update_database.py", line 263, in main
+    update_transfers(db, time_gap_random)
+  File "/app/update_database.py", line 181, in update_transfers
+    subprocess.run(["/app/transfer_sources/twitter/get_tweets.bin"], check=True, cwd="/app/transfer_sources/twitter")
+  File "/usr/local/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/app/transfer_sources/twitter/get_tweets.bin']' returned non-zero exit status 2.

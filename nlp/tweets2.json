@@ -30,6 +30,21 @@
         ]
     },
     {
+        "text": "#SerieA | @sscnapoli, #Zielinski out against #Salernitana due to fatigue 👇",
+        "is_rumour": false,
+        "all_players": ["#Zielinski"],
+        "all_teams": ["@sscnapoli", "#Salernitana"],
+        "transfers": [
+            {
+                "involved_players": ["#Zielinski"],
+                "current_teams": ["@sscnapoli"],
+                "rumoured_teams": ["#Salernitana"],
+                "bid_fees": [],
+                "stage": ""
+            }
+        ]
+    },
+    {
         "text": "Ola Aina, set to sign two year deal at Nottingham Forest. 🔴🌳✍🏻 #NFFC\n\n It will also include an option for further season — potential contract until June 2026.",
         "is_rumour": true,
         "all_players": ["Ola Aina"],
@@ -182,6 +197,21 @@
         "all_players": [],
         "all_teams": [],
         "transfers": []
+    },
+    {
+        "text": "#Calciomercato I @HellasVeronaFC, the transfer of #Paraoni to @acffiorentina has been made official",
+        "is_rumour": true,
+        "all_players": ["#Paraoni"],
+        "all_teams": ["@HellasVeronaFC", "@acffiorentina"],
+        "transfers": [
+            {
+                "involved_players": ["#Paraoni"],
+                "current_teams": ["@HellasVeronaFC"],
+                "rumoured_teams": ["@acffiorentina"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
     },
     {
         "text": "Dimitri Payet, in tears after announcing that he’s set to leave OM.\n\n🎥 \n@Steph13Freed",
@@ -5187,6 +5217,102 @@
                 "involved_players": ["Arnau Martínez"],
                 "current_teams": [],
                 "rumoured_teams": ["FC Bayern"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "#Doig-#OM to the details for 6 million plus bonus and percentage on future resale. Operation now closing. #TransferMarket @SkySport",
+        "is_rumour": true,
+        "all_players": ["#Doig"],
+        "all_teams": ["#OM"],
+        "transfers": [
+            {
+                "involved_players": ["#Doig"],
+                "current_teams": [],
+                "rumoured_teams": ["#OM"],
+                "bid_fees": ["6 million plus bonus and percentage on future resale"],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🔴🟡🇪🇸 #SerieA |\n\n◉ Diego Llorente's agents asked Roma if it was possible to break the defender's loan 🇪🇸❗️\n\n◉ Roma is not against it but first wants to find a low-cost replacement 💫\n\n◉ Diego Llorente wants to join PSG ✅️",
+        "is_rumour": true,
+        "all_players": ["Diego Llorente"],
+        "all_teams": ["Roma", "PSG"],
+        "transfers": [
+            {
+                "involved_players": ["Diego Llorente"],
+                "current_teams": [],
+                "rumoured_teams": ["Roma"],
+                "bid_fees": [],
+                "stage": "negotiations"
+            },
+            {
+                "involved_players": ["Diego Llorente"],
+                "current_teams": [],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": [],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "Nicolas #Kühn, waiting for the 🟢 light to travel to Glasgow! Celtic and Rapid are close to find an agreement. Brendan Rodgers wants him 🛩️\n\n➡️ Verbal agreement is done as the 24 y/o winger wants to join @CelticFC with immediate effect \n\n➡️ Transfer fee: Around €3.5m + add-ons \n\n➡️ Contract until 2028 ✔️\n\nKühn, already not in the lineup for today's friendly match of @skrapid. \n\n@SkySportDE 🇩🇪",
+        "is_rumour": true,
+        "all_players": ["Nicolas #Kühn"],
+        "all_teams": ["Celtic", "Rapid", "@CelticFC", "@skrapid"],
+        "transfers": [
+            {
+                "involved_players": ["Nicolas #Kühn"],
+                "current_teams": ["@skrapid", "Rapid"],
+                "rumoured_teams": ["Celtic", "@CelticFc"],
+                "bid_fees": ["Around €3.5m + add-ons"],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "Atlético spies defenses for the future.\n\nOne of the most popular names is Leny Yoro, an 18-year-old defender from Lille.\n\nWe are talking about a talent that is on the list of all the big clubs in Europe.\n\nHe has a very high rating even though his contract expires in June 2025.\n\n@relief",
+        "is_rumour": true,
+        "all_players": ["Leny Yoro"],
+        "all_teams": ["Atlético", "Lille"],
+        "transfers": [
+            {
+                "involved_players": ["Leny Yoro"],
+                "current_teams": ["Lille"],
+                "rumoured_teams": ["Atlético"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨🆕 News #Mangala: There was direct contact between Juventus and the player in the last days 📞\n\n➡️ @juventusfc is still interested in a six-months-loan with an option to buy. But: Allegri will make the final decision ✔️\n\nNapoli have submitted an offer in the last days as revealed. Forest has rejected the initial first offer from Galatasaray. @SkySportDE 🇧🇪",
+        "is_rumour": true,
+        "all_players": ["#Mangala"],
+        "all_teams": ["Juventus", "@juventusfc", "Napoli", "Galatasaray", "Forest"],
+        "transfers": [
+            {
+                "involved_players": ["#Mangala"],
+                "current_teams": ["Forest"],
+                "rumoured_teams": ["Juventus", "@juventusfc"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["#Mangala"],
+                "current_teams": ["Forest"],
+                "rumoured_teams": ["Napoli"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["#Mangala"],
+                "current_teams": ["Forest"],
+                "rumoured_teams": ["Galatasaray"],
                 "bid_fees": [],
                 "stage": "interest"
             }

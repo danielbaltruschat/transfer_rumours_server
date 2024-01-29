@@ -9,7 +9,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ~/transfer_app_vol:/app/certs  
+      - ~/transfer_app_vol:/app/certs
+      - ~/transfer_app_timings:/app/timings
     depends_on:
       mysql:
         condition: service_healthy  # Wait for MySQL to be ready before starting the transfer_app service.

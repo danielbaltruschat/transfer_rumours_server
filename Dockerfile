@@ -37,10 +37,11 @@ COPY nlp/transfermarktscraper /app/nlp/transfermarktscraper
 COPY --chmod=0755 transfer_sources/twitter/get_tweets.bin /app/transfer_sources/twitter/get_tweets.bin
 COPY transfer_sources/twitter/twitter_sources.txt /app/transfer_sources/twitter/twitter_sources.txt
 
+COPY /utility /app
 
+COPY database_functions.py .
 COPY update_database.py .
 
-#TODO move server to separate container
 COPY server.py .
 COPY wsgi.py .
 
@@ -57,6 +58,8 @@ ENV MYSQL_USER=root
 ENV MYSQL_PASSWORD=my_password
 ENV MYSQL_PORT=3306
 ENV TIME_WAIT=1800
+ENV TWITTER_USERNAME=TSferapp2
+ENV TWITTER_PASSWORD=transfer_app
 
 ENV TOKENIZERS_PARALLELISM=false
 

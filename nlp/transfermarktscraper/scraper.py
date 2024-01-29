@@ -1,8 +1,11 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+import json
+import os
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
+CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
 
 #TODO change class to dictionary
 class Item:
@@ -39,10 +42,6 @@ def parse_search_results(search, search_type):
         else:
             i += 1
         
-    #For some reason the it goes to yw3 after yw1 so this fixes that
-    # if i > 1:
-    #     i += 1
-        
     if not found_row:
         raise Exception("No results found for " + search + ".")
 
@@ -66,6 +65,16 @@ def parse_search_results(search, search_type):
     return all_results
 
 def get_teams_from_search_results(search):
+    
+    with open(os.path.join(CURRENT_PATH, "national_teams.json"), "r") as f:
+        national_teams = json.load(f)
+    
+    national_teams = "|".join(national_teams)
+    national_team_expression = re.compile(r"(" + national_teams + r")( U\d{1,2})?")
+    
+    if national_team_expression.match(search.lower()):
+        raise Exception("Cannot get teams for national team " + search + ".")   
+    
     all_results = parse_search_results(search, "team")
     
     teams = []
@@ -74,8 +83,18 @@ def get_teams_from_search_results(search):
         name = result.find("td", class_="hauptlink").find("a", href=True)
         link = name['href']
         name = name.get_text()
-        teams.append(Item(name, link, "team"))
+        market_value = result.findChild("td", class_="rechts").get_text()
+        
+        if market_value == "-":
+            break
+        
+        #checks if team is not a national team
+        if not national_team_expression.match(name.lower()):        
+            teams.append(Item(name, link, "team"))
     
+    if len(teams) == 0:
+        raise Exception("No results found for " + search + ".")
+        
     return teams
 
 #TODO only allow above certain market value
@@ -121,7 +140,7 @@ def get_player_info_from_link(player_link):
     main = soup.find("main")
     
     player_name = main.find("h1", class_="data-header__headline-wrapper")
-    player_name = player_name.find("span").next_sibling + player_name.find("strong").get_text()
+    player_name = player_name.find("strong").previous_sibling + player_name.find("strong").get_text()
     player_name = player_name.strip()
 
     team = main.find("div", class_="data-header__club-info").find("a")
@@ -183,7 +202,7 @@ def get_team_info_from_link(team_link):
 
     except Exception as e:
         print(e)
-        raise Exception("No team found for", team_link)
+        raise Exception("Error retrieving data for team: ", team_link)
 
     return {"team_name": team_name, "league_name": league_name, "team_logo_url": team_logo_url, "team_link": team_link}
     
@@ -231,6 +250,7 @@ def get_nation_info(nation_name):
     return {"name": nation_name, "flag_image": nation_flag_url}
 
 # info = get_team_info_from_link("/statistik/vertragslosespieler")
+#print(get_teams_from_search_results("nigeria u18"))
 # pass
 # print(get_player_info("Jamal Musiala"))
 # print(get_team_info("Bayern"))

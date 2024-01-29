@@ -40,7 +40,10 @@ func GetTweets(sources []string, timeAllowed int64) ([][]string, error) {
 	}
 
 	if !scraper.IsLoggedIn() {
-		errLogin := scraper.Login("TSferapp", "transfer_app")
+		username := os.Getenv("TWITTER_USERNAME")
+		password := os.Getenv("TWITTER_PASSWORD")
+
+		errLogin := scraper.Login(username, password)
 		if errLogin != nil {
 			return nil, errLogin
 		}
@@ -87,8 +90,8 @@ func main() {
 	}
 	fmt.Println(mydir)
 
-	//args := os.Args[1:]
-	args := []string{"root", "secure_password", "3306", "1800"}
+	args := os.Args[1:]
+	//args := []string{"root", "secure_password", "3306", "1800"}
 
 	// Get twitter users from twitter_sources.txt
 	sources, err := ReadFileLines("twitter_sources.txt")
