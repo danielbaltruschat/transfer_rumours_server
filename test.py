@@ -6,7 +6,7 @@ import sys
 def main():
     
     print("loaded")
-    text = """🚨🆕 News #Mangala: There was direct contact between Juventus and the player in the last days 📞\n\n➡️ @juventusfc is still interested in a six-months-loan with an option to buy. But: Allegri will make the final decision ✔️\n\nNapoli have submitted an offer in the last days as revealed. Forest has rejected the initial first offer from Galatasaray. @SkySportDE 🇧🇪"""
+    text = """Real Madrid are pursuing Jude Bellingham! The club is pushing for a deal to be done before the end of the transfer window."""
 
 
     pass

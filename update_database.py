@@ -285,7 +285,10 @@ def update_transfers(mysql_user, mysql_password, mysql_port, time_wait):
                 cursor.execute("UPDATE transfers SET stage='done_official' WHERE transfer_id = {0}".format(transfer_id[0]))
                 bump_transfer(cursor, transfer_id[0])
             else:
-                add_official_transfer(cursor, player[0], current_team)
+                try:
+                    add_official_transfer(cursor, player[0], current_team)
+                except Exception as e:
+                    print(e)
                 
                 
                  
