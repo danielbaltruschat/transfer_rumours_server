@@ -1,4 +1,0 @@
-1. Get whether the tweet contains a transfer rumour or not
-2. Get the player, (current team) and rumoured team from the tweet
-3. (Optional) Get stage of the transfer
-4. (Optional) Get percentage probability of the transfer going through
