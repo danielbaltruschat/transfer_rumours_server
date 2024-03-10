@@ -24,10 +24,8 @@ func ReadFileLines(filename string) ([]string, error) {
 	return lines, nil
 }
 
-// TODO - reduce cognitive complexity
-func GetTweets(sources []string, timeAllowed int64) ([][]string, error) {
+func GetTweets(sources []string, timeAllowed int64, username string, password string) ([][]string, error) {
 	scraper := twitterscraper.New()
-	//errLogin := scraper.LoginOpenAccount()
 	f, err := os.Open("cookies.json")
 
 	if err == nil {
@@ -40,8 +38,6 @@ func GetTweets(sources []string, timeAllowed int64) ([][]string, error) {
 	}
 
 	if !scraper.IsLoggedIn() {
-		username := os.Getenv("TWITTER_USERNAME")
-		password := os.Getenv("TWITTER_PASSWORD")
 
 		errLogin := scraper.Login(username, password)
 		if errLogin != nil {
@@ -83,6 +79,25 @@ func GetTweets(sources []string, timeAllowed int64) ([][]string, error) {
 	return tweets, nil
 }
 
+func main_test() {
+	sources := []string{"FabrizioRomano"}
+
+	timeAllowed := 1800 // 30 minutes
+
+	twitterUsername := "TSferapp2"
+	twitterPassword := "transfer_app"
+
+	tweets, err := GetTweets(sources, int64(timeAllowed), twitterUsername, twitterPassword)
+
+	if err != nil {
+		panic(err)
+	}
+
+	for _, row := range tweets {
+		fmt.Println(row)
+	}
+}
+
 func main() {
 	mydir, err := os.Getwd()
 	if err != nil {
@@ -91,7 +106,6 @@ func main() {
 	fmt.Println(mydir)
 
 	args := os.Args[1:]
-	//args := []string{"root", "secure_password", "3306", "1800"}
 
 	// Get twitter users from twitter_sources.txt
 	sources, err := ReadFileLines("twitter_sources.txt")
@@ -104,7 +118,10 @@ func main() {
 		panic(err)
 	}
 
-	tweets, err := GetTweets(sources, int64(timeAllowed))
+	twitterUsername := os.Getenv("TWITTER_USERNAME")
+	twitterPassword := os.Getenv("TWITTER_PASSWORD")
+
+	tweets, err := GetTweets(sources, int64(timeAllowed), twitterUsername, twitterPassword)
 
 	if err != nil {
 		panic(err)

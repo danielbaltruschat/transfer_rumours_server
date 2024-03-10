@@ -7,7 +7,6 @@ import os
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
 
-#TODO change class to dictionary
 class Item:
     def __init__(self, name, url, item_type, team_url=None):
         self.name = name
@@ -97,14 +96,15 @@ def get_teams_from_search_results(search):
         
     return teams
 
-#TODO only allow above certain market value
 def get_players_from_search_results(player_name, team_name=None):
     all_players = parse_search_results(player_name, "player")
     
     players = []
     for player in all_players:
+        #checks if market value is not zero
         if player.find("td", class_="rechts hauptlink").get_text() == "-":
             continue
+
         player_element = player.find("td", class_="hauptlink").find("a", href=True)
         player_link = player_element['href']
         player_name = player_element.get_text()
@@ -113,6 +113,7 @@ def get_players_from_search_results(player_name, team_name=None):
             continue
         team = team_element.get_text()
         team_link = team_element['href']
+        
         #team_name may not exist so it is checked first
         if team_name == None or team_name.lower() in team.lower():
             if team_name != player_name:
@@ -153,7 +154,7 @@ def get_player_info_from_link(player_link):
         player_face_url = None
         
     general_info = main.find("div", class_="data-header__info-box").find("div")
-    
+
     general_info = general_info.find_all("li")
     general_info_dict = {}
     for li in general_info:
@@ -209,23 +210,14 @@ def get_team_info_from_link(team_link):
 
 def get_player_info(player_name, team_name=None): #Gets the player's name, team and face image url from the search results
     player = get_players_from_search_results(player_name, team_name)[0]
-    # if player_link == None:
-    #     raise Exception("No player found", player_name, team_name)
 
     return get_player_info_from_link(player.url)
 
 
 
-def get_team_info(team_name): #Gets the team's name, league and logo image url from the search results, similar structure to get_player_info but slightly different format in transfermarkt
-    if team_name == "Without Club":
-        return team_name, None, "https://tmssl.akamaized.net/images/wappen/normquad/515.png?lm=1456997255"
-    
+def get_team_info(team_name): #Gets the team's name, league and logo image url from the search results, similar structure to get_player_info but slightly different format in transfermarkt   
     team = get_teams_from_search_results(team_name)[0]
         
-    # if team_link == None:
-    #     raise Exception("No team found", team_name, league_name)
-
-    #Gets details from the player's page
     return get_team_info_from_link(team.url)
 
 def get_nation_info(nation_name):
@@ -254,3 +246,7 @@ def get_nation_info(nation_name):
 # pass
 # print(get_player_info("Jamal Musiala"))
 # print(get_team_info("Bayern"))
+
+# items = get_teams_from_search_results("Borussia")
+# for item in items:
+#     print("Item:", item, "Item.name:", item.name)

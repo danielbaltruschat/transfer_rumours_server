@@ -7,6 +7,7 @@ from nlp.transfermarktscraper import scraper
 from database_functions import *
 import nlp
 import sys
+import json
 
 def get_new_sources(cursor, time_wait):
     
@@ -15,7 +16,6 @@ def get_new_sources(cursor, time_wait):
     cursor.execute("SELECT source_id, text, timestamp FROM sources WHERE timestamp > %s", (prev_time,))
     sources = cursor.fetchall()
     
-    #db.close()
     return sources
 
 def add_official_transfer(cursor, player_id, team_link):
@@ -45,18 +45,6 @@ def delete_old_transfers(db, time_days):
             ) AS latest_sources
             WHERE latest_timestamp < %s AND (stage = 'done_official' OR stage = 'deal_off_official'))"""
     
-    query2 = """
-    DELETE FROM transfers
-    WHERE (
-        SELECT transfer_id, MAX(timestamp) AS latest_timestamp
-        FROM sources, source_transfer
-        WHERE sources.source_id = source_transfer.source_id
-        GROUP BY transfer_id
-    )
-    WHERE latest_timestamp < %s
-    """
-    
-    
     cursor.execute(query, (int(time.time()) - time_seconds,))
     transfer_ids = cursor.fetchall()
 
@@ -77,7 +65,7 @@ def add_transfer(cursor, source_id, doc):
                 relations.append(key)
         return relations
     
-    database_ids = [-1 for _ in range(len(doc._.ent_groups))]
+    database_ids = [-1 for _ in range(len(doc._.normalised_names))]
     for i, normalised_item in enumerate(doc._.normalised_names):
         if normalised_item != -1:
             #if player, checks if there is a current_team
@@ -89,8 +77,6 @@ def add_transfer(cursor, source_id, doc):
                 database_ids[i] = team_id
                     
             elif normalised_item.item_type == "player":
-                # current_team_index = get_player_current_team(i, doc)
-                # if current_team_index == None or doc._.normalised_names[current_team_index] == -1:
                 player_id = check_player_in_database(cursor, normalised_item.url)
                 if player_id == None:
                     player_data = scraper.get_player_info_from_link(normalised_item.url)
@@ -130,32 +116,61 @@ def add_transfer(cursor, source_id, doc):
             sys.stdout.flush()
             
         
-    
-def update_player_data(db):
+def update_players(json_file_dir, num_players, db):
     cursor = db.cursor()
 
-    query = """
-    SELECT 
-        players.player_id,
-        player_link,
-        teams.team_link,
-        nations.nation_name,
-        player_name,
-        player_image,
-        player_position,
-        market_value,
-        date_of_birth,
-        current_team_id,
-        players.nation_id
-    FROM players
-    JOIN teams ON players.current_team_id = teams.team_id
-    JOIN nations ON players.nation_id = nations.nation_id
-    JOIN transfers ON players.player_id = transfers.player_id
-    WHERE transfers.stage != 'done_official' AND transfers.stage != 'deal_off_official'"""
+    get_all_players = False
+    try:
+        with open(json_file_dir, "r") as f:
+            players_remaining = json.loads(f.read())
 
-    cursor.execute(query)
-    all_players = cursor.fetchall() #[player_id, player_link, team_link, nation_name, ...]
+        if len(players_remaining) == 0:
+            get_all_players = True
+    except:
+        get_all_players = True
 
+    if get_all_players:
+        query = """
+        SELECT 
+            players.player_id,
+            player_link,
+            teams.team_link,
+            nations.nation_name,
+            player_name,
+            current_team_id,
+            players.nation_id
+        FROM players
+        JOIN teams ON players.current_team_id = teams.team_id
+        JOIN nations ON players.nation_id = nations.nation_id"""
+
+        cursor.execute(query)
+        all_players = cursor.fetchall()
+
+        players_remaining = []
+        for player in all_players:
+            player_dict = {"player_id": player[0], "player_link": player[1], "team_link": player[2], "nation_name": player[3], "player_name": player[4], "team_id": player[5], "nation_id": player[6]}
+            players_remaining.append(player_dict)
+
+    end = False
+    i = 0
+    
+    while not end and i < num_players:
+        current_player = players_remaining[0]
+        players_remaining.pop(0)
+        update_player(cursor, current_player["player_id"], current_player["player_link"], current_player["team_link"], current_player["nation_name"], current_player["nation_id"], current_player["team_id"])
+        i += 1
+        if len(players_remaining) == 0:
+            end = True
+            
+    with open(json_file_dir, "w") as f:
+        f.write(json.dumps(players_remaining))
+        
+    db.commit()
+    cursor.close()
+            
+
+    
+def update_player(cursor, player_id, player_link, team_link, nation_name, nation_id_given, team_id_given):
     query = """
     UPDATE players
     SET
@@ -169,81 +184,35 @@ def update_player_data(db):
     WHERE
         player_id = %s
     """
-
-    for player in all_players:
-        try:
-            player_id = player[0]
-            player_link = player[1]
-            team_link = player[2]
-            nation_name = player[3]
-            player_info = scraper.get_player_info_from_link(player_link)
-            if player_info["nation_name"] != nation_name:
-                nation_id = check_nation_in_database(cursor, nation_name)
-                if nation_id == None:
-                    nation_data = scraper.get_nation_info(nation_name)
-                    nation_id = add_nation(cursor, nation_data)
-            else:
-                nation_id = player[10]
-            if player_info["team_link"] != team_link:
-                team_id = check_team_in_database(cursor, team_link)
-                if team_id == None:
-                    team_data = scraper.get_team_info_from_link(team_link)
-                    team_id = add_team(cursor, team_data)
-            else:
-                team_id = player[9]
-        except Exception as e:
-            print(f"Failed to get player info for link {player_link}")
-            print(e)
-            continue
-
-        cursor.execute(query, (team_id, nation_id, player_info["player_name"], player_info["player_face_url"], player_info["position"], player_info["market_value"], player_info["date_of_birth"], player_id))
-
-    db.commit()
-    cursor.close()
-
-
-
-def update_transfers(mysql_user, mysql_password, mysql_port, time_wait):
     
-    subprocess.run(["/app/transfer_sources/twitter/get_tweets.bin", mysql_user, mysql_password, str(mysql_port), str(time_wait)], check=True, cwd="/app/transfer_sources/twitter")
-
-    db = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
-    cursor = db.cursor()
-
-    #Gets the tweets from the database
-    sources = get_new_sources(cursor, time_wait)
-    for source in sources: #source: [source_id, text, timestamp]
-        #nlp - transfer_data: [bool is_rumour, player_names, current_team_names, rumoured_team_names, stage, bid]
-        try:
-            text = str(source[1])
-            transfer_data_doc = nlp.interpret_source(text)
-        except Exception as e:
-            print(e)
-            transfer_data_doc = None
-        
-        print(transfer_data_doc)
-        sys.stdout.flush()
-        if transfer_data_doc is not None:            
-            add_transfer(cursor, source[0], transfer_data_doc)
+    try:
+        player_info = scraper.get_player_info_from_link(player_link)
+        if player_info["nation_name"] != nation_name:
+            nation_id = check_nation_in_database(cursor, nation_name)
+            if nation_id == None:
+                nation_data = scraper.get_nation_info(nation_name)
+                nation_id = add_nation(cursor, nation_data)
         else:
-            try:
-                delete_source(cursor, source[0])
-            except Exception as e:
-                print(e)
-            
-        db.commit()
-            
-    #Checking if any transfers have been confirmed by checking if transfermarkt has updated the player's current team
+            nation_id = nation_id_given
+        if player_info["team_link"] != team_link:
+            team_id = check_team_in_database(cursor, team_link)
+            if team_id == None:
+                team_data = scraper.get_team_info_from_link(team_link)
+                team_id = add_team(cursor, team_data)
+        else:
+            team_id = team_id_given
+    except Exception as e:
+        print(f"Failed to get player info for link {player_link}")
+        print(e)
     
-    # query = """
-    # SELECT transfer_id, player_link, rumoured_team.team_link, current_team.team_link
-    # FROM transfers
-    # JOIN players on transfers.player_id = players.player_id
-    # JOIN teams rumoured_team on transfers.rumoured_team_id = teams.team_id
-    # JOIN teams current_team on players.current_team_id = current_team.team_id
-    # WHERE stage IS NULL
-    # """
-    
+    try:
+        cursor.execute(query, (team_id, nation_id, player_info["player_name"], player_info["player_face_url"], player_info["position"], player_info["market_value"], player_info["date_of_birth"], player_id))
+    except Exception as e:
+        print(f"Failed to update player {player_id}")
+        print(e)
+
+
+def check_transfers_confirmed(cursor):
     query = """SELECT player_id, player_link, team_link
     FROM players
     JOIN teams ON players.current_team_id = teams.team_id
@@ -254,7 +223,6 @@ def update_transfers(mysql_user, mysql_password, mysql_port, time_wait):
     )"""
 
     cursor.execute(query)
-    #all_transfers = cursor.fetchall()
     all_players = cursor.fetchall()
     
     for player in all_players:
@@ -289,8 +257,40 @@ def update_transfers(mysql_user, mysql_password, mysql_port, time_wait):
                     add_official_transfer(cursor, player[0], current_team)
                 except Exception as e:
                     print(e)
-                
-                
+
+def update_transfers(mysql_user, mysql_password, mysql_port, time_wait):
+    
+    subprocess.run(["/app/transfer_sources/twitter/get_tweets.bin", mysql_user, mysql_password, str(mysql_port), str(time_wait)], check=True, cwd="/app/transfer_sources/twitter")
+
+    db = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
+    cursor = db.cursor()
+
+    #Gets the tweets from the database
+    sources = get_new_sources(cursor, time_wait)
+    for source in sources: #source: [source_id, text, timestamp]
+        try:
+            text = str(source[1])
+            transfer_data_doc = nlp.interpret_source(text) #returns spaCy Doc object
+        except Exception as e:
+            print(e)
+            transfer_data_doc = None
+        
+        print(transfer_data_doc)
+        sys.stdout.flush()
+        if transfer_data_doc is not None:            
+            add_transfer(cursor, source[0], transfer_data_doc)
+        else:
+            try:
+                delete_source(cursor, source[0])
+            except Exception as e:
+                print(e)
+            
+        db.commit()
+
+
+    #Checking if any transfers have been confirmed by checking if transfermarkt has updated the player's current team
+    
+    check_transfers_confirmed(cursor)
                  
     delete_old_transfers(db, 7)
             
@@ -305,7 +305,7 @@ def main():
     TIME_WAIT = int(os.environ.get("TIME_WAIT"))
 
     update_count = int(25920000/TIME_WAIT) + 1
-    MONTH = int(25920000/TIME_WAIT)
+    WEEK = int(604800/TIME_WAIT)
     
     print("Starting update_database.py")
     sys.stdout.flush()
@@ -314,7 +314,6 @@ def main():
         with open("timings/prev_time.txt", "r") as f:
             prev_time = int(f.read())
     except Exception as e:
-        print(e)
         prev_time = 0
         with open("timings/prev_time.txt", "w") as f:
             f.write(str(prev_time))
@@ -333,10 +332,10 @@ def main():
             time_gap_random = random.randint(TIME_WAIT-200, TIME_WAIT+200)
 
             update_count += 1
-            if update_count >= MONTH:
+            if update_count >= WEEK:
                 db = MySQLdb.connect(host="mysql", user=MYSQL_USER, passwd=MYSQL_PASSWORD, port=MYSQL_PORT, db="transfer_data")
                 update_count = 0
-                update_player_data(db)
+                update_players("timings/players.json", 50, db)
                 db.close()
         
         time.sleep(1)

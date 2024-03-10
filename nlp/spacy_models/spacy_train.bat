@@ -1,1 +1,1 @@
-python -m spacy train config_transformer_v2.cfg --output ./full_model_v1 --paths.train ./tweets2.spacy --paths.dev ./tweets2.spacy --code custom_functions.py --gpu-id 0 
+python -m spacy train config_transformer_v2.cfg --output ./full_model_v1 --paths.train ./tweets.spacy --paths.dev ./tweets.spacy --code custom_functions.py --gpu-id 0 

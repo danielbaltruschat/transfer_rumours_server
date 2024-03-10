@@ -3,6 +3,7 @@ import json
 import re
 import os
 from unidecode import unidecode
+from spacy.language import Language
 
 DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
@@ -38,33 +39,22 @@ def normalise_fc(team_name):
     team_name = re.sub(fc, "fc", team_name)
     return team_name
 
-def remove_duplicates(names):
-    sorted_names = sorted(names, key=len, reverse=True)
-    
-    for sorted_name in sorted_names:
-        split = sorted_name.split(" ")
-        if len(split) > 1:
-            for i in range(len(split)):
-                if split[i] in sorted_names:
-                    names.remove(split[i])
-    
-    return names
 
 def prepare_team_names(team_names):
     team_names = remove_accents(team_names)
-    #team_names = check_replace_json("team_names.json", team_names)
+    team_names = check_replace_json("team_names.json", team_names)
     team_names = check_and_handle_twitter_name(team_names)
     team_names = [name.lower() for name in team_names]
-    team_names = remove_duplicates(team_names)
     team_names = [normalise_fc(team_name) for team_name in team_names]
     team_names = normalise_saudi_teams(team_names)
+    team_names = sorted(team_names, key=len, reverse=True)
     return team_names
 
 def prepare_player_names(player_names):
     player_names = remove_accents(player_names)
     player_names = check_and_handle_twitter_name(player_names)
     player_names = [name.lower() for name in player_names]
-    player_names = remove_duplicates(player_names)
+    player_names = sorted(player_names, key=len, reverse=True)
     return player_names
 
 #link is a better unique identifier than the name
@@ -74,7 +64,6 @@ def check_link_in_list_of_items(link, items):
             return True
     return False
     
-#TODO use majority voting system
 def normalise_names(names, player_or_team, current_team_name=None):
     if player_or_team == "team":
         if current_team_name != None:
@@ -86,12 +75,13 @@ def normalise_names(names, player_or_team, current_team_name=None):
         func = get_players_from_search_results
     else:
         raise Exception("Second argument 'player_or_team' should be 'player' or 'team'.")
-    
 
-    search_outputs = []
+    #these two lists are parallel
+    search_outputs_items = []
+    search_outputs_links = []
     for name in names:
         try:
-            #[0] takes first result in transfermarkt search
+            #[0] takes top result in transfermarkt search
             if current_team_name == None:
                 search_output = func(name)[0]
             else:
@@ -99,17 +89,38 @@ def normalise_names(names, player_or_team, current_team_name=None):
         except Exception as e:
             print(e)
             continue
-        if not check_link_in_list_of_items(search_output.url, search_outputs):
-            search_outputs.append(search_output)
-            
-    if len(search_outputs) == 0:
+        search_outputs_items.append(search_output)
+        search_outputs_links.append(search_output.url)
+    
+    
+    
+    if len(search_outputs_items) == 0:
         return -1
     
-    return search_outputs[0]
+    if len(search_outputs_items) == 1:
+        return search_outputs_items[0]
+    else:
+        freqencies = {}
+        for link in search_outputs_links:
+            if link in freqencies:
+                freqencies[link] += 1
+            else:
+                freqencies[link] = 1
+                
+        highest_frequency = 0
+        link_with_highest_frequency = ""
+        for link, frequency in freqencies.items():
+            if frequency > highest_frequency:
+                highest_frequency = frequency
+                link_with_highest_frequency = link
+        
+        i = search_outputs_links.index(link_with_highest_frequency)
+        return search_outputs_items[i]
+    
     
 
 
-def separate_words_by_re(expression, name):
+def separate_string_by_re(expression, name):
     names = []
     index = re.finditer(expression, name)
     prev = 0
@@ -146,7 +157,7 @@ def handle_twitter_name(team_name):
     
     new_team_name = []
     for split in split_team_name:
-        names = separate_words_by_re(r"[A-Z][a-z]+", split)
+        names = separate_string_by_re(r"[A-Z][a-z]+", split)
         new_team_name.extend(names)
         
             
@@ -161,7 +172,7 @@ def handle_twitter_name(team_name):
     
     new_team_name = []
     for split in split_team_name:
-        names = separate_words_by_re(regex, split)
+        names = separate_string_by_re(regex, split)
         new_team_name.extend(names)
         
     def remove_all_occurrences_of_item_from_list(item, list_):
@@ -173,8 +184,80 @@ def handle_twitter_name(team_name):
         
     return " ".join(new_team_name)
         
+@Language.component("normalise_groups")
+def normalise_groups(doc):
+    #get all indexes involved
+    indexes_involved = [item for tuple_ in doc._.transfers.keys() for item in tuple_]
+    player_indexes = []
+    doc._.normalised_names = [-1 for _ in range(len(doc._.ent_groups))]
+    for i, group in enumerate(doc._.ent_groups):
+        if i in indexes_involved:
+            ent = doc._.ent_start_dict[group[0]]
+            if ent.label_ == "PLAYER":
+                player_indexes.append(i)
+            else:
+                #this code runs if the ent's label is 'TEAM'
+                name_group = [doc._.ent_start_dict[ent_start].text for ent_start in group] #get list of strings from list of ent_starts
+                normalised = normalise_names(name_group, "team") #returns an instance of Item class defined in scraper.py
+                doc._.normalised_names[i] = normalised
+        
+    def find_current_team_for_player(transfers, index):
+        for key, relation in transfers.items():
+            if relation == "plays_for":
+                if key[0] == index:
+                    return key[1]
+                elif key[1] == index:
+                    return key[0]
+        return None
+
+    def find_uncertain_teams_for_player(transfers, index):
+        uncertain_team_keys = []
+        for key, relation in transfers.items():
+            if relation == "uncertain":
+                if key[0] == index:
+                    uncertain_team_keys.append(key[1])
+                elif key[1] == index:
+                    uncertain_team_keys.append(key[0])
+        return uncertain_team_keys
+            
+    """
+    TRY CURRENT_TEAM
+    TRY RUMOURED_TEAM
+    TRY PLAYER without
+    """
+
+    for player_index in player_indexes:
+        current_team_index = find_current_team_for_player(doc._.transfers, player_index)
+        uncertain_teams_indexes = find_uncertain_teams_for_player(doc._.transfers, player_index)
+        
+        group = doc._.ent_groups[player_index]
+        name_group = [doc._.ent_start_dict[ent_start].text for ent_start in group] 
+        
+        if current_team_index == None or doc._.normalised_names[current_team_index] == -1:
+            normalised = normalise_names(name_group, "player")
+            if len(uncertain_teams_indexes) >= 2:
+                for i, item in enumerate(doc._.normalised_names):
+                    if item != -1 and item.url == normalised.team_url:
+                        doc._.transfers[(player_index, i)] = "plays_for"
+                
+                for team_index in uncertain_teams_indexes:
+                    if doc._.transfers[(player_index, team_index)] != "plays_for":
+                        doc._.transfers[(player_index, team_index)] = "rumoured_to_join"
+                      
+        else:
+            current_team_name = doc._.normalised_names[current_team_index].name
+            normalised = normalise_names(name_group, "player", current_team_name=current_team_name)
+
+            if len(uncertain_teams_indexes) != 0:
+                for uncertain_team_index in uncertain_teams_indexes:
+                    doc._.transfers[(player_index, uncertain_team_index)] = "rumoured_to_join"
+            
+        doc._.normalised_names[player_index] = normalised
+        
+    return doc
     
 #print(normalise_fc("fc lorient"))
 
 #print(normalise_data(['Ludwig Augustinsson'], ['Sevilla'], ['Anderlecht', 'Aston Villa']))
+
         

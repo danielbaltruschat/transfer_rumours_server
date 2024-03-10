@@ -11,15 +11,12 @@ app = Flask(__name__)
 mysql_user = os.environ['MYSQL_USER'].strip()
 mysql_password = os.environ['MYSQL_PASSWORD'].strip()
 mysql_port = int(os.environ['MYSQL_PORT'].strip())
-# mysql_user = "root"
-# mysql_password = "password"
-# mysql_port = 3306
 
 
 
 class ConnectionPool:
     def __init__(self):
-        self.connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
+        self.__connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
 
         thread = threading.Thread(target=self._refresh_connection)
         thread.daemon = True
@@ -27,12 +24,12 @@ class ConnectionPool:
         
         
     def get_connection(self):
-        return self.connection_pool
+        return self.__connection_pool
     
     def _refresh_connection(self):
         while True:
             try:
-                self.connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
+                self.__connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
                 print("Connection refreshed")
                 sys.stdout.flush()
                 
@@ -40,10 +37,7 @@ class ConnectionPool:
                 raise Exception("Could not connect to database")
             time.sleep(60)
             
-# try:
-#     connection_pool = MySQLdb.connect(host="mysql", user=mysql_user, passwd=mysql_password, port=mysql_port, db="transfer_data")
-# except:
-#     raise Exception("Could not connect to database")
+
 
 connection_pool = ConnectionPool()
 
@@ -52,18 +46,11 @@ BAD_REQUEST_STATUS_CODE = 500
 
 
 
-
-#stop caching
-# @app.after_request
-# def add_header(response):
-#     response.cache_control.max_age = 20
-#     return response
-
 #Gets all the transfers from the database
 @app.route('/all_transfers', methods=['GET'])
 def get_all_transfers():
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         
         query = '''SELECT
             transfers.transfer_id,
@@ -169,7 +156,7 @@ def get_all_transfers():
 @app.route('/transfer_by_id/<int:transfer_id>', methods=['GET'])
 def get_transfer_by_id(transfer_id):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         
         query = '''SELECT
             transfers.transfer_id,
@@ -277,7 +264,7 @@ def get_transfer_by_id(transfer_id):
 @app.route('/transfer_by_player_id/<int:player_id>', methods=['GET'])
 def get_transfer_by_player_id(player_id):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         #Parameterized query to prevent SQL injection
         query = '''SELECT
             transfers.transfer_id,
@@ -383,7 +370,7 @@ def get_transfer_by_player_id(player_id):
 @app.route('/transfer_by_team_id/<int:team_id>', methods=['GET'])
 def get_transfer_by_team_id(team_id):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         #Parameterized query to prevent SQL injection
         query = '''SELECT
             transfers.transfer_id,
@@ -488,7 +475,7 @@ def get_transfer_by_team_id(team_id):
 @app.route('/search_players/<player_name>', methods=['GET'])
 def search_players(player_name):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         
         #Parameterized query to prevent SQL injection
         query = """SELECT 
@@ -560,7 +547,7 @@ def search_players(player_name):
 @app.route('/player_by_id/<int:player_id>', methods=['GET'])
 def get_player_by_id(player_id):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         
         #Parameterized query to prevent SQL injection
         query = """SELECT 
@@ -631,7 +618,7 @@ def get_player_by_id(player_id):
 @app.route('/search_teams/<team_name>', methods=['GET'])
 def search_teams(team_name):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         
         #Parameterized query to prevent SQL injection
         query = """SELECT
@@ -682,7 +669,7 @@ def search_teams(team_name):
 @app.route('/team_by_id/<int:team_id>', methods=['GET'])
 def get_team_by_id(team_id):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         
         #Parameterized query to prevent SQL injection
         query = """SELECT
@@ -733,7 +720,7 @@ def get_team_by_id(team_id):
 @app.route('/get_sources_by_transfer_id/<int:transfer_id>', methods=['GET'])
 def get_sources_by_transfer_id(transfer_id):
     try:
-        cursor = connection_pool.connection_pool.cursor()
+        cursor = connection_pool.get_connection().cursor()
         
         #Parameterized query to prevent SQL injection
         query = """SELECT source_type, source_link, text, timestamp, author_name, sources.source_id 

@@ -49,10 +49,6 @@ def create_instances_football(max_length: int) -> Callable[[Doc], List[Tuple[Spa
             for team in [e for e in doc.ents if e.label_ == "TEAM"]:
                 #if not max_length or abs(team.start - player.start) <= max_length:
                 instances.append((player, team))
-                    #print("added")
-        #print(instances)
-        # if len(instances) == 0:
-        #     print(doc.ents)
         return instances
 
     return get_instances

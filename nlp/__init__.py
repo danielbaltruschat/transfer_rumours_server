@@ -1,10 +1,10 @@
 from deep_translator import GoogleTranslator
 import spacy
 from . import format_rel_resolver_predictions
+from . import normalise_data
 from . import tweet_categorisation_load
 from langdetect import detect
     
-#     return [is_rumour, ner.get_involved_players(), ner.get_current_teams(), ner.get_rumoured_teams(), "unknown", -1]
 nlp = spacy.load("nlp/spacy_models/full_model_v1/model-best")
 nlp.add_pipe("add_ent_start_dict")
 nlp.add_pipe("group_entities")
@@ -24,7 +24,6 @@ def interpret_source(text):
     
     is_rumour = tweet_categorisation_load.is_rumour(text)
     if not is_rumour:
-        #return [is_rumour, [], [], [], "unknown", -1]
         return None
     
     doc = nlp(text)

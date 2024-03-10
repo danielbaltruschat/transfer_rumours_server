@@ -29,8 +29,8 @@ def check_nation_in_database(cursor, nation_name):
     else:
         return existing_record[0]
 
-def check_transfer_in_database(cursor, player_id, team_id):
-    cursor.execute("SELECT transfer_id FROM transfers WHERE player_id = %s AND rumoured_team_id = %s", (player_id, team_id))
+def check_transfer_in_database(cursor, player_id, rumoured_team_id):
+    cursor.execute("SELECT transfer_id FROM transfers WHERE player_id = %s AND rumoured_team_id = %s", (player_id, rumoured_team_id))
     existing_record = cursor.fetchone()
     
     if existing_record == None:
@@ -53,7 +53,6 @@ def add_team(cursor, team_data):
     try:
         cursor.execute("INSERT INTO teams (team_name, league_name, logo_image, team_link) VALUES (%s, %s, %s, %s)", (team_name, league_name, logo_image, team_link))
         return cursor.lastrowid
-        #db.commit()
     except Exception as e:
         print(e)
         print(team_data)
@@ -64,7 +63,6 @@ def add_nation(cursor, nation_data):
     try:
         cursor.execute("INSERT INTO nations (nation_name, nation_flag) VALUES (%s, %s)", (nation_data["name"], nation_data["flag_image"]))
         return cursor.lastrowid
-        #db.commit()
     except Exception as e:
         print(e)
         print(nation_data)

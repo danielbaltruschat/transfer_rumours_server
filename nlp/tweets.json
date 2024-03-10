@@ -1,5 +1,26 @@
 [
     {
+        "text": "#UEL #EuropaLeague | #Atalanta draws in Lisbon against #SportingCP, #Scamacca responds to #Paulinho",
+        "is_rumour": false,
+        "all_players": ["#Scamacca", "#Paulinho"],
+        "all_teams": ["#Atalanta", "#SportingCP"],
+        "transfers": []
+    },
+    {
+        "text": "West Bromwich Albion are finally dreaming of a bright future, after the takeover by Shilen Patel. It has been one of the darkest periods in their history, with a financial crisis that threatened administration. At last, the club can now plan ahead #wba",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["West Bromwich Albion"],
+        "transfers": []
+    },
+    {
+        "text": "Special report: Inside a new era at #nffc with Nuno Espírito Santo. A closer look at Nuno’s two months in charge of Forest\n🌳 Training methods & identity\n🌳 Siege mentality after PSR charge\n🌳 A crucial transfer window\n🌳 How #Chelsea assisted with Sels\n⬇️",
+        "is_rumour": false,
+        "all_players": [],
+        "all_teams": ["#nffc", "Forest", "#Chelsea"],
+        "transfers": []
+    },
+    {
         "text": "Negotiations advancing for Anthony Elanga to Nottingham Forest — it’d be permanent deal. 🔴🌳👀 #NFFC",
         "is_rumour": true,
         "all_players": ["Anthony Elanga"],
@@ -34,15 +55,7 @@
         "is_rumour": false,
         "all_players": ["#Zielinski"],
         "all_teams": ["@sscnapoli", "#Salernitana"],
-        "transfers": [
-            {
-                "involved_players": ["#Zielinski"],
-                "current_teams": ["@sscnapoli"],
-                "rumoured_teams": ["#Salernitana"],
-                "bid_fees": [],
-                "stage": ""
-            }
-        ]
+        "transfers": []
     },
     {
         "text": "Ola Aina, set to sign two year deal at Nottingham Forest. 🔴🌳✍🏻 #NFFC\n\n It will also include an option for further season — potential contract until June 2026.",
@@ -183,7 +196,7 @@
         "all_teams": ["Nottingham Forest", "Torino"],
         "transfers": [
             {
-                "involved_players": ["Ola Aina"],
+                "involved_players": ["Ola Aina", "Aina"],
                 "current_teams": [],
                 "rumoured_teams": ["Nottingham Forest"],
                 "bid_fees": [],
@@ -215,7 +228,7 @@
     },
     {
         "text": "Dimitri Payet, in tears after announcing that he’s set to leave OM.\n\n🎥 \n@Steph13Freed",
-        "is_rumour": false,
+        "is_rumour": true,
         "all_players": ["Dimitri Payet"],
         "all_teams": ["OM"],
         "transfers": []
@@ -270,15 +283,7 @@
         "is_rumour": false,
         "all_players": [],
         "all_teams": ["Al Ahli", "Fulham"],
-        "transfers": [
-            {
-                "involved_players": [],
-                "current_teams": [],
-                "rumoured_teams": [],
-                "bid_fees": [],
-                "stage": ""
-            }
-        ]
+        "transfers": []
     },
     {
         "text": "Lyanco deal is still on, waiting to resolve final issues to get it done today. ⚪️⚫️\n\nDiscussions ongoing in Istanbul right now.",
@@ -319,10 +324,18 @@
     },
     {
         "text": "Edinson Cavani will not travel for the pre season tour with Valencia as he’s out of the project. ⛔️🇺🇾\n\nCavani is negotiating termination of the contract, waiting for new chapter.\n",
-        "is_rumour": false,
-        "all_players": ["Edinson Cavani"],
+        "is_rumour": true,
+        "all_players": ["Edinson Cavani", "Cavani"],
         "all_teams": ["Valencia"],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Edinson Cavani", "Cavani"],
+                "current_teams": ["Valencia"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
     },
     {
         "text": "Bayer Leverkusen are in advanced talks to sign Victor Boniface from Union St Gilloise — negotiations progressing and deal getting closer 🚨🔴⚫️🇳🇬\n\nNigerian striker has agreed personal terms with Leverkusen and clubs now negotiating deal worth more than €20m package.",
@@ -411,7 +424,15 @@
         "is_rumour": false,
         "all_players": ["Gianluigi Donnarumma", "Donnarumma"],
         "all_teams": ["PSG"],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Gianluigi Donnarumma", "Donnarumma"],
+                "current_teams": ["PSG"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
     },
     {
         "text": "🔴⚫️🧨👀 #ACMilan",
@@ -570,10 +591,18 @@
     },
     {
         "text": "Fiorentina CEO Barone on reports of bid from Manchester United for Amrabat: “We have not received any proposal for Sofyan. I told him to stay focused on our club”. 🇲🇦 #MUFC\n\nMan United, focused on Højlund deal as new midfielder will be discussed later. Amrabat, in the list.",
-        "is_rumour": false,
+        "is_rumour": true,
         "all_players": ["Amrabat", "Sofyan", "Højlund"],
-        "all_teams": ["Fiorentina", "Manchester United"],
-        "transfers": []
+        "all_teams": ["Fiorentina", "Manchester United", "Man United"],
+        "transfers": [
+            {
+                "involved_players": ["Amrabat", "Sofyan"],
+                "current_teams": ["Manchester United", "Man United"],
+                "rumoured_teams": ["Fiorentina"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
     },
     {
         "text": "Aston Villa are preparing contracts and documents for Moussa Diaby deal to be signed on Friday — after agreement on Thursday. 🟣🔵 #AVFC\n\nVilla want to get it signed and sealed as soon as possible.\n\nFinal fee: €50m plus €10m add-ons.",
@@ -599,10 +628,18 @@
     },
     {
         "text": "Atalanta manager Gasperini on Man Utd and Højlund: “I don’t know whether he’ll stay or leave — but I hope the club will value Højlund around €80, 90 or 100m fee”. 🇩🇰\n\n“Rasmus is one of the best — if not the best — emerging talent in Europe as a striker”, he told Sky.",
-        "is_rumour": false,
+        "is_rumour": true,
         "all_players": ["Højlund", "Rasmus"],
         "all_teams": ["Man Utd", "Atalanta"],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Højlund", "Rasmus"],
+                "current_teams": ["Atalanta"],
+                "rumoured_teams": ["Man Utd"],
+                "bid_fees": ["€80, 90 or 100m"],
+                "stage": "interest"
+            }
+        ]
     },
     {
         "text": "Omari Hutchinson ✖️ Ipswich Town on loan from Chelsea, here we go.",
@@ -703,9 +740,17 @@
     {
         "text": "Ancelotti: “I’m very happy with current squad I have, we can compete”. ⚪️🇪🇸\n\nOn Arda’s super impact: “Arda Güler has a lot of quality… yes, I believe that Real Madrid fans will enjoy him a lot”.",
         "is_rumour": false,
-        "all_players": ["Arda Güler"],
-        "all_teams": [],
-        "transfers": []
+        "all_players": ["Arda Güler", "Arda"],
+        "all_teams": ["Real Madrid"],
+        "transfers": [
+            {
+                "involved_players": ["Arda Güler", "Arda"],
+                "current_teams": [],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
     },
     {
         "text": "Ancelotti on his future: “I will never talk about Brazil. I’m Real Madrid’s coach & I’m staying”. ⚪️🇧🇷 #RealMadrid\n\n“I won’t talk about this matter anymore. I have a contract and I'm staying with it — we will see next year what happens”.",
@@ -1134,7 +1179,15 @@
         "is_rumour": false,
         "all_players": ["João Cancelo", "João"],
         "all_teams": ["Bayern"],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["João Cancelo", "João"],
+                "current_teams": [],
+                "rumoured_teams": ["Bayern"],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
     },
     {
         "text": "Emre Can signs new deal at Borussia Dortmund… via Career Mode. 🟡⚫️🕹️",
@@ -1174,10 +1227,18 @@
     },
     {
         "text": "Pep Guardiola on Man City signings: “I think many things are going to happen. I can not answer…”. 🔵 #MCFC\n\nOn Walker and Bayern: “I want the best for my players — I spoke with Kyle and everything was right. We will see what happens”, says via \n@RichFay\n.",
-        "is_rumour": false,
+        "is_rumour": true,
         "all_players": ["Walker", "Kyle"],
         "all_teams": ["Man City", "Bayern"],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Walker", "Kyle"],
+                "current_teams": ["Man City"],
+                "rumoured_teams": ["Bayern"],
+                "bid_fees": [],
+                "stage": "personal_terms_agreed"
+            }
+        ]
     },
     {
         "text": "Pep Guardiola when asked about Asian players: “Mitoma has been incredible, really”. 🔵🇯🇵\n\n“He is in the right place at Brighton with the right manager. His last season was incredible”.",
@@ -1193,7 +1254,7 @@
         "all_teams": ["Fulham"],
         "transfers": [
             {
-                "involved_players": ["Calvin Bassey"],
+                "involved_players": ["Calvin Bassey", "Bassey"],
                 "current_teams": [],
                 "rumoured_teams": ["Fulham"],
                 "bid_fees": ["€21m"],
@@ -1253,7 +1314,7 @@
         "all_teams": ["Bayer Leverkusen", "Bayer"],
         "transfers": [
             {
-                "involved_players": ["Victor Boniface"],
+                "involved_players": ["Victor Boniface", "Boniface"],
                 "current_teams": [],
                 "rumoured_teams": ["Bayer Leverkusen", "Bayer"],
                 "bid_fees": ["€20m plus €7.5m add-ons and clauses"],
@@ -1266,7 +1327,15 @@
         "is_rumour": false,
         "all_players": ["Thomas Partey", "Thomas"],
         "all_teams": [],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Thomas Partey", "Thomas"],
+                "current_teams": [],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
     },
     {
         "text": "Arteta: \"I expect Thomas Partey to stay here. Every time I spoke to him and had a conversation with him he’s ready to stay with us\". 🔴⚪️\n\n\"For me, there’s nothing there's at all\", said via \n@kayakaynak97\n.",
@@ -1277,7 +1346,7 @@
     },
     {
         "text": "De Zerbi: \"Jeremy Sarmiento will go on loan, it's our current plan\". 🔵 #BHAFC\n\n\"We talked with him and we agreed that after his last injury he needs to have a minimum of 35 games before coming back with us\".",
-        "is_rumour": false,
+        "is_rumour": true,
         "all_players": ["Jeremy Sarmiento"],
         "all_teams": [],
         "transfers": []
@@ -1971,7 +2040,7 @@
     },
     {
         "text": "🚨 Bordeaux is thinking of recruiting a new goalkeeper by the end of the transfer window but wants to wait another 2 matches with Strączek. 2 profiles are studied by Admar Lopes. For his part, Gérard Lopez already has a very precise idea of the goalkeeper he wants to take.",
-        "is_rumour": false,
+        "is_rumour": true,
         "all_players": [],
         "all_teams": ["Bordeaux"],
         "transfers": []
@@ -2148,7 +2217,7 @@
             {
                 "involved_players": ["Elye Wahi"],
                 "current_teams": ["Montpellier"],
-                "rumoured_teams": ["Chelsea"],
+                "rumoured_teams": ["#Chelsea"],
                 "bid_fees": ["30M€"],
                 "stage": "negotiations"
             },
@@ -3834,7 +3903,7 @@
     {
         "text": "Sevilla are set to sign Adnan Januzaj! Been told Adnan will arrive in Sevilla tonight in order to discuss the final details and then sign on Wednesday on free transfer. 🚨⚪️🔴 #Sevilla\n\nJanuzaj will replace Ocampos who’s heading to Ajax on permanent deal.",
         "is_rumour": true,
-        "all_players": ["Sevilla", "Adnan Januzaj", "Adnan", "Ocampos", "Januzaj"],
+        "all_players": ["Adnan Januzaj", "Adnan", "Ocampos", "Januzaj"],
         "all_teams": ["Sevilla", "Ajax"],
         "transfers": [
             {
@@ -4305,7 +4374,7 @@
             {
                 "involved_players": ["Beljo"],
                 "current_teams": ["Osijek"],
-                "rumoured_teams": ["Leipzig"],
+                "rumoured_teams": ["Leipzig", "RB"],
                 "bid_fees": [],
                 "stage": "negotiations"
             }
@@ -4660,11 +4729,11 @@
     {
         "text": "❗️BREAKING EXCL. NEWS #Kane: Got the info that his move to FC Bayern is „looking more likely now“ !!!\n\n➡️ As reported: Bayern bosses, Tottenham and Kane‘s management were in very good and respectful negotiations today and tonight. \n\n❗️NOW the deal is on verge to be sealed as KANE WANTS TO JOIN BAYERN! \n\n@SkySportDE\n 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
         "is_rumour": true,
-        "all_players": ["#Kane", "Kane", "KANE"],
+        "all_players": ["#Kane", "Kane's", "KANE"],
         "all_teams": ["FC Bayern", "Tottenham", "BAYERN", "Bayern"],
         "transfers": [
             {
-                "involved_players": ["#Kane", "Kane", "KANE"],
+                "involved_players": ["#Kane", "Kane's", "KANE"],
                 "current_teams": ["Tottenham"],
                 "rumoured_teams": ["FC Bayern", "BAYERN", "Bayern"],
                 "bid_fees": [],
@@ -4677,7 +4746,15 @@
         "is_rumour": false,
         "all_players": ["Zaragoza", "Bryan"],
         "all_teams": [],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Zaragoza", "Bryan"],
+                "current_teams": [],
+                "rumoured_teams": [],
+                "bid_fees": ["€15m"],
+                "stage": "full_agreement"
+            }
+        ]
     },
     {
         "text": "🚨 EXCL: 🔵⚪️🇮🇹 #Ligue1 |\n\n◉ Gennaro Gattuso is one step away from becoming the future coach of OM ‼️\n\n◉ The Italian coach is in pole position to replace Marcelino and should lead his first session by the end of the week 💣💣\n\nMore info tomorrow on \n@footmercato\n\n\nWith \n@sebnonda",
@@ -4822,12 +4899,12 @@
         "text": "🚨EXCL: 🔴⚪️🇬🇳 #Bundesliga |\n\n◉ Serhou Guirassy is on the list of MU for winter‼️ MUFC has already inquired about him. No offer or negotiations yet.\n\n◉ AS Roma, AC Milan and Newcastle are showing interest in 27 year old striker.\n\n◉ Release clause : €17.5m and already active ‼️",
         "is_rumour": true,
         "all_players": ["Serhou Guirassy"],
-        "all_teams": ["MU", "AS Roma", "AC Milan", "Newcastle"],
+        "all_teams": ["MU", "MUFC", "AS Roma", "AC Milan", "Newcastle"],
         "transfers": [
             {
                 "involved_players": ["Serhou Guirassy"],
                 "current_teams": [],
-                "rumoured_teams": ["MU"],
+                "rumoured_teams": ["MU", "MUFC"],
                 "bid_fees": ["€17.5m"],
                 "stage": "interest"
             },
@@ -5118,7 +5195,15 @@
         "is_rumour": false,
         "all_players": ["Victor Boniface", "Boniface"],
         "all_teams": [],
-        "transfers": []
+        "transfers": [
+            {
+                "involved_players": ["Victor Boniface", "Boniface"],
+                "current_teams": [],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
     },
     {
         "text": "⚪️🇸🇦 Ancelotti on his future: “If I would go to Saudi Arabia for €500 million? Look, I wouldn't even have to book the flight. I would walk with my feet to go there”.\n\n“No, I'm joking. I don’t need money. The world is really changing and will keep changing”.",
@@ -5143,7 +5228,7 @@
     },
     {
         "text": "⚫️🔵 Inter CEO Marotta: \"We are advancing in talks to extend Lautaro Martinez contract, it will be valid for the next five years\".\n\n\"He loves Inter and our negotiation is progressing well\".",
-        "is_rumour": false,
+        "is_rumour": true,
         "all_players": ["Lautaro Martinez"],
         "all_teams": ["Inter"],
         "transfers": []
@@ -5262,13 +5347,13 @@
     {
         "text": "Nicolas #Kühn, waiting for the 🟢 light to travel to Glasgow! Celtic and Rapid are close to find an agreement. Brendan Rodgers wants him 🛩️\n\n➡️ Verbal agreement is done as the 24 y/o winger wants to join @CelticFC with immediate effect \n\n➡️ Transfer fee: Around €3.5m + add-ons \n\n➡️ Contract until 2028 ✔️\n\nKühn, already not in the lineup for today's friendly match of @skrapid. \n\n@SkySportDE 🇩🇪",
         "is_rumour": true,
-        "all_players": ["Nicolas #Kühn"],
+        "all_players": ["Nicolas #Kühn", "Kühn"],
         "all_teams": ["Celtic", "Rapid", "@CelticFC", "@skrapid"],
         "transfers": [
             {
-                "involved_players": ["Nicolas #Kühn"],
+                "involved_players": ["Nicolas #Kühn", "Kühn"],
                 "current_teams": ["@skrapid", "Rapid"],
-                "rumoured_teams": ["Celtic", "@CelticFc"],
+                "rumoured_teams": ["Celtic", "@CelticFC"],
                 "bid_fees": ["Around €3.5m + add-ons"],
                 "stage": "negotiations"
             }
@@ -5315,6 +5400,50 @@
                 "rumoured_teams": ["Galatasaray"],
                 "bid_fees": [],
                 "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨EXCL: 🔵🇦🇷 #LigaPortugal |\n\n✅⭐️ Dortmund, PSG and Liverpool are monitoring FC Porto young midfielder Alan Varela, talent born in 2001.\n\n💰 Release Clause : €70m\n\nhttps://footmercato.net/a6660145260068151088-psg-liverpool-borussia-dortmund-alan-varela-a-des-courtisans",
+        "is_rumour": true,
+        "all_players": ["Alan Varela"],
+        "all_teams": ["Dortmund", "PSG", "Liverpool", "FC Porto"],
+        "transfers": [
+            {
+                "involved_players": ["Alan Varela"],
+                "current_teams": ["FC Porto"],
+                "rumoured_teams": ["Dortmund"],
+                "bid_fees": ["€70m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Alan Varela"],
+                "current_teams": ["FC Porto"],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": ["€70m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Alan Varela"],
+                "current_teams": ["FC Porto"],
+                "rumoured_teams": ["Liverpool"],
+                "bid_fees": ["€70m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "Understand FK Bodø/Glimt have now closing in on deal to sign Nigerian 18 year old striker Ibrahim Hafiz Umar, the agreement is being finalised.\n\nHafiz would join FK Bodø/Glimt from Ojodu City Academy in Nigeria.",
+        "is_rumour": true,
+        "all_players": ["Ibrahim Hafiz Umar", "Hafiz"],
+        "all_teams": ["FK Bodø/Glimt", "Ojodu City Academy"],
+        "transfers": [
+            {
+                "involved_players": ["Ibrahim Hafiz Umar", "Hafiz"],
+                "current_teams": ["Ojodu City Academy"],
+                "rumoured_teams": ["FK Bodø/Glimt"],
+                "bid_fees": [],
+                "stage": "negotiations"
             }
         ]
     }

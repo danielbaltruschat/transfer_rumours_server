@@ -1,6 +1,7 @@
 import spacy
 #from spacy_models import relation_extraction, relation_component, entity_resolver_component, entity_resolver_model
 from . import format_rel_resolver_predictions
+from . import normalise_data
 import json
 
 def open_json(json_file):

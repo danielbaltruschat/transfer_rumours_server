@@ -4,7 +4,7 @@ import json
 import pandas as pd
 from datasets import Dataset
 
-json_file = open('tweets2.json', encoding="utf8")
+json_file = open('tweets.json', encoding="utf8")
 tweets_data = json.load(json_file)
 tweets_table = pd.DataFrame(tweets_data)
 
@@ -14,7 +14,7 @@ tweets_table = tweets_table.iloc[:, :2]
 print(tweets_table.head())
 
 #replaces boolean with label in second column
-tweets_table['is_rumour'] = tweets_table['is_rumour'].replace({True: 'rumour', False: 'not_rumour'})
+tweets_table['is_rumour'] = tweets_table['is_rumour'].replace({True: 'transfer_rumour', False: 'not_transfer_rumour'})
 
 
 inliers = []

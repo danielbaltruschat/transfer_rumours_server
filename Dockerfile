@@ -4,9 +4,6 @@ FROM python:3.9
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-#COPY . /app
-
 # Install required Python packages
 COPY requirements.txt .
 RUN pip install -r requirements.txt
@@ -15,7 +12,6 @@ RUN pip install -r requirements.txt
 RUN apt-get update && apt-get install -y supervisor && mkdir -p /var/log/supervisor
 
 
-#COPY nlp/spacy_load_ner.py /app/nlp/spacy_load_ner.py
 COPY nlp/spacy_models/full_model_v1/model-best /app/nlp/spacy_models/full_model_v1/model-best
 COPY nlp/categorisation_model /app/nlp/categorisation_model
 
@@ -63,7 +59,7 @@ ENV TWITTER_PASSWORD=transfer_app
 
 ENV TOKENIZERS_PARALLELISM=false
 
-# Expose the port of python scripts and MySQL
+# Expose the port of python scripts
 EXPOSE 8000
 
 # Run python scripts using supervisord when the container launches

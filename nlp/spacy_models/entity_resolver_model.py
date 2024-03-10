@@ -14,7 +14,6 @@ def create_instances_resolver(max_length: int) -> Callable[[Doc], List[Tuple[Spa
         for ents in (players, teams):
             for i, ent1 in enumerate(ents[:-1]):
                 for ent2 in ents[i+1:]:
-                    #if max_length and abs(ent2.start - ent1.start) <= max_length:
                     instances.append((ent1, ent2))
         return instances
     return get_instances

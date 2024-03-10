@@ -25,6 +25,7 @@ cursor = db.cursor()
 cursor.execute(query_get_teams, (teams_to_delete_regex,))
 teams_ids_to_delete = cursor.fetchall()
 
+query_get_players = """SELECT player_id FROM players WHERE current_team_id = %s"""
 query_get_transfers = """SELECT transfer_id FROM transfers WHERE rumoured_team_id = %s"""
 
 for team in teams_ids_to_delete:
