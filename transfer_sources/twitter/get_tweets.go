@@ -58,17 +58,19 @@ func GetTweets(sources []string, timeAllowed int64, username string, password st
 
 	for _, source := range sources {
 		num := 3
-		fmt.Println(source)
+
 		// Remove carriage returns, -1 for replacing all occurences (no limit) - essentially standardising the txt file
 		cleanedSource := strings.Replace(source, "\r", "", -1)
-		// if cleanedSource == "DiMarzio" {
-		// 	num = 5
-		// }
+
 		for tweet := range scraper.GetTweets(context.Background(), cleanedSource, num) {
 			if tweet.Error != nil {
-				panic(tweet.Error)
+				fmt.Println("Error retrieving tweets for " + source + "    Error: ")
+				fmt.Println(tweet.Error)
+				continue
 			}
-			//fmt.Println(tweet.Timestamp)
+
+			fmt.Println(source)
+
 			if !tweet.IsRetweet {
 				if (currentTimestamp - tweet.Timestamp) < int64(timeAllowed) {
 					tweets = append(tweets, []string{tweet.ID, tweet.Text, tweet.Username, strconv.FormatInt(tweet.Timestamp, 10)}) // Append a single-element string slice, converts int64 to string
@@ -79,13 +81,14 @@ func GetTweets(sources []string, timeAllowed int64, username string, password st
 	return tweets, nil
 }
 
+// test function to test GetTweets function is working
 func main_test() {
 	sources := []string{"FabrizioRomano"}
 
 	timeAllowed := 1800 // 30 minutes
 
-	twitterUsername := "TSferapp2"
-	twitterPassword := "transfer_app"
+	twitterUsername := ""
+	twitterPassword := ""
 
 	tweets, err := GetTweets(sources, int64(timeAllowed), twitterUsername, twitterPassword)
 

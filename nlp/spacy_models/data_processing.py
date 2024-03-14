@@ -99,9 +99,13 @@ def entity_annotation(doc, tweet):
             text_to_ent_dict[1].append(ents)
               
     new_instances = get_relations_ent(relation_instances, text_to_ent_dict)
-    ents_grouped = get_players_and_teams_from_instances(new_instances)
-    doc = modify_doc_for_entity_resolution(doc, ents_grouped[0], ents_grouped[1])
+    ents_grouped = text_to_ent_dict[1]
+    doc = modify_doc_for_entity_resolution(doc, ents_grouped)
     doc = modify_doc_relations(doc, new_instances)    
+      
+    print("-----------------")
+    for ent in doc.ents:
+        print(ent.text, ent.label_, ent.start)
       
     return doc
 
@@ -167,7 +171,7 @@ def modify_doc_relations(doc, instances_ent):
     
     return doc
 
-def modify_doc_for_entity_resolution(doc, player_ents_grouped, team_ents_grouped):
+def modify_doc_for_entity_resolution(doc, ents_grouped):
     player_ents = [ent for ent in doc.ents if ent.label_ == "PLAYER"]
     team_ents = [ent for ent in doc.ents if ent.label_ == "TEAM"]
     
@@ -181,8 +185,7 @@ def modify_doc_for_entity_resolution(doc, player_ents_grouped, team_ents_grouped
             offset = (team_ents[i].start, ent.start)
             doc._.resolved[offset] = 0.0
     
-    for ent_groups in [player_ents_grouped, team_ents_grouped]:
-        for ent_group in ent_groups:
+    for ent_group in ents_grouped:
             for i, ent1 in enumerate(ent_group[:-1]):
                 for ent2 in ent_group[i+1:]:
                     offset = (ent1.start, ent2.start)
@@ -202,6 +205,8 @@ def get_ents_with_text(doc, text):
 def annotation_from_list(data):
     db = DocBin(store_user_data=True)
     for tweet in data:
+        if tweet["is_rumour"] == False:
+            continue
         cleaned_text = remove_invisible_chars(tweet["text"])
         doc = nlp(cleaned_text)
         doc = entity_annotation(doc, tweet)
@@ -221,14 +226,14 @@ def get_iob_formatted_from_doc(doc):
 
 data = [
     {
-        "text": "Mikel Arteta on Thomas Partey: \"Part of my plans? Of course, without a question of a doubt. Thomas is a super important player for us and for me\". 🔴⚪️\n\n\"I want him to be part of the team\".",
-        "is_rumour": False,
-        "all_players": ["Thomas Partey", "Thomas"],
-        "all_teams": [],
+        "text": "❗️News Max Meyer: The 28 y/o dreams of a return to the Bundesliga! \n\n➡️ Having a good season so far with \n@FCL_1901\n \n➡️ Luzern aims to extend his contract beyond 2024. \n\nCurrent tendency: He might leave the club on a free transfer in the summer. Concrete talks are planned for the new year. \n@SkySportDE\n 🇩🇪",
+        "is_rumour": True,
+        "all_players": ["Max Meyer"],
+        "all_teams": ["@FCL_1901", "Luzern"],
         "transfers": [
             {
-                "involved_players": ["Thomas Partey", "Thomas"],
-                "current_teams": [],
+                "involved_players": ["Max Meyer"],
+                "current_teams": ["@FCL_1901", "Luzern"],
                 "rumoured_teams": [],
                 "bid_fees": [],
                 "stage": "deal_off"
@@ -253,5 +258,6 @@ data = [
 ]
 
 data2 = open_json("../tweets.json")
+#data2.reverse()
 db = annotation_from_list(data2)
 db.to_disk("./tweets.spacy")   

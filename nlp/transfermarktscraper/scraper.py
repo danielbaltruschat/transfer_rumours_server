@@ -241,6 +241,7 @@ def get_nation_info(nation_name):
 
     return {"name": nation_name, "flag_image": nation_flag_url}
 
+
 # info = get_team_info_from_link("/statistik/vertragslosespieler")
 #print(get_teams_from_search_results("nigeria u18"))
 # pass

@@ -468,6 +468,13 @@
                 "rumoured_teams": ["Atalanta"],
                 "bid_fees": [],
                 "stage": "interest"
+            },
+            {
+                "involved_players": ["Højlund"],
+                "current_teams": ["Atalanta"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
             }
         ]
     },
@@ -586,6 +593,27 @@
                 "rumoured_teams": ["Al Ahli"],
                 "bid_fees": [],
                 "stage": "medical_done"
+            },
+            {
+                "involved_players": ["Édou Mendy"],
+                "current_teams": ["Al Ahli"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            },
+            {
+                "involved_players": ["Roberto Firmino"],
+                "current_teams": ["Al Ahli"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            },
+            {
+                "involved_players": ["Allan Saint-Maximin"],
+                "current_teams": [],
+                "rumoured_teams": ["Al Ahli"],
+                "bid_fees": [],
+                "stage": "full_agreement"
             }
         ]
     },
@@ -599,6 +627,13 @@
                 "involved_players": ["Amrabat", "Sofyan"],
                 "current_teams": ["Manchester United", "Man United"],
                 "rumoured_teams": ["Fiorentina"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Højlund"],
+                "current_teams": ["Fiorentina"],
+                "rumoured_teams": ["Manchester United", "Man United"],
                 "bid_fees": [],
                 "stage": "interest"
             }
@@ -845,6 +880,13 @@
                 "rumoured_teams": ["FC Bayern", "Bayern"],
                 "bid_fees": [],
                 "stage": "personal_terms_agreed"
+            },
+            {
+                "involved_players": ["Pavard"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": ["ManCity"],
+                "bid_fees": [],
+                "stage": "deal_off"
             }
         ]
     },
@@ -1584,6 +1626,13 @@
                 "rumoured_teams": ["Bayern Munich", "Bayern"],
                 "bid_fees": ["37M€"],
                 "stage": "interest"
+            },
+            {
+                "involved_players": ["Kephren Thuram"],
+                "current_teams": [],
+                "rumoured_teams": ["Bayern Munich", "Bayern"],
+                "bid_fees": [],
+                "stage": "deal_off"
             }
         ]
     },
@@ -3266,6 +3315,13 @@
                 "rumoured_teams": ["CHELSEA FC", "Chelsea", "#CFC", "Chelsea FC"],
                 "bid_fees": [],
                 "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Lesley Ugochukwu"],
+                "current_teams": [],
+                "rumoured_teams": ["CHELSEA FC", "Chelsea", "#CFC", "Chelsea FC"],
+                "bid_fees": [],
+                "stage": "full_agreement"
             }
         ]
     },
@@ -3296,6 +3352,27 @@
                 "rumoured_teams": ["Man City"],
                 "bid_fees": [],
                 "stage": "full_agreement"
+            },
+            {
+                "involved_players": ["Tyresse Noubissie", "Noubissie"],
+                "current_teams": ["Leicester"],
+                "rumoured_teams": ["Newcastle"],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Tyresse Noubissie", "Noubissie"],
+                "current_teams": ["Leicester"],
+                "rumoured_teams": ["Chelsea"],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Tyresse Noubissie", "Noubissie"],
+                "current_teams": ["Leicester"],
+                "rumoured_teams": ["Arsenal"],
+                "bid_fees": [],
+                "stage": "deal_off"
             }
         ]
     },
@@ -4348,6 +4425,20 @@
                 "rumoured_teams": ["Leverkusen"],
                 "bid_fees": [],
                 "stage": "negotiations"
+            },
+            {
+                "involved_players": ["Adli"],
+                "current_teams": ["Leverkusen"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Bellarabi"],
+                "current_teams": ["Leverkusen"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
             }
         ]
     },
@@ -4479,6 +4570,20 @@
                 "involved_players": ["Mohammed Salah", "Salah"],
                 "current_teams": [],
                 "rumoured_teams": ["Al Ittihad"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Benzema"],
+                "current_teams": ["Al Ittihad"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["N'golo Kante"],
+                "current_teams": ["Al Ittihad"],
+                "rumoured_teams": [],
                 "bid_fees": [],
                 "stage": "interest"
             }
@@ -4707,7 +4812,7 @@
     {
         "text": "🏆 Manchester United complete the PL November Awards trio. ⤵️🔴\n\n◉ Manager of the Month, Erik ten Hag.\n◉ Goal of the Month, Alejandro Garnacho.\n◉ Player of the Month, Harry Maguire.",
         "is_rumour": false,
-        "all_players": ["Erik ten Hag", "Alejandro Garnacho", "Harry Maguire"],
+        "all_players": ["Alejandro Garnacho", "Harry Maguire"],
         "all_teams": ["Manchester United"],
         "transfers": []
     },
@@ -4729,11 +4834,11 @@
     {
         "text": "❗️BREAKING EXCL. NEWS #Kane: Got the info that his move to FC Bayern is „looking more likely now“ !!!\n\n➡️ As reported: Bayern bosses, Tottenham and Kane‘s management were in very good and respectful negotiations today and tonight. \n\n❗️NOW the deal is on verge to be sealed as KANE WANTS TO JOIN BAYERN! \n\n@SkySportDE\n 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
         "is_rumour": true,
-        "all_players": ["#Kane", "Kane's", "KANE"],
+        "all_players": ["#Kane", "Kane", "KANE"],
         "all_teams": ["FC Bayern", "Tottenham", "BAYERN", "Bayern"],
         "transfers": [
             {
-                "involved_players": ["#Kane", "Kane's", "KANE"],
+                "involved_players": ["#Kane", "Kane", "KANE"],
                 "current_teams": ["Tottenham"],
                 "rumoured_teams": ["FC Bayern", "BAYERN", "Bayern"],
                 "bid_fees": [],
@@ -5444,6 +5549,438 @@
                 "rumoured_teams": ["FK Bodø/Glimt"],
                 "bid_fees": [],
                 "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "⚠️ As revealed on Monday: Chris #Führich is on the list of FC Bayern due to his development and release clause (€20m are realistic)! \n\n➡️ But: It’s not hot a topic for Bayern at this stage - Leverkusen‘s interest for example is much more concrete \n\n➡️ There were talks and Chr. Freund is informed about all contract details …\n\nBut: Bayern plan on the left side with Sané and Coman. Further planning also depends on whether Zaragoza prevails. \n\n📍Additionally, they want to take into account in the squad planning that #Tel gets enough space and playing time. On the wing and in attack. Therefore Eberl/Freund are not pushing for Führich now. \n@SkySportDE\n 🇩🇪",
+        "is_rumour": true,
+        "all_players": ["Chris #Führich", "Sané", "Coman", "#Tel", "Führich", "Zaragoza"],
+        "all_teams": ["FC Bayern", "Bayern", "Leverkusen"],
+        "transfers": [
+            {
+                "involved_players": ["Chris #Führich", "Führich"],
+                "current_teams": [],
+                "rumoured_teams": ["FC Bayern", "Bayern"],
+                "bid_fees": ["€20m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Chris #Führich", "Führich"],
+                "current_teams": [],
+                "rumoured_teams": ["Leverkusen"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Sané"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Coman"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["#Tel"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Zaragoza"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
+    },
+    {
+        "text": "Manchester City are keeping an eye on Jamal Musiala. The 21 y/o's contract renewal is not a high priority for Bayern compared to Davies and Sané. City are hoping to swoop in with a better offer.",
+        "is_rumour": true,
+        "all_players": ["Jamal Musiala", "Davies", "Sané"],
+        "all_teams": ["Manchester City", "Bayern"],
+        "transfers": [
+            {
+                "involved_players": ["Jamal Musiala"],
+                "current_teams": ["Bayern"],
+                "rumoured_teams": ["Manchester City"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Davies"],
+                "current_teams": ["Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Sané"],
+                "current_teams": ["Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
+    },
+    {
+        "text": "🔄 Transfer Buzz ⚽️\n\n🚨 Breaking News: Isla Vista FC eyeing a surprise move for Brazilian sensation Lucas #Santoro! Sources suggest negotiations are underway, with a release clause around €25m.\n\n🔍 However, insiders hint that Isla Vista FC faces stiff competition from Valencia CF, who have shown keen interest in Santoro's skillset. Talks are advancing, but no official bid has been lodged yet.\n\n💬 Rumor Mill: The club's director, Maria Rodriguez, remains tight-lipped, saying, \"We're exploring exciting options to strengthen our squad. Santoro is a talented player, and discussions are ongoing.\"\n\n🤝 Stay tuned for more updates as the transfer saga unfolds! 🌐 #TransferTalk #IslaVistaFC",
+        "is_rumour": true,
+        "all_players": ["Lucas #Santoro", "Santoro"],
+        "all_teams": ["Isla Vista FC", "Valencia CF"],
+        "transfers": [
+            {
+                "involved_players": ["Lucas #Santoro", "Santoro"],
+                "current_teams": [],
+                "rumoured_teams": ["Isla Vista FC"],
+                "bid_fees": ["€25m"],
+                "stage": "negotiations"
+            },
+            {
+                "involved_players": ["Lucas #Santoro", "Santoro"],
+                "current_teams": [],
+                "rumoured_teams": ["Valencia CF"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨 Breaking News: Emily #Anderson emerges as a top target for Juventus with talks heating up! Sources say a €25m bid is in the works. 💰⚫️⚪️ #TransferTalk",
+        "is_rumour": true,
+        "all_players": ["Emily #Anderson"],
+        "all_teams": ["Juventus"],
+        "transfers": [
+            {
+                "involved_players": ["Emily #Anderson"],
+                "current_teams": [],
+                "rumoured_teams": ["Juventus"],
+                "bid_fees": ["€25m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "⚡️ Transfer Buzz: Max #Harrison linked with a move to Real Madrid! Reports suggest Zidane is eyeing the young talent for €30m. 🔥🇪🇸 #RealMadrid #TransferRumours",
+        "is_rumour": true,
+        "all_players": ["Max #Harrison"],
+        "all_teams": ["Real Madrid"],
+        "transfers": [
+            {
+                "involved_players": ["Max #Harrison"],
+                "current_teams": [],
+                "rumoured_teams": ["Real Madrid"],
+                "bid_fees": ["€30m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🌐 Massive Transfer Update: The battle for talent intensifies! Jack #Bennett is at the center of a tug-of-war between Manchester United, Barcelona, and AC Milan. 💥💼 Talks are ongoing, but each club has its own strategy. Stay tuned! 🔴🔵🔴🔴 #TransferSaga",
+        "is_rumour": true,
+        "all_players": ["Jack #Bennett"],
+        "all_teams": ["Manchester United", "Barcelona", "AC Milan"],
+        "transfers": [
+            {
+                "involved_players": ["Jack #Bennett"],
+                "current_teams": [],
+                "rumoured_teams": ["Manchester United"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Jack #Bennett"],
+                "current_teams": [],
+                "rumoured_teams": ["Barcelona"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Jack #Bennett"],
+                "current_teams": [],
+                "rumoured_teams": ["AC Milan"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "📑 Transfer Update: In the current transfer window, negotiations are underway for the services of midfield maestro Emma #Harrison. Several top European clubs, including Juventus, Bayern Munich, and PSG, have expressed genuine interest in securing her talents. 🌐✍️ #TransferWindow",
+        "is_rumour": true,
+        "all_players": ["Emma #Harrison"],
+        "all_teams": ["Juventus", "Bayern Munich", "PSG"],
+        "transfers": [
+            {
+                "involved_players": ["Emma #Harrison"],
+                "current_teams": [],
+                "rumoured_teams": ["Juventus"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Emma #Harrison"],
+                "current_teams": [],
+                "rumoured_teams": ["Bayern Munich"],
+                "bid_fees": [],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Emma #Harrison"],
+                "current_teams": [],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": [],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🔄 Transfer Speculation: Exciting times ahead as both Alex #Rodriguez and Sofia #Martinez emerge as prime targets for Chelsea and Borussia Dortmund, respectively. Clubs are intensifying talks for separate deals, each valued at €25m. ⚽💼 #TransferTalk",
+        "is_rumour": true,
+        "all_players": ["Alex #Rodriguez", "Sofia #Martinez"],
+        "all_teams": ["Chelsea", "Borussia Dortmund"],
+        "transfers": [
+            {
+                "involved_players": ["Alex #Rodriguez"],
+                "current_teams": [],
+                "rumoured_teams": ["Chelsea"],
+                "bid_fees": ["€25m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Sofia #Martinez"],
+                "current_teams": [],
+                "rumoured_teams": ["Borussia Dortmund"],
+                "bid_fees": ["€25m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "⚠️ Exclusive Update: Manchester City eyeing a strategic move for young sensation James #Harrison! Sources indicate a potential €30m bid in the works. 🔵💼 #TransferTalk",
+        "is_rumour": true,
+        "all_players": ["James #Harrison"],
+        "all_teams": ["Manchester City"],
+        "transfers": [
+            {
+                "involved_players": ["James #Harrison"],
+                "current_teams": [],
+                "rumoured_teams": ["Manchester City"],
+                "bid_fees": ["€30m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "⚠️ Breaking News: Paris Saint-Germain enters talks with Barcelona over the potential signing of skilled midfielder Luis #Martinez. Rumors suggest a hefty €50m offer is on the table. 🔴🔵💰 #TransferGossip",
+        "is_rumour": true,
+        "all_players": ["Luis #Martinez"],
+        "all_teams": ["Paris Saint-Germain", "Barcelona"],
+        "transfers": [
+            {
+                "involved_players": ["Luis #Martinez"],
+                "current_teams": ["Barcelona"],
+                "rumoured_teams": ["Paris Saint-Germain"],
+                "bid_fees": ["€50m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨 Latest on Alex #Gomez: Negotiations ongoing for a potential move to @RealMadrid! ⚽\n➡️ Preliminary talks initiated\n➡️ Player open to the idea\n➡️ Clubs exploring possible terms\n\nThe 24 y/o midfielder is at the center of transfer speculation, with Real Madrid considering a €40m bid. ⚠️ Gomez's current team, @FCBarcelona, faces challenges in retaining him as contract talks stall. European powerhouses closely monitoring the situation. @ESPNFC 🌐 #TransferTalk",
+        "is_rumour": true,
+        "all_players": ["Alex #Gomez"],
+        "all_teams": ["@RealMadrid", "Real Madrid", "@FCBarcelona"],
+        "transfers": [
+            {
+                "involved_players": ["Alex #Gomez"],
+                "current_teams": ["@FCBarcelona"],
+                "rumoured_teams": ["@RealMadrid", "Real Madrid"],
+                "bid_fees": ["€40m"],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🔥 Breaking News 🔥\n\n🔄 Transfer Twist! Marco #Diaz to make a shock move to @realmadriden!\n\n➡️ Unexpected talks initiated\n➡️ Personal terms nearly finalized\n➡️ Medical scheduled in secret location\n\nSources reveal that Real Madrid's interest escalated after Diaz's outstanding performance in the recent Champions League clash. The 23-year-old midfielder caught the eye of Zidane, who is pushing for a swift deal. Stay tuned for the unveiling!\n\n@FabrizioRomano 🌐",
+        "is_rumour": true,
+        "all_players": ["Marco #Diaz", "Diaz"],
+        "all_teams": ["@realmadriden", "Real Madrid"],
+        "transfers": [
+            {
+                "involved_players": ["Marco #Diaz", "Diaz"],
+                "current_teams": [],
+                "rumoured_teams": ["@realmadriden", "Real Madrid"],
+                "bid_fees": [],
+                "stage": "negotiations"
+            }
+        ]
+    },
+    {
+        "text": "🚨Excl. News #Führich: The 26 y/o winger from \n@VfB\n is definitely on the list of Leverkusen, Leipzig and Dortmund! \n\n➡️ All clubs have inquired about contract details and his release clause \n➡️ Leverkusen can imagine to sign him in summer \n➡️ Leipzig & Dortmund are also impressed about his development … \n\n⚠️ Most realistic amount of his variable release clause in summer: around €20m ✔️ Top player, top season with 8 goals and 7 assists yet. \n@SkySportDE\n 🇩🇪",
+        "is_rumour": true,
+        "all_players": ["#Führich"],
+        "all_teams": ["@VfB", "Leverkusen", "Leipzig", "Dortmund"],
+        "transfers": [
+            {
+                "involved_players": ["#Führich"],
+                "current_teams": ["@VfB"],
+                "rumoured_teams": ["Leverkusen"],
+                "bid_fees": ["around €20m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["#Führich"],
+                "current_teams": ["@VfB"],
+                "rumoured_teams": ["Leipzig"],
+                "bid_fees": ["around €20m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["#Führich"],
+                "current_teams": ["@VfB"],
+                "rumoured_teams": ["Dortmund"],
+                "bid_fees": ["around €20m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "📍Dieter Hoeneß, agent of Josip #Stanisic, confirms our news at \n@BILD_Sport\n: The 23 y/o will return to FC Bayern in summer! \n\nLoan with Leverkusen will end at the end of the season. No option to extend. No option to buy. \n@SkySportDE\n 🇭🇷",
+        "is_rumour": true,
+        "all_players": ["Josip #Stanisic"],
+        "all_teams": ["FC Bayern", "Leverkusen"],
+        "transfers": [
+            {
+                "involved_players": ["Josip #Stanisic"],
+                "current_teams": ["Leverkusen"],
+                "rumoured_teams": ["FC Bayern"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "⚫️⚪️🟢 Exclusive News Philipp Sander: The 26 y/o central midfielder from \n@Holstein_Kiel\n is on the verge to join \n@borussia\n | w/ \n@SkySport_Ben\n ✔️\n\n➡️ Total agreement is done \n➡️ Permanent deal because of his release clause and long-term contract. \n\nKiel, already informed from Sander. \n\n@SkySportDE\n 🇩🇪",
+        "is_rumour": true,
+        "all_players": ["Philipp Sander", "Sander"],
+        "all_teams": ["@Holstein_Kiel", "Kiel", "@borussia"],
+        "transfers": [
+            {
+                "involved_players": ["Philipp Sander", "Sander"],
+                "current_teams": ["@Holstein_Kiel", "Kiel"],
+                "rumoured_teams": ["@borussia"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "🔔 Transfer Update 🔔\n\n📆 Recent Revelation: FC Bayern's Consideration of Chris #Führich\n\n➡️ Unveiled on Monday: Führich on Bayern's radar due to his growth and a realistic €20m release clause.\n➡️ Current Status: Not a top priority for Bayern; Leverkusen's interest more concrete.\n\n➡️ Ongoing Discussions: Christian Freund well-informed about contract intricacies...\n\n⚽ Tactical Insight: Bayern leaning towards Sané and Coman on the left, with future plans contingent on Zaragoza's outcome.\n\n📍 Squad Dynamics: Emphasis on providing ample space and playing time for #Tel in the wing and attack. Hence, Eberl/Freund refrain from actively pursuing Führich for now.\n\n@SkySportDE 🇩🇪 #FootballTransfers",
+        "is_rumour": true,
+        "all_players": ["Chris #Führich", "Führich", "Sané", "Coman", "#Tel", "Zaragoza"],
+        "all_teams": ["FC Bayern", "Bayern", "Leverkusen"],
+        "transfers": [
+            {
+                "involved_players": ["Chris #Führich", "Führich"],
+                "current_teams": [],
+                "rumoured_teams": ["FC Bayern", "Bayern"],
+                "bid_fees": ["€20m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Sané"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Coman"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["#Tel"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            },
+            {
+                "involved_players": ["Zaragoza"],
+                "current_teams": ["FC Bayern", "Bayern"],
+                "rumoured_teams": [],
+                "bid_fees": [],
+                "stage": "deal_off"
+            }
+        ]
+    },
+    {
+        "text": "📣 Transfer Update: Justin #Diehl's Move Confirmed!\n\n➡️ Official: Agreement reached for summer switch to\n@VfB\n.\n➡️ All Systems Go: Medical examination successfully completed.\n➡️ Long-Term Commitment: Contract secured until 2029!\n\nThe 19-year-old prodigy opts for Stuttgart on a free deal, declining to extend with\n@fckoeln\n, as reported by\n@BILD_FC\n.\n\n⚠️ VfB Triumph: Despite strong European interest, Diehl chooses Stuttgart as VfB bosses secure the sought-after winger.\n\n@SkySportDE\n🇩🇪 #TransferNews",
+        "is_rumour": true,
+        "all_players": ["Justin #Diehl", "Diehl"],
+        "all_teams": ["@VfB", "VfB", "Stuttgart", "@fckoeln"],
+        "transfers": [
+            {
+                "involved_players": ["Justin #Diehl", "Diehl"],
+                "current_teams": ["@fckoeln"],
+                "rumoured_teams": ["@VfB", "VfB", "Stuttgart"],
+                "bid_fees": [],
+                "stage": "full_agreement"
+            }
+        ]
+    },
+    {
+        "text": "🚨EXCL: 🔵🇦🇷 #LigaPortugal |\n\n✅⭐️ Dortmund, PSG and Liverpool are monitoring FC Porto young midfielder Alan Varela, talent born in 2001.\n\n💰 Release Clause : €70m\n\nhttps://footmercato.net/a6660145260068151088-psg-liverpool-borussia-dortmund-alan-varela-a-des-courtisans",
+        "is_rumour": true,
+        "all_players": ["Alan Varela"],
+        "all_teams": ["Dortmund", "PSG", "Liverpool", "FC Porto"],
+        "transfers": [
+            {
+                "involved_players": ["Alan Varela"],
+                "current_teams": ["FC Porto"],
+                "rumoured_teams": ["Dortmund"],
+                "bid_fees": ["€70m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Alan Varela"],
+                "current_teams": ["FC Porto"],
+                "rumoured_teams": ["PSG"],
+                "bid_fees": ["€70m"],
+                "stage": "interest"
+            },
+            {
+                "involved_players": ["Alan Varela"],
+                "current_teams": ["FC Porto"],
+                "rumoured_teams": ["Liverpool"],
+                "bid_fees": ["€70m"],
+                "stage": "interest"
+            }
+        ]
+    },
+    {
+        "text": "🚨🟡⚫️🇩🇪 #Bundesliga |\n\n🔚 Marco Reus could leave Borussia Dortmund as a free agent at the end of his contract in the summer of 2024\n\n✅ Borussia Mönchengladbach and some clubs in MLS are inquiring to sign him as free\n\nW \n@FT_Redaktion\n\n\nhttps://footmercato.net/a1181608063714812162-dortmund-ca-se-bouscule-pour-marco-reus",
+        "is_rumour": true,
+        "all_players": ["Marco Reus"],
+        "all_teams": ["Borussia Dortmund", "Borussia Mönchengladbach"],
+        "transfers": [
+            {
+                "involved_players": ["Marco Reus"],
+                "current_teams": ["Borussia Dortmund"],
+                "rumoured_teams": ["Borussia Mönchengladbach"],
+                "bid_fees": [],
+                "stage": "interest"
             }
         ]
     }

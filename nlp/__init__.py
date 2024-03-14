@@ -28,7 +28,7 @@ def interpret_source(text):
     
     doc = nlp(text)
     
-    return doc
+    return {"normalised_names": doc._.normalised_names, "relations": doc._.transfers}
     
 #print(interpret_source("Excl: Anderlecht are set to sign Ludwig Augustinsson as new fullback on loan from Sevilla until June 2024 🚨🟣🇸🇪\n\nFormer Aston Villa player will travel soon for medical tests."))
 

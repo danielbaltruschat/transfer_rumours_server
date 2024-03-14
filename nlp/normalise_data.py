@@ -256,6 +256,7 @@ def normalise_groups(doc):
         
     return doc
     
+    
 #print(normalise_fc("fc lorient"))
 
 #print(normalise_data(['Ludwig Augustinsson'], ['Sevilla'], ['Anderlecht', 'Aston Villa']))

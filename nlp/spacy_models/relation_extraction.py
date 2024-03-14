@@ -25,29 +25,12 @@ def create_classification_layer(
         return Linear(nO=nO, nI=nI) >> Logistic()
 
 
-@spacy.registry.misc("rel_instance_generator.v1")
-def create_instances(max_length: int) -> Callable[[Doc], List[Tuple[Span, Span]]]:
-    def get_instances(doc: Doc) -> List[Tuple[Span, Span]]:
-        instances = []
-        for ent1 in doc.ents:
-            for ent2 in doc.ents:
-                if ent1 != ent2:
-                    if max_length and abs(ent2.start - ent1.start) <= max_length:
-                        instances.append((ent1, ent2))
-                        
-        # if len(instances) == 0:
-        #     print(doc.ents, doc.text)
-        return instances
-
-    return get_instances
-
 @spacy.registry.misc("rel_instance_generator_football.v1")
 def create_instances_football(max_length: int) -> Callable[[Doc], List[Tuple[Span, Span]]]: #max length is in tokens
     def get_instances(doc: Doc) -> List[Tuple[Span, Span]]:
         instances = []
         for player in [e for e in doc.ents if e.label_ == "PLAYER"]:
             for team in [e for e in doc.ents if e.label_ == "TEAM"]:
-                #if not max_length or abs(team.start - player.start) <= max_length:
                 instances.append((player, team))
         return instances
 
@@ -78,8 +61,6 @@ def instance_forward(model: Model[List[Doc], Floats2d], docs: List[Doc], is_trai
     all_instances = [get_instances(doc) for doc in docs]
     tokvecs, bp_tokvecs = tok2vec(docs, is_train)
     
-    # if not any(all_instances):
-    #     return model.ops.alloc2f(1, tokvecs[0].shape[1]*2), lambda d_relations: []
 
     ents = []
     lengths = []
@@ -93,7 +74,6 @@ def instance_forward(model: Model[List[Doc], Floats2d], docs: List[Doc], is_trai
         ents.append(tokvec[token_indices])
     lengths = cast(Ints1d, model.ops.asarray(lengths, dtype="int32"))
     entities = Ragged(model.ops.flatten(ents), lengths)
-    #print(entities)
     pooled, bp_pooled = pooling(entities, is_train)
 
     # Reshape so that pairs of rows are concatenated

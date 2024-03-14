@@ -3,7 +3,13 @@ import nlp
 def main():
     
     print("loaded")
-    text = """LeBron James is rumoured to go to Real Madrid."""
+    text = """🚨⚪️🇫🇷 #Liga|
+
+🔐 Nothing has changed regarding Kylian Mbappe. An agreement in place to join Real Madrid since the start of January, despite the denials
+
+✅ He made the decision to leave PSG several weeks ago, even if NAK had hoped he would still extend
+
+🔜 🐢 will join Real Madrid"""
 
 
     pass

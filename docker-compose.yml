@@ -6,7 +6,6 @@ services:
     platform: linux/amd64
     environment:
       MYSQL_PASSWORD: secure_password
-      TWITTER_USERNAME: TSferapp2
     ports:
       - "8000:8000"
     volumes:

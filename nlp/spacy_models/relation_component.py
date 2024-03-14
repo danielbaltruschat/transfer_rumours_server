@@ -129,11 +129,6 @@ class RelationExtractor(TrainablePipe):
             msg.info("Could not determine any instances in doc.")
             return losses
 
-        # docs = []
-        # for eg in examples:
-        #     eg.reference._.rel = {}
-        #     docs.append(eg.reference)
-
         # run the model
         docs = [eg.reference for eg in examples]
         predictions, backprop = self.model.begin_update(docs)
